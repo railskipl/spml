@@ -1,0 +1,29 @@
+<h1>Listing dtc_staffs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>DTC</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dtc_staffs.each do |dtc_staff| %>
+      <tr>
+        <td><%= dtc_staff.dtc %></td>
+        <td><%= User.find(dtc_staff.user_id).username %></td>
+        <td><%= link_to 'Show', dtc_staff %></td>
+        <td><%= link_to 'Edit', edit_dtc_staff_path(dtc_staff) %></td>
+        <td><%= link_to 'Destroy', dtc_staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dtc staff', new_dtc_staff_path %>

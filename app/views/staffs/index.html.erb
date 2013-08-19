@@ -1,0 +1,18 @@
+<h1>Manage Staffs</h1>
+
+<p><%= link_to "Add Staff", signup_path %></p>
+
+<table id="products">
+  <tr>
+    <th>Full Name</th>
+    <th>Username</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.first_name %> <%= user.last_name %></td>
+    <td><%= user.username %></td>
+  </tr>
+<% end %>
+</table>
+
+

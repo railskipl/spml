@@ -1,0 +1,27 @@
+<%= form_for(@dtc_staff) do |f| %>
+  <% if @dtc_staff.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dtc_staff.errors.count, "error") %> prohibited this dtc_staff from being saved:</h2>
+
+      <ul>
+      <% @dtc_staff.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :dtc, "DTC" %><br>
+    
+    <%= select("dtc_staff", "dtc", Consumer.select("DISTINCT(dtc)").collect {|p| [ p.dtc, p.dtc ] }, {include_blank: 'select DTC'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id, "User" %><br>
+    <%= select("dtc_staff", "user_id", User.all.collect {|p| [ p.username, p.id ] }, {include_blank: 'select user'}) %>
+  </div>
+  <br/>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

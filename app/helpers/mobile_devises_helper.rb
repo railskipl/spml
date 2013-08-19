@@ -1,0 +1,2 @@
+module MobileDevisesHelper
+end

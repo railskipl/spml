@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  imei: MyString
+  manufacturer_name: MyString
+  purchase_date: 2013-08-17
+  phone_no: MyString
+
+two:
+  imei: MyString
+  manufacturer_name: MyString
+  purchase_date: 2013-08-17
+  phone_no: MyString

@@ -1,0 +1,70 @@
+<%= form_for(@reading) do |f| %>
+  
+
+  <div class="field">
+<%= f.label :meter_reading %><br />
+<%= f.text_field :meter_reading  %>
+</div>
+<div class="field">
+<%= f.label :consumer_no %><br />
+<%= f.text_field :consumer_no%>
+</div>
+<div class="field">
+<%= f.label :meter_status %><br />
+<%= f.text_field :meter_status %>
+</div>
+
+<div class="field">
+<%= f.label :date_time %><br />
+<%= f.text_field :date_time%>
+</div>
+<div class="field">
+<%= f.label :latitude %><br />
+<%= f.text_field :latitude %>
+</div>
+<div class="field">
+<%= f.label :longitude %><br />
+<%= f.text_field :longitude %>
+</div>
+<div class="field">
+<%= f.label :ime_no %><br />
+<%= f.text_field :ime_no %>
+</div>
+<div class="field">
+<%= f.label :ime_no %><br />
+<%= f.text_field :ime_no %>
+</div>
+<div class="field">
+<%= f.label :image %><br />
+<%= f.text_field :image %>
+</div>
+<div class="field">
+<%= f.label :old_meter_no %><br />
+<%= f.text_field :old_meter_no %>
+</div>
+<div class="field">
+<%= f.label :new_meter_no %><br />
+<%= f.text_field :new_meter_no %>
+</div>
+<div class="field">
+<%= f.label :bu %><br />
+<%= f.text_field :bu %>
+</div>
+<div class="field">
+<%= f.label :pc %><br />
+<%= f.text_field :pc %>
+</div>
+<div class="field">
+<%= f.label :dtc %><br />
+<%= f.text_field :dtc %>
+</div>
+<div class="field">
+<%= f.label :bill_month %><br />
+<%= f.date_select :bill_month %>
+</div>
+
+  <br/>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

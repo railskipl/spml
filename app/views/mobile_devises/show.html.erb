@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Imei:</strong>
+  <%= @mobile_devise.imei %>
+</p>
+
+<p>
+  <strong>Manufacturer name:</strong>
+  <%= @mobile_devise.manufacturer_name %>
+</p>
+
+<p>
+  <strong>Purchase date:</strong>
+  <%= @mobile_devise.purchase_date %>
+</p>
+
+<p>
+  <strong>Phone no:</strong>
+  <%= @mobile_devise.phone_no %>
+</p>
+
+<%= link_to 'Edit', edit_mobile_devise_path(@mobile_devise) %> |
+<%= link_to 'Back', mobile_devises_path %>

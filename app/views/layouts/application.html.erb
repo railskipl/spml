@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sndl</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<header>
+
+<nav class="round">
+<ul>
+<li><%= link_to "Home", root_path %></li>
+<% if signed_in? %>
+<li><%= link_to "Add Mobile", mobile_devises_path %></li>
+<li><%= link_to "Add Staff", staffs_path %></li>
+<li><%= link_to "Profile", current_user %></li>
+
+<% end %>
+
+
+
+<% if signed_in? %>
+<li><%= link_to "Sign out", signout_path, :method => :destroy %></li>
+<% else %>
+<li><%= link_to "Sign in", signin_path %></li>
+
+
+<% end %>
+
+</ul>
+</nav>
+</header>
+
+<section class="round">
+	<% flash.each do |key, value| %>
+<div class="flash <%= key %>"><%= value %></div>
+<% end %>
+<center>
+<%= yield %>
+</center>
+</section>
+</body>
+</html>

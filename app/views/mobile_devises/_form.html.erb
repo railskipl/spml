@@ -1,0 +1,33 @@
+<%= form_for(@mobile_devise) do |f| %>
+  <% if @mobile_devise.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mobile_devise.errors.count, "error") %> prohibited this mobile_devise from being saved:</h2>
+
+      <ul>
+      <% @mobile_devise.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :imei %><br>
+    <%= f.text_field :imei %>
+  </div>
+  <div class="field">
+    <%= f.label :manufacturer_name %><br>
+    <%= f.text_field :manufacturer_name %>
+  </div>
+  <div class="field">
+    <%= f.label :purchase_date %><br>
+    <%= f.date_select :purchase_date %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_no %><br>
+    <%= f.text_field :phone_no %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

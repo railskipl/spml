@@ -1,0 +1,33 @@
+<h1>Listing mobile_devises</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Imei</th>
+      <th>Manufacturer name</th>
+      <th>Purchase date</th>
+      <th>Phone no</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mobile_devises.each do |mobile_devise| %>
+      <tr>
+        <td><%= mobile_devise.imei %></td>
+        <td><%= mobile_devise.manufacturer_name %></td>
+        <td><%= mobile_devise.purchase_date %></td>
+        <td><%= mobile_devise.phone_no %></td>
+        <td><%= link_to 'Show', mobile_devise %></td>
+        <td><%= link_to 'Edit', edit_mobile_devise_path(mobile_devise) %></td>
+        <td><%= link_to 'Destroy', mobile_devise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mobile devise', new_mobile_devise_path %>

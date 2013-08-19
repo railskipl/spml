@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  meter_reading: 
+  consumer_no: MyString
+  meter_status: MyString
+  date_time: 2013-08-17 16:58:06
+  latitude: 
+  longitude: 
+  ime_no: MyString
+  image: MyString
+  old_meter_no: MyString
+  new_meter_no: MyString
+  bu: MyString
+  pc: MyString
+  dtc: MyString
+  bill_month: 2013-08-17
+  pole_no: MyString
+  consumer_name: MyString
+  reader_mobile_no: MyString
+  meter_reader_status: MyString
+  remark: MyText
+  read_by: 1
+
+two:
+  meter_reading: 
+  consumer_no: MyString
+  meter_status: MyString
+  date_time: 2013-08-17 16:58:06
+  latitude: 
+  longitude: 
+  ime_no: MyString
+  image: MyString
+  old_meter_no: MyString
+  new_meter_no: MyString
+  bu: MyString
+  pc: MyString
+  dtc: MyString
+  bill_month: 2013-08-17
+  pole_no: MyString
+  consumer_name: MyString
+  reader_mobile_no: MyString
+  meter_reader_status: MyString
+  remark: MyText
+  read_by: 1

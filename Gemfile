@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 1.0.1'
 
 gem 'roo'
 
+gem 'pg'
+
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'

@@ -28,7 +28,8 @@ class ReadingsController < ApplicationController
   def create
 
     @reading = Reading.new(params[:reading])
-
+    raise "#{@reading}"
+       
     respond_to do |format|
       if @reading.save
 

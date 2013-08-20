@@ -26,10 +26,10 @@ class ReadingsController < ApplicationController
   # POST /dtc_staffs
   # POST /dtc_staffs.json
   def create
-   if params[:device] == 'mobile' 
 
-   @reading = Reading.new(params[:pc])
-    
+    @reading = Reading.new(params[:pc],params[:pincode])
+
+   
       if @reading.save
 
        render :status =>200,:json => { :error => "valid" } 
@@ -37,27 +37,7 @@ class ReadingsController < ApplicationController
         render :status =>401,:json => { :error => "Invalid" } 
       end
    
-
-
-
-  else
-
-
-    @reading = Reading.new(params[:reading])
-
-       
-    respond_to do |format|
-      if @reading.save
-
-        format.html { redirect_to @reading, notice: 'Readings  was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @reading }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @reading.errors, status: :unprocessable_entity }
-      end
-    end
   end
- end 
 
   def redis
   redis = Redis.new(:url => '192.168.1.167:6379')

@@ -27,7 +27,7 @@ class ReadingsController < ApplicationController
   # POST /dtc_staffs.json
   def create
 
-    @reading = Reading.new(params[:reading][:pc])
+    @reading = Reading.new(params[:reading])
 
        
     respond_to do |format|

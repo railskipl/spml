@@ -57,6 +57,7 @@ class ReadingsController < ApplicationController
       end
     end
   end
+ end 
 
   def redis
   redis = Redis.new(:url => '192.168.1.167:6379')

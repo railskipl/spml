@@ -1,15 +1,1 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>DTC:</strong>
-  <%= @dtc_staff.dtc %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= User.find(@dtc_staff.user_id).username %>
-  
-</p>
-
-<%= link_to 'Edit', edit_dtc_staff_path(@dtc_staff) %> |
-<%= link_to 'Back', dtc_staffs_path %>

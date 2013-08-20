@@ -32,7 +32,7 @@ class ReadingsController < ApplicationController
     respond_to do |format|
       if @reading.save
 
-        format.html { redirect_to @reading, notice: 'Dtc staff was successfully created.' }
+        format.html { redirect_to @reading, notice: 'Readings  was successfully created.' }
         format.json { render action: 'show', status: :created, location: @reading }
       else
         format.html { render action: 'new' }

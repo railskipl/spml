@@ -32,6 +32,8 @@ Sndl::Application.routes.draw do
   get '/user/:id/dtc_staffs', :to => "users#dtc"
 
   get '/dtc_staff/:dtc', :to => "dtc_staffs#dtc"
+ 
+  get '/consumer/:consno', :to => "consumers#consumer"
 
  resources :password_resets
  resources :staffs

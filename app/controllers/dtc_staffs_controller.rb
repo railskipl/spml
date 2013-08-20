@@ -39,6 +39,7 @@ class DtcStaffsController < ApplicationController
       end
     end
   end
+  
    def dtc
    @dtc = Consumer.find_all_by_dtc(params[:dtc])
 
@@ -50,6 +51,8 @@ class DtcStaffsController < ApplicationController
         format.json { render json: @dtc1 }
 
 end
+   
+
 
  end
   # PATCH/PUT /dtc_staffs/1

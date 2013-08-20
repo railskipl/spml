@@ -11,12 +11,12 @@ class ConsumersController < ApplicationController
    @consumer = Consumer.find_by_consno(params[:consno])
    
 
-   @consumer1 = Hash["consumer" => @consumer]
+   
     
    
    respond_to do |format|
         format.html
-        format.json { render json: @consumer1 }
+        format.json { render json: @consumer }
 
     end
 end

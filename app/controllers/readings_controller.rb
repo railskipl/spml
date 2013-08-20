@@ -26,8 +26,8 @@ class ReadingsController < ApplicationController
   # POST /dtc_staffs
   # POST /dtc_staffs.json
   def create
-
-    @reading = Reading.new(params[:pc],params[:pincode])
+    if params[:device] == 'mobile' 
+      @reading = Reading.new(params[:reading])
 
    
       if @reading.save
@@ -37,6 +37,7 @@ class ReadingsController < ApplicationController
         render :status =>401,:json => { :error => "Invalid" } 
       end
    
+    end
   end
 
   def redis

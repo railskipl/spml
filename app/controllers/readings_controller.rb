@@ -26,6 +26,22 @@ class ReadingsController < ApplicationController
   # POST /dtc_staffs
   # POST /dtc_staffs.json
   def create
+   if params[:device] == 'mobile' 
+
+   @reading = Reading.new(params[:pc])
+    respond_to do |format|
+      if @reading.save
+
+       render :status =>200,:json => { :error => "valid" } 
+      else
+        render :status =>401,:json => { :error => "Invalid" } 
+      end
+    end
+
+
+
+  else
+
 
     @reading = Reading.new(params[:reading])
 

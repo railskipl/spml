@@ -31,7 +31,7 @@ class ReadingsController < ApplicationController
 
      
 
-   @reading = Reading.create(:meter_reading=>params[:meter_reading],:consumer_no=>params[:consumer_no],:pc =>params[:pc],:pincode =>params[:pincode],:bu =>params[:bu],:pole_no =>params[:pole_no],:address=>params[:address],:city=>params[:city],:consumer_name=> params[:consumer_name],:dtc =>params[:dtc],:pole_no =>params[:pole_no],:reader_mobile_no=>params[:reader_mobile_no],:date_time=>params[:date_time],:latitude=>params[:latitude],:longitude =>params[:longitude],:ime_no=>params[:ime_no],:image=>params[:image],
+   @reading = Reading.create(:meter_reading=>params[:meter_reading],:consumer_no=>params[:consumer_no],:pc =>params[:pc],:pincode =>params[:pincode],:bu =>params[:bu],:address=>params[:address],:city=>params[:city],:consumer_name=> params[:consumer_name],:dtc =>params[:dtc],:pole_no =>params[:pole_no],:reader_mobile_no=>params[:reader_mobile_no],:date_time=>params[:date_time],:latitude=>params[:latitude],:longitude =>params[:longitude],:ime_no=>params[:ime_no],:image=>params[:image],
     :meter_status=>params[:meter_status],:old_meter_no=>params[:old_meter_no],:new_meter_no=>params[:new_meter_no],:bill_month=>params[:bill_month],:meter_reader_status=>params[:meter_reader_status],:remark=>params[:remark],:read_by=>params[:read_by])
    
      

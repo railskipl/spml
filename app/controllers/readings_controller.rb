@@ -27,7 +27,7 @@ class ReadingsController < ApplicationController
   # POST /dtc_staffs.json
   def create
     if params[:device] == 'mobile' 
-    @reading = Reading.new(params[:reading],params[:meter_reading],params[:consumer_no],params[:meter_status],params[:date_time],params[:latitude],params[:ime_no,:image],params[:old_meter_no],params[:new_meter_no],params[:bu],params[:pc],params[:dtc],params[:bill_month],params[:pole_no],params[:consumer_name],params[:reader_mobile_no],params[:meter_reader_status],params[:remark],params[:read_by])
+    @reading = Reading.new(params[:meter_reading],params[:consumer_no],params[:meter_status],params[:date_time],params[:latitude],params[:ime_no,:image],params[:old_meter_no],params[:new_meter_no],params[:bu],params[:pc],params[:dtc],params[:bill_month],params[:pole_no],params[:consumer_name],params[:reader_mobile_no],params[:meter_reader_status],params[:remark],params[:read_by])
 
    
       if @reading.save

@@ -88,6 +88,9 @@ ActiveRecord::Schema.define(version: 20130817112806) do
     t.string   "meter_reader_status"
     t.text     "remark"
     t.integer  "read_by"
+    t.integer  "pincode"
+    t.string   "address"
+    t.string   "city"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

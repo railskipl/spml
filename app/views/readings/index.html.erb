@@ -1,21 +1,57 @@
-<h1>Listing dtc_staffs</h1>
+<h1>Listing Readings</h1>
 
-<table>
+<table border="1">
   <thead>
     <tr>
-      <th>DTC</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Meter reading</th>
+      <th>consumer_no</th>
+      <th>Meter Status</th>
+      <th>date time</th>
+      
+      <th>Ime No</th>
+      <th>Old Meter No</th>
+      <th>New Meter No</th>
+      <th>Bu</th>
+      <th>Pc</th>
+      <th>Dtc</th>
+      <th>Bill Month</th>
+      <th>Pole No</th>
+      <th>Consumer Name</th>
+      <th>Bill Month</th>
+      <th>Pole No</th>
+      <th>Consumer Name</th>
+      <th>reader Mobile No</th>
+      <th>Meter Reader status</th>
+      <th>Remark</th>
+      <th>Read By</th>
+      <th>Pincode</th>
+      <th>Address</th>
     </tr>
   </thead>
 
   <tbody>
     <%  @readings.each do |reading| %>
       <tr>
-        <td><%= reading.pc %></td>
+        <td><%= reading.meter_reading  rescue nil%></td>
+        <td><%= reading.consumer_no rescue nil%></td>
+        <td><%= reading.meter_status rescue nil%></td>
+        <td><%= reading.date_time rescue nil%></td>
         
+        <td><%= reading.ime_no rescue nil%></td>
+        <td><%= reading.old_meter_no rescue nil%></td>
+        <td><%= reading.new_meter_no rescue nil%></td>
+        <td><%= reading.bu rescue nil%></td>
+        <td><%= reading.pc rescue nil%></td>
+        <td><%= reading.dtc rescue nil%></td>
+        <td><%= reading.bill_month rescue nil%></td>
+        <td><%= reading.pole_no rescue nil%></td>
+        <td><%= reading.consumer_name rescue nil%></td>
+        <td><%= reading.reader_mobile_no rescue nil%></td>
+        <td><%= reading.meter_reader_status rescue nil%></td>
+        <td><%= reading.remark rescue nil%></td>
+        <td><%= reading.read_by rescue nil%></td>
+        <td><%= reading.pincode rescue nil%></td>
+         <td><%= reading.address rescue nil%></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,4 +59,4 @@
 
 <br>
 
-<%= link_to 'New Dtc staff', new_dtc_staff_path %>
+<%= link_to 'New Readings', new_reading_path %>

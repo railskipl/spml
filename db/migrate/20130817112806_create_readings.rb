@@ -21,7 +21,10 @@ class CreateReadings < ActiveRecord::Migration
       t.string :meter_reader_status
       t.text :remark
       t.integer :read_by
-
+      t.integer :pincode
+      t.string  :address
+      t.string  :city
+      t.string  :consumer_name
       t.timestamps
     end
   end

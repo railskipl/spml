@@ -35,6 +35,9 @@ Sndl::Application.routes.draw do
  
   get '/consumer/:consno', :to => "consumers#consumer"
 
+
+  get '/readings/submit', :to => "readings#submit"
+
  resources :password_resets
  resources :staffs
  resources :readings

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130817112806) do
+ActiveRecord::Schema.define(version: 20130821114432) do
 
   create_table "consumers", force: true do |t|
     t.string   "pc"
@@ -88,11 +88,11 @@ ActiveRecord::Schema.define(version: 20130817112806) do
     t.string   "meter_reader_status"
     t.text     "remark"
     t.integer  "read_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "pincode"
     t.string   "address"
     t.string   "city"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

@@ -44,14 +44,6 @@ class ReadingsController < ApplicationController
   end
 
 
-
-  def submit
-    Reading.create(:pc => params[:pc])
-  end
-
-
-
-
   def redis
   redis = Redis.new(:url => '192.168.1.167:6379')
    msg = { 'class' => 'Reading', 'args' => [1, 2, 3], 'retry' => true }

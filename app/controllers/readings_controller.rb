@@ -27,7 +27,10 @@ class ReadingsController < ApplicationController
   # POST /dtc_staffs.json
   def create
     if params[:device] == 'mobile' 
-    @reading = Reading.new(params[:pc])
+
+      raise "#{params[:reading]}"
+    @reading = Reading.new(params[:reading])
+
 
    
       if @reading.save

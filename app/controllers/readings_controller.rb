@@ -1,5 +1,6 @@
 class ReadingsController < ApplicationController
 
+ before_filter  :authenticate ,:only => [:edit,:update,:index,:create,:new]
 
 
   # GET /dtc_staffs
@@ -79,7 +80,10 @@ class ReadingsController < ApplicationController
  
   
     # Use callbacks to share common setup or constraints between actions.
-   
+ private
+  def authenticate
+    deny_access unless signed_in?
+  end  
 
 
 end

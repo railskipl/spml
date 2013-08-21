@@ -28,7 +28,7 @@ class ReadingsController < ApplicationController
   def create
     if params[:device] == 'mobile' 
 
-      raise "#{params[:reading]}"
+     
     @reading = Reading.new(params[:reading])
 
 

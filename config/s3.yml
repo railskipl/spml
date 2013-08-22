@@ -1,0 +1,15 @@
+common: &common
+    access_key_id: AKIAJRZB7XFQX4CT3FXA
+    secret_access_key: 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
+
+development:
+    <<: *common
+    bucket: sndl
+
+test:
+    <<: *common
+    bucket: sndl
+
+production:
+    <<: *common
+    bucket: sndl

@@ -24,8 +24,8 @@
       <th>reader Mobile No</th>
       <th>Pincode</th>
       <th>Address</th>
-      <th>Read By</th>
       
+      <th>Reading image</th>
     </tr>
   </thead>
 
@@ -51,7 +51,10 @@
         <td><%= reading.remark rescue nil%></td>
         <td><%= reading.read_by rescue nil%></td>
         <td><%= reading.pincode rescue nil%></td>
-         <td><%= reading.address rescue nil%></td>
+        <td><%= reading.address rescue nil%></td>
+        <td><%= image_tag reading.image_url.to_s ,:width => 55 %>
+
+</td>
       </tr>
     <% end %>
   </tbody>

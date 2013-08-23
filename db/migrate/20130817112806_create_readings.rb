@@ -14,7 +14,7 @@ class CreateReadings < ActiveRecord::Migration
       t.string :bu
       t.string :pc
       t.string :dtc
-      t.date :bill_month
+      t.string :bill_month
       t.string :pole_no
       t.string :consumer_name
       t.string :reader_mobile_no

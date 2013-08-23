@@ -35,7 +35,7 @@
         <td><%= reading.meter_reading  rescue nil%></td>
         <td><%= reading.consumer_no rescue nil%></td>
         <td><%= reading.meter_status rescue nil%></td>
-        <td><%= reading.date_time rescue nil%></td>
+        <td><%= reading.created_at.strftime("%l:%M %P") rescue nil%></td>
         
         <td><%= reading.ime_no rescue nil%></td>
         <td><%= reading.old_meter_no rescue nil%></td>

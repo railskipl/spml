@@ -6,8 +6,8 @@ CarrierWave.configure do |config|
   
   config.fog_credentials = {
       :provider               => 'AWS',       # required
-      :aws_access_key_id      => 'AKIAJRZB7XFQX4CT3FXA',       # required
-      :aws_secret_access_key  => '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',       # required
+      :aws_access_key_id      => 'AKIAIWWQF5REKTC4ZYGQ',       # required
+      :aws_secret_access_key  => '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',       # required
    #   :region                 => 'eu-west-1'  # optional, defaults to 'us-east-1'
     }
     config.fog_directory  = 'sndl'                     # required

@@ -1,0 +1,2 @@
+module MeterReaderStatusesHelper
+end

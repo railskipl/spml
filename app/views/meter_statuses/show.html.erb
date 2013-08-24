@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Billing meter status:</strong>
+  <%= @meter_status.billing_meter_status %>
+</p>
+
+<%= link_to 'Edit', edit_meter_status_path(@meter_status) %> |
+<%= link_to 'Back', meter_statuses_path %>

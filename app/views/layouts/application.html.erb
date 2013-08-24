@@ -14,12 +14,16 @@
 <ul>
 <li><%= link_to "Home", root_path %></li>
 <% if signed_in? %>
-<li><%= link_to "Add Mobile", mobile_devises_path %></li>
-<li><%= link_to "Add Staff", staffs_path %></li>
-<li><%= link_to "Profile", current_user %></li>
-<li><%= link_to "Readings", readings_path %></li>
-<li><%= link_to "Dtc To Staff", dtc_staffs_path %></li>
-<% end %>
+  <% if current_user.is_admin? %>
+    <li><%= link_to "Add Mobile", mobile_devises_path %></li>
+    <li><%= link_to "Add Staff", staffs_path %></li>
+    <li><%= link_to "Profile", current_user %></li>
+    <li><%= link_to "Readings", readings_path %></li>
+    <li><%= link_to "Dtc To Staff", dtc_staffs_path %></li>
+    <li><%= link_to "Meter status", meter_statuses_path %></li>
+    <li><%= link_to "Meter reader status", meter_reader_statuses_path %></li>
+ <% end %>
+ <% end %>
 
 
 

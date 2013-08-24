@@ -1,5 +1,9 @@
 require 'sidekiq/web'
 Sndl::Application.routes.draw do
+  resources :meter_reader_statuses
+
+  resources :meter_statuses
+
   resources :dtc_staffs
 
   resources :mobile_devises

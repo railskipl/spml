@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130821114432) do
+ActiveRecord::Schema.define(version: 20130824073119) do
 
   create_table "consumers", force: true do |t|
     t.string   "pc"
@@ -58,6 +58,18 @@ ActiveRecord::Schema.define(version: 20130821114432) do
     t.datetime "updated_at"
   end
 
+  create_table "meter_reader_statuses", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "meter_statuses", force: true do |t|
+    t.string   "billing_meter_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "mobile_devises", force: true do |t|
     t.string   "imei"
     t.string   "manufacturer_name"
@@ -81,7 +93,6 @@ ActiveRecord::Schema.define(version: 20130821114432) do
     t.string   "bu"
     t.string   "pc"
     t.string   "dtc"
-    t.string     "bill_month"
     t.string   "pole_no"
     t.string   "consumer_name"
     t.string   "reader_mobile_no"
@@ -93,6 +104,7 @@ ActiveRecord::Schema.define(version: 20130821114432) do
     t.integer  "pincode"
     t.string   "address"
     t.string   "city"
+    t.string   "bill_month"
   end
 
   create_table "users", force: true do |t|

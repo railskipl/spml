@@ -1,0 +1,27 @@
+<h1>Listing meter_statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Billing meter status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @meter_statuses.each do |meter_status| %>
+      <tr>
+        <td><%= meter_status.billing_meter_status %></td>
+        <td><%= link_to 'Show', meter_status %></td>
+        <td><%= link_to 'Edit', edit_meter_status_path(meter_status) %></td>
+        <td><%= link_to 'Destroy', meter_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Meter status', new_meter_status_path %>

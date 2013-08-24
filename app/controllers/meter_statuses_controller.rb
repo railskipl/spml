@@ -5,6 +5,15 @@ class MeterStatusesController < ApplicationController
   # GET /meter_statuses.json
   def index
     @meter_statuses = MeterStatus.all
+     @ms = []
+    @meter_statuses.each do |m|
+        @ms << m.billing_meter_status
+    end
+    @status = Hash[(0...@ms.size).zip @ms]
+    respond_to do |format|
+         format.html
+         format.json { render json: {:status => @status }}
+    end
   end
 
   # GET /meter_statuses/1

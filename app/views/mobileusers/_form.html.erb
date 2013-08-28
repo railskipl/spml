@@ -1,0 +1,16 @@
+<%= form_for(@mobileuser) do |f| %>
+
+<div>
+    <%= f.label "Select user" %><br />
+    <%= f.collection_select :user_id, User.all(:order => "id"), :id, :first_name %>
+  </div>
+ <div>
+    <%= f.label "Select Imei" %><br />
+    <%= f.collection_select :imei, MobileDevise.all(:order => "imei"), :imei, :imei  %>
+  </div>
+
+<div class="actions">
+	<%= f.submit "Save"  %>
+	
+</div>
+<% end %>

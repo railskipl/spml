@@ -17,7 +17,7 @@ Sndl::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'homes#index'
+   root 'sessions#new'
 
    resources :users 
  
@@ -42,10 +42,12 @@ Sndl::Application.routes.draw do
 
   get '/readings/submit', :to => "readings#submit"
 
+  get '/mobileusers/:id/delete', :to => "mobileusers#destroy"
+
  resources :password_resets
  resources :staffs
  resources :readings
-
+resources :mobileusers
  resources :consumers do
     collection do 
       get 'add_csv'

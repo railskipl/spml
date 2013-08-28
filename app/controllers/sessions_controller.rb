@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
- 
+ layout 'login'
 respond_to :json
   def new
     @title="Sign in"

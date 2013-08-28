@@ -2,7 +2,7 @@ development:
   adapter: mysql2
   database: sndl
   username: root
-  password: '123'
+  password: 'root'
   #socket: /var/run/mysqld/mysqld.sock
 
   
@@ -13,11 +13,28 @@ test:
       adapter: mysql2
       database: sndl
       username: root
-      password: '123'
+      password: 'root'
       #socket: /var/run/mysqld/mysqld.sock
       
 production:
       adapter: mysql2
       database: sndl
       username: root
-      password: '123'
+      password: 'root'
+# development:
+#   adapter: oracle_enhanced
+#   database: sndl
+#   username: system
+#   password: Ess3l3
+
+# test:
+#   adapter: oracle_enhanced
+#   database: sndl
+#   username: system
+#   password: Ess3l3
+
+# production:
+#   adapter: oracle_enhanced
+#   database: sndl
+#   username: system
+#   password: Ess3l3

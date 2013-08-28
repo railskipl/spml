@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
  attr_accessible :first_name,:last_name,:username,:password, :password_confirmation,:is_admin
 
 
-
+has_many :mobileusers
 
  
 

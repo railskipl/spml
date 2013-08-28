@@ -1,7 +1,7 @@
-<h1>Listing mobile_devises</h1>
+<h3>Listing Mobile_devises</h3>
 
-<table>
-  <thead>
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
+
     <tr>
       <th>Imei</th>
       <th>Manufacturer name</th>
@@ -11,9 +11,7 @@
       <th></th>
       <th></th>
     </tr>
-  </thead>
 
-  <tbody>
     <% @mobile_devises.each do |mobile_devise| %>
       <tr>
         <td><%= mobile_devise.imei %></td>
@@ -25,7 +23,6 @@
         <td><%= link_to 'Destroy', mobile_devise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
 </table>
 
 <br>

@@ -12,9 +12,9 @@ gem "carrierwave"
 gem 'fog'
 gem 'aws-s3'
 gem 'aws-sdk'
+gem 'delayed_job_active_record'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0.rc1'
-gem 'activerecord-oracle_enhanced-adapter', :git => 'git://github.com/rsim/oracle-enhanced.git'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

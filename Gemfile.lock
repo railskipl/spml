@@ -49,6 +49,11 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     connection_pool (1.1.0)
+    delayed_job (4.0.0)
+      activesupport (>= 3.0, < 4.1)
+    delayed_job_active_record (4.0.0)
+      activerecord (>= 3.0, < 4.1)
+      delayed_job (>= 3.0, < 4.1)
     erubis (2.7.0)
     excon (0.25.3)
     execjs (1.4.0)
@@ -184,6 +189,7 @@ DEPENDENCIES
   aws-sdk
   carrierwave
   coffee-rails (~> 4.0.0)
+  delayed_job_active_record
   execjs
   fog
   jbuilder (~> 1.0.1)

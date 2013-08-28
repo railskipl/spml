@@ -1,0 +1,16 @@
+<p>
+  <strong>IMEI</strong>
+  <%= @mobileuser.imei %>
+</p>
+
+<p>
+  <strong>user</strong>
+ <%= @mobileuser.user.first_name %>
+</p>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_mobileuser_path(@mobileuser) %> |
+  <%= link_to "Destroy", @mobileuser, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", mobileusers_path %>
+</p>

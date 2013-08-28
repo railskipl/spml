@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Login | Adminstrap</title>
+         <%= stylesheet_link_tag "application","bootstrap.min.css","style" %>
+         <%= javascript_include_tag "application" %>
+</head>
+
+
+<body id="login-page">
+	<div id="login" class="container">
+	        <div class="row logo">
+	            <div class="span4 offset4 center">
+	                <a href="index.html">
+	                    <img src="/assets/logo.png" height="55" alt="logo" /></a>
+	            </div>
+        	</div>
+		
+         <%= yield%>
+
+    </div>
+    
+</body>
+
+</html>

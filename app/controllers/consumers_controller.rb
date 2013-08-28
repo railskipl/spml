@@ -15,8 +15,7 @@ class ConsumersController < ApplicationController
    
       respond_to do |format|
          format.html
-         format.json { render json: {:consumer => @consumer} 
-                    }
+         format.json { render json:  @consumer }
 
     end
 end

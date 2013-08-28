@@ -1,32 +1,96 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <p>Meter reading</p>
-      <p>consumer_no</p>
-      <p>Meter Status</p>
-      <p>>date time</p>
-      
-      <p>Ime No</p>
-      <p>Old Meter No</p>
-      <p>New Meter No</p>
-      <p>Bu</p>
-      <p>Pc</th>
-      <th>Dtc</th>
-      <th>Bill Month</th>
-      <th>Pole No</th>
-      <th>Consumer Name</th>
-      <th>Bill Month</th>
-      <th>Pole No</th>
-      <th>Consumer Name</th>
-      <th>reader Mobile No</th>
-      <th>Meter Reader status</th>
-      <th>Remark</th>
-      <th>Read By</th>
-      <th>Pincode</th>
-      <th>Address</th>
-</p>
 
-<p>
-  <%= link_to 'Edit', edit_owner_path(@owner) %>|
-  <%= link_to "Destroy", @owner, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All",owners_path %>
-</p>
+<div class="container-fluid" style="margin-top:50px">
+        <div class="page-header-custom">
+            <h3 align="center">
+               Show Reading</h3>
+            <!--subnav-->
+          
+        </div>
+    
+    
+            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered"
+            id="example">
+  <tr>
+    <th align="left" valign="top">Meter reading</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.meter_reading %></td>
+    <td rowspan="10" align="left" valign="top"><%= image_tag @reading.image_url.to_s ,:width => 309,:height=>"304" %></td>
+  </tr>
+
+   <tr>
+    <th align="left" valign="top">Consumer no</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.consumer_no %></td>
+    </tr>
+  <tr>
+    <th align="left" valign="top">date time</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.consumer_no %></td>
+    </tr>
+  <tr>
+    <th align="left" valign="top">Ime No</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.ime_no %></td>
+    </tr>
+  <tr>
+    <th align="left" valign="top">Old Meter No</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.old_meter_no %></td>
+    </tr>
+  <tr>
+    <th align="left" valign="top">New Meter No</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.new_meter_no %></td>
+    </tr>
+  <tr>
+    <th align="left" valign="top">Bu</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.bu %></td>
+    </tr>
+  <tr>
+    <th align="left" valign="top">Pc</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.pc %></td>
+    </tr>
+  <tr>
+    <th align="left" valign="top">Dtc</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.dtc %></td>
+    </tr>
+  <tr>
+    <th align="left" valign="top">Bill Month</th>
+    <td align="left" valign="top">&nbtsp;<%=@reading.bill_month %></td>
+    </tr>
+  <tr>
+    <th align="left" valign="top">Pole No</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.pole_no %></td>
+    </tr>
+
+    <tr>
+    <th align="left" valign="top">Consumer Name</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.consumer_name %></td>
+    </tr>
+    <tr>
+    <th align="left" valign="top">Reader Mobile No</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.reader_mobile_no %></td>
+    </tr>
+    <tr>
+    <th align="left" valign="top">Meter Reader status</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.meter_reader_status %></td>
+    </tr>
+    <tr>
+    <th align="left" valign="top">Remark</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.remark %></td>
+    </tr>
+   <tr>
+    <th align="left" valign="top">Read By</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.read_by %></td>
+   </tr>
+  <tr>
+    <th align="left" valign="top">Pincode</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.pincode %></td>
+  </tr>
+   <tr>
+    <th align="left" valign="top">Address</th>
+    <td align="left" valign="top">&nbsp;<%=@reading.address %></td>
+  </tr>
+</table>
+
+    
+    
+    
+    
+    
+        </div>

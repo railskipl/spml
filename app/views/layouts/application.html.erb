@@ -1,47 +1,168 @@
-<!DOCTYPE html>
-<html>
+
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Sndl</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+   <title>Sndl</title>
+    <!--jquery-->
+    <%= stylesheet_link_tag "application","jquery-ui-1.8.16.custom","style","bootstrap.min" %>
+
+   <%= javascript_include_tag "application","bootstrap-transition","bootstrap-alert","bootstrap-modal","bootstrap-dropdown","bootstrap-scrollspy","bootstrap-tab","bootstrap-tooltip","bootstrap-popover","bootstrap-button","bootstrap-collapse","bootstrap-carousel","bootstrap-typeahead","jquery.easing.min","jquery-ui-1.8.16.custom.min","script", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+
 </head>
 <body>
+    <!--Navigation-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="brand" href="index.html">
+                    <img src="/assets/logo.png" width="134px" height="100" alt="logo" /></a>
+                    <% if signed_in? %>
+                <ul id="primary-nav" class="nav">
+                    <li><a href="<%= user_root_path %>"><i class="nav-icon-9"></i><span>Home</span></a></li>
+                    <li><a href="<%= readings_path %>"><i class="nav-icon-11"></i><span>
+                       Readings</span></a>
+                        
+                    </li>
+                     <% if current_user.is_admin? %>
+                    <li><a href="<%=  mobile_devises_path %>"><i class="nav-icon-1"></i><span>Add Mobile</span></a></li>
 
-<header>
+                    <li><a href="<%= staffs_path %>"><i class="nav-icon-12"></i><span>Add Staff</span></a></li>
+                    
+                    <li><a href="<%= dtc_staffs_path %>"><i class="nav-icon-10"></i><span>Dtc To Staff</span></a></li>
 
-<nav class="round">
-<ul>
-<li><%= link_to "Home", root_path %></li>
-<% if signed_in? %>
-<li><%= link_to "Add Mobile", mobile_devises_path %></li>
-<li><%= link_to "Add Staff", staffs_path %></li>
-<li><%= link_to "Profile", current_user %></li>
-<li><%= link_to "Readings", readings_path %></li>
-<li><%= link_to "Dtc To Staff", dtc_staffs_path %></li>
-<% end %>
+                     
+                    
+                      <li><a href="<%= mobileusers_path %>"><i class="nav-icon-12"></i><span>Assign mobile to User</span></a></li>
 
 
+                     <li><a href="<%= add_csv_consumers_path %>"><i class="nav-icon-10"></i><span>Upload Excel</span></a></li>
+                     <%end%>
+                  <%end%>
+                </ul>
+                
+                  
+                  
 
-<% if signed_in? %>
-<li><%= link_to "Sign out", signout_path, :method => :destroy %></li>
-<% else %>
-<li><%= link_to "Sign in", signin_path %></li>
+                
+                <ul id="secondary-nav" class="nav pull-right">
+                    
+                    <li class="dropdown"><a href="#" data-toggle="dropdown"><i class="icon-cog icon-white">
+                    </i><span>Setting</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<%= user_path(current_user) %>"><i class="icon-wrench"></i>&nbsp;Profile</a></li>
+                           
+                        </ul>
+                    </li>
+                    <% if signed_in? %>
+                    <li><a href="<%=  signout_path %> " data-method="destroy"><i class="icon-off icon-white"></i>&nbsp;Logout</a></li>
+                    <%else%>
+                    <li><a href="<%= signin_path %>"><i class="icon-off icon-white"></i>&nbsp;Login</a></li>
+                    <%end%>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Profile Form-->
+    <div class="modal hide fade" id="myModal">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+                ×</button>
+            <h3>
+                Profile</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal">
+            <legend>Contact Info</legend>
+            <div class="control-group">
+                <label class="control-label" for="txtContactName">
+                    Name</label>
+                <div class="controls">
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="icon-user"></i></span>
+                        <input class="span4" id="txtContactName" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="txtPhone">
+                    Phone</label>
+                <div class="controls">
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="icon-comment"></i></span>
+                        <input class="span4" id="txtPhone" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="txtEmail">
+                    E-mail</label>
+                <div class="controls">
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="icon-envelope"></i></span>
+                        <input class="span4" id="txtEmail" type="text">
+                    </div>
+                </div>
+            </div>
+            <legend>Security Info</legend>
+            <div class="control-group">
+                <label class="control-label" for="txtLoginID">
+                    Login ID</label>
+                <div class="controls">
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="icon-user"></i></span>
+                        <input class="span4" id="txtLoginID" type="text" value="admin" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="txtPassword">
+                    Password
+                </label>
+                <div class="controls">
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="icon-lock"></i></span>
+                        <input class="span4" id="txtPassword" type="password">
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-primary" data-dismiss="modal">Save changes</a> <a href="#"
+                class="btn" data-dismiss="modal">Cancel</a>
+        </div>
+    </div>
+    <!--Container-->
+    <div class="container-fluid" style="margin-top:50px">
+      	<% flash.each do |key, value| %>
+           <div class="flash <%= key %>"><%= value %></div>
+        <% end %>
 
 
-<% end %>
+     <%= yield %>
 
-</ul>
-</nav>
-</header>
+    </div>
+    <!--jquery-->
+    
+   
+    <!--jquery init-->
+    <script>
+        $('document').ready(function () {
+            Dashboard.init();
+        });
 
-<section class="round">
-	<% flash.each do |key, value| %>
-<div class="flash <%= key %>"><%= value %></div>
-<% end %>
-<center>
-<%= yield %>
-</center>
-</section>
+        //Live Tooltip
+        $('body').tooltip({
+            selector: '[rel=tooltip]'
+        });
+
+        function ShowHelp() {
+            window.open('help.html', '', 'height=600,width=800,scrollbars=1,resizable=1');
+        }
+    </script>
 </body>
 </html>

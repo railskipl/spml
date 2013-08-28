@@ -1,0 +1,22 @@
+<h3 align ="center">Listing Mobile Users</h3>
+
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
+
+  <tr>
+    <th>Imei</th>
+    <th>Username</th>
+     <th>Action</th>
+  </tr>
+<% @mobileusers.each do |mobileuser| %>
+ <tr>
+	<td><%= mobileuser.imei%></td>
+   <td> <%= mobileuser.user.first_name%></td>
+
+  <td> <%= link_to 'Show', mobileuser %>
+   <%= link_to 'Edit', edit_mobileuser_path(mobileuser) %>
+      <a href="/mobileusers/<%= mobileuser.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" >Destroy</a></td>
+   </tr>   
+<% end %>
+
+<p><%= link_to "New mobileuser", new_mobileuser_path %></p>

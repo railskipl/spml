@@ -4,16 +4,16 @@
 
 <div class="field">
 <%= f.label :username %><br />
-<%= f.text_field :username %>
+<%= f.text_field :username,:style => "height: 30px;" %>
 </div>
 
 <div class="field">
 <%= f.label :password %><br />
-<%= f.password_field :password %>
+<%= f.password_field :password,:style => "height: 30px;" %>
 </div>
 <div class="field">
 <%= f.label :password_confirmation, "Confirmation" %><br />
-<%= f.password_field :password_confirmation %>
+<%= f.password_field :password_confirmation ,:style => "height: 30px;"%>
 </div>
 <div class="actions">
 <%= f.submit "Update" %>

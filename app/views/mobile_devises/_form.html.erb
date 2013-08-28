@@ -1,33 +1,65 @@
-<%= form_for(@mobile_devise) do |f| %>
-  <% if @mobile_devise.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@mobile_devise.errors.count, "error") %> prohibited this mobile_devise from being saved:</h2>
+<!--Container-->
+    
+        <ul class="nav nav-tabs" id="myTab">
+          
+           
+        </ul>
+  
 
-      <ul>
-      <% @mobile_devise.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <div class="tab-content">
+            <div class="tab-pane active" id="basic">
+                    <%= form_for(@mobile_devise, :html => {:class => "form-horizontal"}) do |f| %>
+            <% if @mobile_devise.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@mobile_devise.errors.count, "error") %> prohibited this mobile_devise from being saved:</h2>
 
-  <div class="field">
-    <%= f.label :imei %><br>
-    <%= f.text_field :imei %>
-  </div>
-  <div class="field">
-    <%= f.label :manufacturer_name %><br>
-    <%= f.text_field :manufacturer_name %>
-  </div>
-  <div class="field">
-    <%= f.label :purchase_date %><br>
-    <%= f.date_select :purchase_date %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_no %><br>
-    <%= f.text_field :phone_no %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+                <ul>
+                <% @mobile_devise.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+               
+                <div class="control-group">
+                    <label class="control-label" for="inputName">
+                        Imei</label>
+                    <div class="controls">
+                         <%= f.text_field :imei,:style => "height: 30px;" %>
+                    </div>
+                </div>
+               <div class="control-group">
+                    <label class="control-label" for="inputName">
+                        Manufacturer Name</label>
+                    <div class="controls" >
+                         <%= f.text_field :manufacturer_name,:style => "height: 30px;" %>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputName">
+                        Purchase Date</label>
+                    <div class="controls">
+                         <%= f.date_select :purchase_date,:style => "height: 30px;" %>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputName">
+                        Phone No</label>
+                    <div class="controls">
+                        <%= f.text_field :phone_no,:style => "height: 30px;" %>
+                    </div>
+                </div>
+             
+                <div class="control-group">
+                    <div class="controls">
+                        
+                        
+                         <%= f.submit "Submit" , :class => "btn btn-primary"%>
+
+                    </div>
+                </div>
+                </form>
+                <% end%>
+            </div>
+             </div>
+        

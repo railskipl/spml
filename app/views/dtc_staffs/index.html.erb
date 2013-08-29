@@ -12,7 +12,7 @@
     <% @dtc_staffs.each do |dtc_staff| %>
       <tr>
         <td><%= dtc_staff.dtc %></td>
-        <td><%= User.find(dtc_staff.user_id).username %></td>
+        <td><%= User.find(dtc_staff.user_id).username  rescue nil %></td>
         <td><%= link_to 'Show', dtc_staff %></td>
         <td><%= link_to 'Edit', edit_dtc_staff_path(dtc_staff) %></td>
         <td><%= link_to 'Destroy', dtc_staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>

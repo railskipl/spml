@@ -116,7 +116,6 @@ ActiveRecord::Schema.define(version: 20130827120622) do
     t.string   "bu"
     t.string   "pc"
     t.string   "dtc"
-    t.string   "bill_month"
     t.string   "pole_no"
     t.string   "consumer_name"
     t.string   "reader_mobile_no"
@@ -128,6 +127,7 @@ ActiveRecord::Schema.define(version: 20130827120622) do
     t.integer  "pincode"
     t.string   "address"
     t.string   "city"
+    t.string   "bill_month"
     t.boolean  "status",              default: false
   end
 
@@ -143,7 +143,6 @@ ActiveRecord::Schema.define(version: 20130827120622) do
     t.boolean  "is_admin",               default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email"
   end
 
 end

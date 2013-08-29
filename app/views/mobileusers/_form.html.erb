@@ -1,5 +1,18 @@
-<%= form_for(@mobileuser) do |f| %>
+  <% content_for :scripts do %>
+   <%= javascript_include_tag  "jquery-1.5.2.min.js","jquery.validate.min","validation" %>
+  <% end %>
+<%= form_for(@mobileuser,:html => {:id => "mobileuser"}) do |f| %>
+     <% if @mobileuser.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@mobileuser.errors.count, "error") %> prohibited this mobile_user from being saved:</h2>
 
+                <ul>
+                <% @mobileuser.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
 <div>
     <%= f.label "Select user" %><br />
     <%= f.collection_select :user_id, User.all(:order => "id"), :id, :first_name %>

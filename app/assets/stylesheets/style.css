@@ -147,6 +147,19 @@ body {
     background: url('/assets/nav-icon-14.png') no-repeat top center;
 }
 
+.navbar #primary-nav > li > a > i.nav-icon-15 {
+    background: url('/assets/assign_mobile_to_user.png') no-repeat top center;
+}
+.navbar #primary-nav > li > a > i.nav-icon-16 {
+    background: url('/assets/upload_excel.png') no-repeat top center;
+}
+.navbar #primary-nav > li > a > i.nav-icon-17 {
+    background: url('/assets/meter_status.png') no-repeat top center;
+}
+.navbar #primary-nav > li > a > i.nav-icon-18 {
+    background: url('/assets/meter_readers_tatus.png') no-repeat top center;
+}
+
 .navbar #secondary-nav > li > a {
     padding-top: 28px;
 }

@@ -8,8 +8,7 @@ class User < ActiveRecord::Base
 
 has_many :mobileusers
 
- 
-
+ validates_presence_of :first_name,:last_name,:username,:password,:password_confirmation
  validates :password,  :confirmation => true
  
  

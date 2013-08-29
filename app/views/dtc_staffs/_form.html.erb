@@ -1,4 +1,7 @@
-<%= form_for(@dtc_staff) do |f| %>
+<% content_for :scripts do %>
+ <%= javascript_include_tag  "jquery-1.5.2.min.js","jquery.validate.min","validation" %>
+<% end %>
+<%= form_for(@dtc_staff,:html => {:id => "dtc"}) do |f| %>
   <% if @dtc_staff.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@dtc_staff.errors.count, "error") %> prohibited this dtc_staff from being saved:</h2>

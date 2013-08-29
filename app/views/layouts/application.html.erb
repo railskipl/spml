@@ -11,7 +11,7 @@
 
    <%= javascript_include_tag "application","bootstrap-transition","bootstrap-alert","bootstrap-modal","bootstrap-dropdown","bootstrap-scrollspy","bootstrap-tab","bootstrap-tooltip","bootstrap-popover","bootstrap-button","bootstrap-collapse","bootstrap-carousel","bootstrap-typeahead","jquery.easing.min","jquery-ui-1.8.16.custom.min","script", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
-
+    <%= yield :scripts %>
 </head>
 <body>
     <!--Navigation-->
@@ -34,11 +34,12 @@
                     
                     <li><a href="<%= dtc_staffs_path %>"><i class="nav-icon-10"></i><span>Dtc To Staff</span></a></li>
 
-                     
-                    
-                      <li><a href="<%= mobileusers_path %>"><i class="nav-icon-12"></i><span>Assign mobile to User</span></a></li>
+                    <li><a href="<%= mobileusers_path %>"><i class="nav-icon-15"></i><span>Assign mobile to User</span></a></li>
 
-                     <li><a href="<%= add_csv_consumers_path %>"><i class="nav-icon-10"></i><span>Upload Excel</span></a></li>
+                     <li><a href="<%= add_csv_consumers_path %>"><i class="nav-icon-16"></i><span>Upload Excel</span></a></li>
+                     <li><a href="<%= meter_statuses_path %>"><i class="nav-icon-17"></i><span>Meter Status</span></a></li>
+                     <li><a href="<%= meter_reader_statuses_path %>"><i class="nav-icon-18"></i><span>Meter reader status</span></a></li>
+                       
                      <%end%>
                   <%end%>
                 </ul>

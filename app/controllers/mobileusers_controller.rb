@@ -45,7 +45,7 @@ class MobileusersController < ApplicationController
         format.html { redirect_to(@mobileuser, :notice => 'mobileuser was successfully created.') }
         format.xml  { render :xml => @mobileuser, :status => :created, :location => @mobileuser }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => "new" ,:notice => 'IMEI no already assign'}
         format.xml  { render :xml => @mobileuser.errors, :status => :unprocessable_entity }
       end
     end

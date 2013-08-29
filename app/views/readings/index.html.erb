@@ -18,6 +18,8 @@
       <th>Meter Status</th>
       <th>Meter Reader Status</th>
       <th>Reading image</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
       <th>Action</th>
     </tr>
   
@@ -31,6 +33,8 @@
          <td><%= reading.dtc rescue nil%>&nbsp;</td>
          <td><%= reading.meter_status rescue nil%>&nbsp;</td>
          <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
+         <td><%= reading.latitude rescue nil%>&nbsp;</td>
+         <td><%= reading.longitude rescue nil%>&nbsp;</td>
         <td><%= image_tag reading.image_url.to_s ,:width => 155 %>
         
 </td>

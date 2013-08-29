@@ -1,5 +1,5 @@
 class AddStatusToReadings < ActiveRecord::Migration
   def change
-    add_column :readings, :status, :boolean, :default => 0
+    add_column :readings, :status, :boolean, :default => false
   end
 end

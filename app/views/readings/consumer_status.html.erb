@@ -1,0 +1,100 @@
+
+Search By : 
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
+<tr>
+  <td><%= link_to "All", readings_path %></td>
+  <td><%= link_to 'Old consumer' ,readings_consumer_status_path(:consumer_status => true)%></td>
+  <td><%= link_to 'New consumer' ,readings_consumer_status_path(:consumer_status => false)%></td>
+</table>
+<% if params[:consumer_status] == "true" %>
+
+<div class="page-header-custom">
+            <h3 align = "center">
+               Old consumers Readings</h3>
+            <!--subnav-->
+          
+        </div>
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
+  
+    <tr>
+      
+      <th>Consumer number</th>
+      <th>Meter reading</th>
+      <th>Dtc</th>
+      <th>Meter Status</th>
+      <th>Meter Reader Status</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+        <th>Reading image</th>
+      <th>Action</th>
+    </tr>
+  
+
+ 
+    <%  @readings_status.each do |consumer_status|%>
+      <tr>
+       
+        <td><%= consumer_status.consumer_no rescue nil%>&nbsp;</td>
+         <td><%= consumer_status.meter_reading  rescue nil%>&nbsp;</td>
+         <td><%= consumer_status.dtc rescue nil%>&nbsp;</td>
+         <td><%= consumer_status.meter_status rescue nil%>&nbsp;</td>
+         <td><%= consumer_status.meter_reader_status rescue nil%>&nbsp;</td>
+         <td><%= consumer_status.latitude rescue nil%>&nbsp;</td>
+         <td><%= consumer_status.longitude rescue nil%>&nbsp;</td>
+        <td><%= image_tag consumer_status.image_url.to_s ,:width => 155 %>
+        
+</td>
+    <td> <%= link_to 'Show', consumer_status%></td>
+
+      </tr>
+    <% end %>
+  
+</table>
+
+<% else %>
+<div class="page-header-custom">
+            <h3 align = "center">
+               New consumers Readings</h3>
+            <!--subnav-->
+          
+        </div>
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
+  
+    <tr>
+      
+      <th>Consumer number</th>
+      <th>Meter reading</th>
+      <th>Dtc</th>
+      <th>Meter Status</th>
+      <th>Meter Reader Status</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+        <th>Reading image</th>
+      <th>Action</th>
+    </tr>
+  
+
+ 
+    <%  @readings_status.each do |consumer_status|%>
+      <tr>
+       
+        <td><%= consumer_status.consumer_no rescue nil%>&nbsp;</td>
+         <td><%= consumer_status.meter_reading  rescue nil%>&nbsp;</td>
+         <td><%= consumer_status.dtc rescue nil%>&nbsp;</td>
+         <td><%= consumer_status.meter_status rescue nil%>&nbsp;</td>
+         <td><%= consumer_status.meter_reader_status rescue nil%>&nbsp;</td>
+         <td><%= consumer_status.latitude rescue nil%>&nbsp;</td>
+         <td><%= consumer_status.longitude rescue nil%>&nbsp;</td>
+        <td><%= image_tag consumer_status.image_url.to_s ,:width => 155 %>
+        
+</td>
+    <td> <%= link_to 'Show', consumer_status%></td>
+
+      </tr>
+    <% end %>
+  
+</table>
+
+<% end %>

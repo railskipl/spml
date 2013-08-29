@@ -44,6 +44,9 @@ Sndl::Application.routes.draw do
 
   get '/mobileusers/:id/delete', :to => "mobileusers#destroy"
 
+  get '/readings/consumer_status', :to => "readings#consumer_status"
+
+
  resources :password_resets
  resources :staffs
  resources :readings

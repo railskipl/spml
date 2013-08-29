@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130827120622) do
+ActiveRecord::Schema.define(version: 20130829125520) do
 
   create_table "consumers", force: true do |t|
     t.string   "pc"
@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(version: 20130827120622) do
     t.string   "city"
     t.string   "bill_month"
     t.boolean  "status",              default: false
+    t.string   "consumer_status"
   end
 
   create_table "users", force: true do |t|

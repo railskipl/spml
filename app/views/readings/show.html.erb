@@ -23,7 +23,7 @@
     </tr>
   <tr>
     <th align="left" valign="top">date time</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.consumer_no %></td>
+    <td align="left" valign="top">&nbsp;<%= @reading.created_at.strftime("%T %a %b %e %Y ")%></td>
     </tr>
   <tr>
     <th align="left" valign="top">Ime No</th>

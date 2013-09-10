@@ -1,10 +1,3 @@
-GIT
-  remote: https://github.com/yahonda/oracle-enhanced.git
-  revision: 8580b3acccef9b74ebcc1b35d3e44d886085c0be
-  branch: rails4
-  specs:
-    activerecord-oracle_enhanced-adapter (1.4.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -154,7 +147,6 @@ GEM
       rubyzip
       spreadsheet (> 0.6.4)
     ruby-hmac (0.4.0)
-    ruby-oci8 (2.1.5)
     ruby-ole (1.2.11.7)
     rubyzip (1.0.0)
     sass (3.2.10)
@@ -226,7 +218,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-oracle_enhanced-adapter!
   aws-s3
   aws-sdk
   carrierwave
@@ -244,7 +235,6 @@ DEPENDENCIES
   rails (= 4.0.0)
   rmagick
   roo
-  ruby-oci8
   rubyzip
   sass-rails (~> 4.0.0)
   savon (~> 2.0)

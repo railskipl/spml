@@ -13,6 +13,14 @@ gem 'fog'
 gem 'aws-s3'
 gem 'aws-sdk'
 gem 'delayed_job_active_record'
+gem 'rubyzip', :require => 'zip/zip'
+gem  'zip'
+gem 'httparty'
+gem 'activerecord-oracle_enhanced-adapter', git: 'https://github.com/yahonda/oracle-enhanced.git', branch: 'rails4'
+gem 'ruby-oci8'
+# gem 'thin' 
+gem 'paperclip'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -37,7 +45,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 
 gem 'roo'
-
+gem 'savon', '~> 2.0'
 gem 'pg'
 
 gem 'sidekiq'

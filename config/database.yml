@@ -23,18 +23,14 @@ production:
       password: 'root'
 # development:
 #   adapter: oracle_enhanced
-#   database: sndl
-#   username: system
-#   password: Ess3l3
+#   host: localhost 
+#   database: xe
+#   username: sndl
+#   password: sndl123
 
-# test:
-#   adapter: oracle_enhanced
-#   database: sndl
-#   username: system
-#   password: Ess3l3
 
 # production:
 #   adapter: oracle_enhanced
-#   database: sndl
-#   username: system
-#   password: Ess3l3
+#   database: xe
+#   username: sndl
+#   password: sndl123

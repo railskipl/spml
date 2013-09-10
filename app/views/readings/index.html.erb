@@ -41,7 +41,7 @@ Search By :<table cellpadding="0" cellspacing="0" border="0" class="table table-
          <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
          <td><%= reading.latitude rescue nil%>&nbsp;</td>
          <td><%= reading.longitude rescue nil%>&nbsp;</td>
-        <td><%= image_tag reading.image_url.to_s ,:width => 155 %>
+        <td><%= image_tag reading.image.url rescue nil %>
         
 </td>
     <td> <%= link_to 'Show', reading %></td>

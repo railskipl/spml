@@ -7,9 +7,9 @@
     <meta name="author" content="">
    <title>Sndl</title>
     <!--jquery-->
-    <%= stylesheet_link_tag "application","jquery-ui-1.8.16.custom","style","bootstrap.min" %>
+    <%= stylesheet_link_tag "application","style","bootstrap.min" %>
 
-   <%= javascript_include_tag "application","bootstrap-transition","bootstrap-alert","bootstrap-modal","bootstrap-dropdown","bootstrap-scrollspy","bootstrap-tab","bootstrap-tooltip","bootstrap-popover","bootstrap-button","bootstrap-collapse","bootstrap-carousel","bootstrap-typeahead","jquery.easing.min","jquery-ui-1.8.16.custom.min","script", "data-turbolinks-track" => true %>
+   <%= javascript_include_tag "application","bootstrap-transition","bootstrap-alert","bootstrap-modal","bootstrap-dropdown","bootstrap-scrollspy","bootstrap-tab","bootstrap-tooltip","bootstrap-popover","bootstrap-button","bootstrap-collapse","bootstrap-carousel","bootstrap-typeahead", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
     <%= yield :scripts %>
 </head>
@@ -19,7 +19,7 @@
         <div class="navbar-inner">
             <div class="container-fluid">
                 <a class="brand" href="/dashboard">
-                    <img src="/assets/logo.png" width="134px" height="100" alt="logo" /></a>
+                    <img src="/assets/image001.gif" width="134px" height="100" alt="logo" /></a>
                     <% if signed_in? %>
                 <ul id="primary-nav" class="nav">
                     <li><a href="<%= user_root_path %>"><i class="nav-icon-9"></i><span>Home</span></a></li>

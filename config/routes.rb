@@ -49,7 +49,11 @@ Sndl::Application.routes.draw do
 
  resources :password_resets
  resources :staffs
- resources :readings
+ resources :readings do
+  member do
+    get 'show_image'
+  end
+ end
 resources :mobileusers
  resources :consumers do
     collection do 

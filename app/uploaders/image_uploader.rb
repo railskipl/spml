@@ -17,15 +17,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    puts "#{model.date_time.strftime("%B")}"
-    if (model.date_time.strftime("%B") == "September")
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.date_time.strftime("%B")}/#{model.bu}/#{model.pc}"
-  elsif (model.date_time.strftime("%B") == "August")
-        "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.date_time.strftime("%B")}/#{model.bu}/#{model.pc}"
-  else
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.date_time.strftime("%B")}/#{model.bu}/#{model.pc}"
+      "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  #   if (model.date_time.strftime("%B") == "September")
+  #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.date_time.strftime("%B")}/#{model.bu}/#{model.pc}"
+  # elsif (model.date_time.strftime("%B") == "August")
+  #       "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.date_time.strftime("%B")}/#{model.bu}/#{model.pc}"
+  # else
+  #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.date_time.strftime("%B")}/#{model.bu}/#{model.pc}"
 
-    end
+   # end
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

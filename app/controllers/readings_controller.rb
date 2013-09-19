@@ -5,7 +5,7 @@ class ReadingsController < ApplicationController
   # GET /dtc_staffs
   # GET /dtc_staffs.json
   def index
-    @readings = Reading.paginate(:page => params[:page], :per_page => 3)
+    @readings = Reading.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /dtc_staffs/1

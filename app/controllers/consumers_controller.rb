@@ -10,9 +10,7 @@ class ConsumersController < ApplicationController
  def consumer
 
    @consumer = Consumer.find_by_consno(params[:consno])
-
-  
-   
+ 
       respond_to do |format|
          format.html
          format.json { render json:  @consumer }

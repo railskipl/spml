@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130903145611) do
+ActiveRecord::Schema.define(version: 20130919130455) do
 
   create_table "consumers", force: true do |t|
     t.string   "pc"
@@ -49,12 +49,13 @@ ActiveRecord::Schema.define(version: 20130903145611) do
     t.string   "trf"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "status"
   end
 
   create_table "delayed_jobs", force: true do |t|
-    t.integer  "priority",   precision: 38, scale: 0, default: 0, null: false
-    t.integer  "attempts",   precision: 38, scale: 0, default: 0, null: false
-    t.text     "handler",                                         null: false
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
     t.text     "last_error"
     t.datetime "run_at"
     t.datetime "locked_at"
@@ -65,11 +66,11 @@ ActiveRecord::Schema.define(version: 20130903145611) do
     t.datetime "updated_at"
   end
 
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "dtc_staffs", force: true do |t|
-    t.integer  "dtc",        precision: 38, scale: 0
-    t.integer  "user_id",    precision: 38, scale: 0
+    t.integer  "dtc"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -89,26 +90,26 @@ ActiveRecord::Schema.define(version: 20130903145611) do
   create_table "mobile_devises", force: true do |t|
     t.string   "imei"
     t.string   "manufacturer_name"
-    t.datetime "purchase_date"
+    t.date     "purchase_date"
     t.string   "phone_no"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "mobileusers", force: true do |t|
-    t.integer  "user_id",    precision: 38, scale: 0
+    t.integer  "user_id"
     t.string   "imei"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "readings", force: true do |t|
-    t.decimal  "meter_reading"
+    t.float    "meter_reading"
     t.string   "consumer_no"
     t.string   "meter_status"
     t.datetime "date_time"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "ime_no"
     t.string   "image"
     t.string   "old_meter_no"
@@ -116,24 +117,29 @@ ActiveRecord::Schema.define(version: 20130903145611) do
     t.string   "bu"
     t.string   "pc"
     t.string   "dtc"
-    t.string   "bill_month"
     t.string   "pole_no"
     t.string   "consumer_name"
     t.string   "reader_mobile_no"
     t.string   "meter_reader_status"
     t.text     "remark"
-    t.integer  "read_by",             precision: 38, scale: 0
+    t.string   "read_by",             limit: 25
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "pincode",             precision: 38, scale: 0
+    t.integer  "pincode"
     t.string   "address"
     t.string   "city"
-    t.boolean  "status",              precision: 1,  scale: 0, default: false
+    t.string   "bill_month"
+    t.boolean  "status",                                 default: false
     t.string   "consumer_status"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
-    t.integer  "photo_file_size",     precision: 38, scale: 0
+    t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.binary   "avatar_file",         limit: 2147483647
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.binary   "img"
   end
 
@@ -146,10 +152,9 @@ ActiveRecord::Schema.define(version: 20130903145611) do
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.boolean  "is_admin",               precision: 1, scale: 0, default: false
+    t.boolean  "is_admin",               default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email"
   end
 
 end

@@ -44,7 +44,7 @@ class DtcStaffsController < ApplicationController
    @dtc = Consumer.find_all_by_dtc(params[:dtc])
 
   @dtc1 = Hash["allocated_consumer" => @dtc]
-    
+
    
    respond_to do |format|
         format.html

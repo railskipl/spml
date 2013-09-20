@@ -7,5 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-users = User.create([{:username => 'admin',:password => 'admin123!', :first_name => "admin", 
+users = User.create([{:username => 'admin',:password => 'admin123!', :password_confirmation => "admin123!",:first_name => "admin", 
 	:last_name => "admin",:is_admin=>"true" }])

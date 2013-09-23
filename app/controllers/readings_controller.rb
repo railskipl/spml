@@ -32,13 +32,15 @@ class ReadingsController < ApplicationController
   def create
   #raise params[:reading][:image].inspect
   #params[:uploaded].inspect
-    # @user = User.find(params[:user_id])
+     @user = User.find(params[:user_id])
     #@user = current_user
-    @read_by = "piyush" 
+      @read_by = "#{@user.first_name} #{@user.last_name}" 
+
+    @ime_no = Mobileuser.find_by_user_id(@user.id)
 
    # @ime_no = Mobileuser.find_by_user_id(@user.id)
    
-    @reading = Reading.create(:meter_reading=>params[:meter_reading],:consumer_no=>params[:consumer_no],:pc =>params[:pc],:pincode =>params[:pincode],:bu =>params[:bu],:address=>params[:address],:city=>params[:city],:consumer_name=> params[:consumer_name],:dtc =>params[:dtc],:pole_no =>params[:poleno],:reader_mobile_no=>params[:reader_mobile_no],:date_time=>params[:date_time],:latitude=>params[:latitude],:longitude =>params[:longitude],:ime_no=> "125",:image => params[:uploaded],
+    @reading = Reading.create(:meter_reading=>params[:meter_reading],:consumer_no=>params[:consumer_no],:pc =>params[:pc],:pincode =>params[:pincode],:bu =>params[:bu],:address=>params[:address],:city=>params[:city],:consumer_name=> params[:consumer_name],:dtc =>params[:dtc],:pole_no =>params[:poleno],:reader_mobile_no=>params[:reader_mobile_no],:date_time=>params[:date_time],:latitude=>params[:latitude],:longitude =>params[:longitude],:ime_no=> @ime_no ,:image => params[:uploaded],
     :meter_status=>params[:meter_status],:old_meter_no=>params[:old_meter_no],:new_meter_no=>params[:new_meter_no],:bill_month=>params[:bill_month],:meter_reader_status=>params[:meter_reader_status],:remark=>params[:remark],:read_by=>@read_by,:status => params[:flag],:consumer_status=>params[:consumer_status])
     
     consumer = Consumer.find_by_consno(params[:consumer_no])

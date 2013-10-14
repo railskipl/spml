@@ -14,7 +14,9 @@
         <td><%= dtc_staff.dtc %></td>
         <td><%= User.find(dtc_staff.user_id).username  rescue nil %></td>
         <td><%= link_to 'Show', dtc_staff %></td>
+         <% if can? :update, dtc_staff %>
         <td><%= link_to 'Edit', edit_dtc_staff_path(dtc_staff) %></td>
+        <% end %>
         <td><%= link_to 'Destroy', dtc_staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

@@ -1,0 +1,52 @@
+<h1>Listing teams</h1>
+
+
+
+<%= form_tag search_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search By Team Name", :team_name => nil %>
+  </p>
+<% end %>
+
+<%= form_tag search_vendor_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search By Vendor", :team_name => nil %>
+  </p>
+<% end %>
+
+
+
+
+<table border cellpadding = "12" >
+  <thead>
+    <tr>
+      <th>Team name</th>
+      <th>Vendor</th>
+      <th>Reader</th>
+      <th colspan="3">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.team_name %></td>
+        <td><%= team.user_role.name %></td>
+        <td>
+          <% TeamUser.find_all_by_team_id(team.id).each do |reader|%>
+          <%= reader.user_role.name %>,
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', team %></td>
+        <td><%= link_to 'Edit', edit_team_path(team) %></td>
+        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Team', new_team_path %>

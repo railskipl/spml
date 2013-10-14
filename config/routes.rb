@@ -1,5 +1,7 @@
 require 'sidekiq/web'
 Sndl::Application.routes.draw do
+  resources :teams
+
   resources :meter_reader_statuses
 
   resources :meter_statuses
@@ -19,7 +21,9 @@ Sndl::Application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'sessions#new'
 
-   resources :users 
+   resources :users do
+    collection { post :import }
+  end
  
   resources :sessions, :only => [:new,:create,:destroy,:edit]
 
@@ -45,6 +49,10 @@ Sndl::Application.routes.draw do
   get '/mobileusers/:id/delete', :to => "mobileusers#destroy"
 
   get '/readings/consumer_status', :to => "readings#consumer_status"
+
+  get 'search'  => "teams#search"
+
+  get 'search_vendor'  => "teams#search_vendor"
 
 
  resources :password_resets

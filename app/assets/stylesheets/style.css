@@ -160,6 +160,13 @@ body {
     background: url('/assets/meter_readers_tatus.png') no-repeat top center;
 }
 
+.navbar #primary-nav > li > a > i.nav-icon-19 {
+    background: url('/assets/team.png') no-repeat top center;
+}
+
+
+
+
 .navbar #secondary-nav > li > a {
     padding-top: 28px;
 }

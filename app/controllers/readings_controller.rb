@@ -1,6 +1,6 @@
 class ReadingsController < ApplicationController
 
-
+ before_filter :authenticate ,:except => [:create]
 
   # GET /dtc_staffs
   # GET /dtc_staffs.json
@@ -45,7 +45,7 @@ class ReadingsController < ApplicationController
     
     consumer = Consumer.find_by_consno(params[:consumer_no])
      
-    consumer.update_column(:status,true)
+    consumer.update_column(:status,true) rescue nil
    render :status =>200,:json => { :error => "valid" } 
   end
   

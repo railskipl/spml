@@ -39,6 +39,7 @@ GEM
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
     builder (3.1.4)
+    cancan (1.6.10)
     carrierwave (0.9.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -223,6 +224,7 @@ PLATFORMS
 DEPENDENCIES
   aws-s3
   aws-sdk
+  cancan
   carrierwave
   coffee-rails (~> 4.0.0)
   delayed_job_active_record

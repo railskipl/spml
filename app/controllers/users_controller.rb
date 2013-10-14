@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save 
+      UserRole.create(:user_id => @user.id , :role_id => @user.role_id,:name => @user.first_name)
       #sign_in @user
       redirect_to staffs_path
     else
@@ -80,6 +81,20 @@ class UsersController < ApplicationController
 
    end
      
+def import
+  if params[:file].nil?
+   redirect_to staffs_path, alert: "Please Import File"
+ else
+  users =  User.import(params[:file])
+  users.each do |user|
+   user.save
+   UserRole.create(:user_id => user.id , :role_id => user.role_id,:name => user.first_name)
+   #redirect_to staffs_path, notice: user.errors.full_messages.to_sentence
+  end
+   redirect_to staffs_path, notice: "Users imported."
+ end
+end
+
 
     
     

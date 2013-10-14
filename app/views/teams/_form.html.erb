@@ -1,0 +1,80 @@
+<%= form_for(@team) do |f| %>
+  <% if @team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+      <% @team.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :team_name %><br>
+    <%= f.text_field :team_name %>
+  </div>
+
+  <%= f.collection_select :user_role_id, UserRole.find_all_by_role_id(1), :id, :name ,:prompt => "Select Team"%>
+
+  
+
+  
+  <div class="field">
+ 
+   <select multiple="true" class="multiselect1" name="myselecttsms1" size= 15 id="select-toggle">
+      <% UserRole.find_all_by_role_id(3).each do |name| %>
+    <option value="<%= name.id %>"> <%= name.name %></option>
+    <% end %>
+ 
+</select>
+
+<select multiple= true class="multiselect2" name="name_id[]" size="15" selected="selected" id="mySelect">
+</select>
+
+   <a class="add">Add</a>
+   <a class="remove">Remove</a>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit",:id => "submit"%>
+  </div>
+<% end %>
+
+<script type='text/javascript'>
+
+
+$('.add').on('click', function() {
+   var options = $('select.multiselect1 option:selected').sort().clone();
+   var options1 = $('select.multiselect2').append(options);
+   $('select.multiselect1').remove($('select.multiselect1 option:selected').remove());
+
+});
+
+$('.remove').on('click', function() {
+   var options = $('select.multiselect2 option:selected').sort().clone();
+    $('select.multiselect1').append(options);
+    $('select.multiselect2 option:selected').remove();
+});
+
+$('#select-toggle').each(function(){    
+    var select = $(this), values = {};    
+    $('option',select).each(function(i, option){
+        values[option.value] = option.selected;        
+    }).click(function(event){        
+        values[this.value] = !values[this.value];
+        $('option',select).each(function(i, option){            
+            option.selected = values[option.value];        
+        });    
+    });
+});
+
+$('#submit').on('click', function() {
+     var s1  = document.getElementById('mySelect');
+    for(var i=0; i < s1.options.length; i++){
+        s1.options[i].selected = true;
+    }
+});
+
+</script>

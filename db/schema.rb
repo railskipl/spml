@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130919130455) do
+ActiveRecord::Schema.define(version: 20131009101527) do
 
   create_table "consumers", force: true do |t|
     t.string   "pc"
@@ -143,6 +143,34 @@ ActiveRecord::Schema.define(version: 20130919130455) do
     t.binary   "img"
   end
 
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "team_users", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "user_role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teams", force: true do |t|
+    t.string   "team_name"
+    t.integer  "user_role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_roles", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
   create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -155,6 +183,7 @@ ActiveRecord::Schema.define(version: 20130919130455) do
     t.boolean  "is_admin",               default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "role_id"
   end
 
 end

@@ -12,7 +12,7 @@
   <strong>Reader</strong>
 <% @readers.each do |reader|%>
 <p>
-  <%= reader.user_role.name %>
+  <%= reader.user_role.name rescue nil %>
 </p>
 <% end %>
 

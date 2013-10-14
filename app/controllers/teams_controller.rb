@@ -36,8 +36,10 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
       a =  params["name_id"]
-      if a.nil?
-       redirect_to new_team_path, notice: 'Please Select Team Members' 
+      b = @team["team_name"]
+      c = @team["user_role_id"]
+      if (a.nil? || b.empty? || c.nil?)
+       redirect_to new_team_path, notice: 'Please Select Mandatory fields' 
       else
         respond_to do |format|
           if @team.save

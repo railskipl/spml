@@ -9,12 +9,12 @@
   </p>
 <% end %>
 
-<%= form_tag search_vendor_path, :method => 'get' do %>
+<%#= form_tag search_vendor_path, :method => 'get' do %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search By Vendor", :team_name => nil %>
+    <%#= text_field_tag :search, params[:search] %>
+    <%#= submit_tag "Search By Vendor", :team_name => nil %>
   </p>
-<% end %>
+<%# end %>
 
 
 
@@ -33,10 +33,10 @@
     <% @teams.each do |team| %>
       <tr>
         <td><%= team.team_name %></td>
-        <td><%= team.user_role.name %></td>
+        <td><%= team.user_role.name rescue nil %></td>
         <td>
           <% TeamUser.find_all_by_team_id(team.id).each do |reader|%>
-          <%= reader.user_role.name %>,
+          <%= reader.user_role.name rescue nil  %>,
           <% end %>
         </td>
         <td><%= link_to 'Show', team %></td>

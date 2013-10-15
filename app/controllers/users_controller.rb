@@ -96,7 +96,7 @@ def import
 end
 
 def search
-  @users = User.find(:all, :conditions => ["first_name LIKE ? OR last_name LIKE ? OR concat(first_name,' ',last_name) LIKE ?","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%"])
+  @users = User.find(:all, :conditions => ["first_name iLIKE ? OR last_name iLIKE ? OR concat(first_name,' ',last_name) iLIKE ?","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%"])
     
 #User.where('((users.first_name || ' ' || users.last_name) ILIKE ?) OR (users.first_name ILIKE ?) OR (users.last_name ILIKE ?)', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
 

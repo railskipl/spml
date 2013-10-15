@@ -1,12 +1,14 @@
-<h1>Manage Staffs</h1>
-
-
 <h2>Import Users</h2>
 <%= form_tag import_users_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
 <% end %>
-
+<%= form_tag search_users_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search by name"  %>
+  </p>
+<% end %>
 
 <p><%= link_to "Add Staff", signup_path %></p>
 

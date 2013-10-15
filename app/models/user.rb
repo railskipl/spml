@@ -3,14 +3,14 @@ require 'digest'
 class User < ActiveRecord::Base
  attr_accessor :password
 
- attr_accessible :first_name,:last_name,:username,:password, :password_confirmation,:is_admin,:role_id
+ attr_accessible :first_name,:last_name,:username,:password, :password_confirmation,:is_admin,:role_id,:email,:mobile_no
 
 
 has_many :mobileusers
 
 validates_uniqueness_of :username
 
- validates_presence_of :first_name,:last_name,:username,:password,:password_confirmation
+ validates_presence_of :first_name,:last_name,:username,:password,:password_confirmation 
  validates :password,  :confirmation => true
  
 before_save :encrypt_password
@@ -42,6 +42,21 @@ end
  def role?(role)
  	    return Role.find_by_name(role).name
  end
+
+ def fullname
+  "#{first_name} #{last_name}"
+ end
+
+
+
+def send_password_reset
+  generate_token(:password_reset_token)
+  self.password_reset_sent_at = Time.zone.now
+  save!
+  UserMailer.password_reset(self).deliver
+end
+
+
 
 private
 

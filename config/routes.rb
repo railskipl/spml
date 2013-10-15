@@ -23,6 +23,7 @@ Sndl::Application.routes.draw do
 
    resources :users do
     collection { post :import }
+    collection { get :search }
   end
  
   resources :sessions, :only => [:new,:create,:destroy,:edit]
@@ -51,7 +52,7 @@ Sndl::Application.routes.draw do
   get '/readings/consumer_status', :to => "readings#consumer_status"
 
   get 'search'  => "teams#search"
-
+ 
   get 'search_vendor'  => "teams#search_vendor"
 
 

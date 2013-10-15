@@ -24,10 +24,20 @@
 <%= f.password_field :password_confirmation,:style => "height: 30px;" %>
 </div>
 <div>
+<div class="field">
+<%= f.label :email, "Email" %><br />
+<%= f.text_field :email,:style => "height: 30px;" %>
+</div>
+<div>
+<div class="field">
+<%= f.label :mobile_no, "Mobile Number" %><br />
+<%= f.text_field :mobile_no,:style => "height: 30px;" %>
+</div>
+<div>
 <%= f.label :role_id ,"Role" %><br />
 <%= f.collection_select :role_id, Role.all(:order => "id"), :id, :name %>
 </div>
 <div class="actions">
-<%= f.submit "Sign up" %>
+<%= f.submit "Create Staff" %>
 </div>
 <% end %>

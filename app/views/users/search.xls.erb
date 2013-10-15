@@ -3,11 +3,13 @@
   <tr>
     <th>Full Name</th>
     <th>Username</th>
+    <th>Role</th>
   </tr>
 <% @users.each do |user| %>
   <tr>
     <td><%= user.first_name %> <%= user.last_name %></td>
     <td><%= user.username %></td>
+     <td><%= Role.find(user.role_id).name %></td>
   </tr>
 <% end %>
 </table>

@@ -43,11 +43,14 @@ end
  	    return Role.find_by_name(role).name
  end
 
- def fullname
-  "#{first_name} #{last_name}"
+ def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |user|
+        csv << user.attributes.values_at(*column_names)
+      end
+    end
  end
-
-
 
 def send_password_reset
   generate_token(:password_reset_token)

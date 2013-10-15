@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
-
+    before_filter :authenticate
   # GET /teams
   # GET /teams.json
   def index
@@ -90,4 +90,11 @@ class TeamsController < ApplicationController
     def team_params
       params.require(:team).permit(:team_name, :user_role_id)
     end
+
+
+  def authenticate
+    deny_access unless signed_in?
+  end
+  
+
 end

@@ -87,7 +87,9 @@ def import
  else
   users =  User.import(params[:file])
   users.each do |user|
-   user.save
+   user.mobile_no =  user.mobile_no.to_i.to_s
+   user.save!
+   
    UserRole.create(:user_id => user.id , :role_id => user.role_id,:name => user.first_name)
    #redirect_to staffs_path, notice: user.errors.full_messages.to_sentence
   end

@@ -7,7 +7,6 @@
       <th>Team name</th>
       <th>Vendor</th>
       <th>Reader</th>
-      <th colspan="2">Action</th>
     </tr>
   </thead>
 
@@ -21,12 +20,9 @@
           <%= reader.user_role.name %>,
           <% end %>
         </td>
-        <td><%= link_to 'Show', team %></td>
-        <%#= link_to 'Edit', edit_team_path(team) %>
-        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
   </tbody>
 </table>
 <% end %>
-  <%= link_to "Excel", search_vendor_path(params.merge(format: "xls")) %>

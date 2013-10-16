@@ -9,12 +9,12 @@
   </p>
 <% end %>
 
-<%#= form_tag search_vendor_path, :method => 'get' do %>
+<%= form_tag search_vendor_path, :method => 'get' do %>
   <p>
-    <%#= text_field_tag :search, params[:search] %>
-    <%#= submit_tag "Search By Vendor", :team_name => nil %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search By Vendor", :team_name => nil %>
   </p>
-<%# end %>
+<% end %>
 
 
 

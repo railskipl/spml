@@ -18,10 +18,10 @@ class TeamsController < ApplicationController
       redirect_to teams_url ,:alert => "Search field cannot be empty"
     else
       @teams = Team.where('team_name LIKE ?', "%#{params[:search]}%")
-    end
-    respond_to do |format|
+     respond_to do |format|
       format.html
       format.xls 
+    end
     end
   end
 

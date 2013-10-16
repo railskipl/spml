@@ -17,7 +17,7 @@ class TeamsController < ApplicationController
     if params[:search].nil? || params[:search].empty?
       redirect_to teams_url ,:alert => "Search field cannot be empty"
     else
-      @teams = Team.where('team_name LIKE ?', "%#{params[:search]}%")
+      @teams = Team.where('team_name iLIKE ?', "%#{params[:search]}%")
      respond_to do |format|
       format.html
       format.xls 
@@ -29,7 +29,7 @@ class TeamsController < ApplicationController
      if params[:search].nil? || params[:search].empty?
       redirect_to teams_url ,:alert => "Search field cannot be empty"
      else
-      user = User.where("username LIKE ?","%#{params[:search]}%")
+      user = User.where("username iLIKE ?","%#{params[:search]}%")
       user_id = user[0].id rescue nil
       @user = UserRole.find_by_user_id(user_id).id rescue nil
       @teams = Team.find_all_by_user_role_id(@user)

@@ -10,7 +10,8 @@ has_many :mobileusers
 
 validates_uniqueness_of :username
 
- validates_presence_of :first_name,:last_name,:username,:password,:password_confirmation,:email,:mobile_no
+ validates_presence_of :first_name,:last_name,:username,:email,:mobile_no
+ validates_presence_of :password,:password_confirmation, :on  => :create
  validates :password,  :confirmation => true
  
 before_save :encrypt_password

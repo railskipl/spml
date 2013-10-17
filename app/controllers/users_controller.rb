@@ -55,31 +55,32 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-   def change_password
+   
+   # def change_password
 
-    @user = User.find(current_user.id)
+   #  @user = User.find(current_user.id)
 
-    if request.post?
-      if User.authenticate(@user.email,
-        params[:change_password][:old_password]) == @user
-        @user.password = params[:change_password][:new_password]
-        @user.password_confirmation =
-        params[:change_password][:new_password_confirmation]
+   #  if request.post?
+   #    if User.authenticate(@user.email,
+   #      params[:change_password][:old_password]) == @user
+   #      @user.password = params[:change_password][:new_password]
+   #      @user.password_confirmation =
+   #      params[:change_password][:new_password_confirmation])
 
-          if @user.save
-            flash[:notice] = 'Password successfully updated!'
-            redirect_to change_password_path
-          else
-            flash[:error] = 'New password mismatch.'
-            render :action => 'change_password'
-          end
-      else
-          flash[:error] = 'Old password incorrect'
-          render :action => 'change_password'
-      end
-    end
+   #        if @user.save
+   #          flash[:notice] = 'Password successfully updated!'
+   #          redirect_to change_password_path
+   #        else
+   #          flash[:error] = 'New password mismatch.'
+   #          render :action => 'change_password'
+   #        end
+   #    else
+   #        flash[:error] = 'Old password incorrect'
+   #        render :action => 'change_password'
+   #    end
+   #  end
 
-   end
+   # end
      
 def import
   if params[:file].nil?

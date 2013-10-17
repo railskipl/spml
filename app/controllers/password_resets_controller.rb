@@ -11,9 +11,12 @@ end
 
 def create
   user = User.find_by_email(params[:email])
- 
-  user.send_password_reset if user
-  redirect_to root_url, :notice => "Email sent with password reset instructions."
+  if user.nil?
+    redirect_to new_password_reset_path, :notice => "Email Not found in our records"
+  else
+    user.send_password_reset if user
+    redirect_to root_url, :notice => "Email sent with password reset instructions."
+  end
 end
 
 

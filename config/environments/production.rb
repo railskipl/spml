@@ -47,6 +47,17 @@ Sndl::Application.configure do
 
   config.assets.debug = true
 
+     config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'meterreading-kipl.herokuapp.com',
+    :user_name            => 'rubyrails9@gmail.com',
+    :password             => 'kipl123!@#',
+    :authentication       => 'login',
+    :enable_starttls_auto => true  }
+
+    config.action_mailer.default_url_options = { :host => "http://meterreading-kipl.herokuapp.com" }
+
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]

@@ -45,7 +45,7 @@ Sndl::Application.configure do
   # Set to :debug to see everything in the log.
   config.log_level = :info
 
-  config.assets.debug = true
+  config.assets.debug = false
 
 
   # Prepend all log lines with the following tags.

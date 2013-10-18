@@ -1,5 +1,7 @@
 class ConsumersController < ApplicationController
-	
+	 before_filter :authenticate
+   before_filter :correct_user
+
   def add_csv
    @search = Consumer.search(params[:q])
   end
@@ -9,7 +11,7 @@ class ConsumersController < ApplicationController
   end
   
   def route_list
-     @consumers = Consumer.where("concat(dtc,'-',bu,'-',pc) iLIKE ?","%#{params[:search]}%")
+     @consumers = Consumer.where("concat(dtc,'-',bu,'-',pc) LIKE ?","%#{params[:search]}%")
      @dtc =  @consumers.uniq.pluck(:dtc)
      @bu =  @consumers.uniq.pluck(:bu)
      @pc =  @consumers.uniq.pluck(:pc)
@@ -87,7 +89,15 @@ end
     end
 end
 
-
+    
+  private
+  def authenticate
+    deny_access unless signed_in?
+  end
+  
+  def correct_user
+    redirect_to(user_root_path) unless current_user.is_admin?
+  end
 
 
 end

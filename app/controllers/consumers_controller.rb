@@ -2,11 +2,21 @@ class ConsumersController < ApplicationController
 	
   def add_csv
    @search = Consumer.search(params[:q])
+  end
 
+  def route
+    @search = Consumer.search(params[:q])
   end
   
+  def route_list
+     @consumers = Consumer.where("concat(dtc,'-',bu,'-',pc) LIKE ?","%#{params[:search]}%")
+     @dtc =  @consumers.uniq.pluck(:dtc)
+     @bu =  @consumers.uniq.pluck(:bu)
+     @pc =  @consumers.uniq.pluck(:pc)
+  end
+
   def index
-     @search = Consumer.search(params[:q])
+    @search = Consumer.search(params[:q])
     @consumers = @search.result
     respond_to do |format|
      format.html

@@ -1,0 +1,24 @@
+<% if @consumers.empty? %>
+<p>Sorry! Consumer not found!</p>
+<% else %>
+<table border cellpadding = "12" >
+  <thead>
+    <tr>
+      <th>Route-Name</th>
+      <th>Consumer name</th>
+      </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td rowspan = <%= @consumers.count %>><%= @dtc[0] %>-<%= @bu[0] %>-<%= @pc[0] %></td>
+       <td>
+   <% @consumers.each do |consumer| %>
+      <%= consumer.name %> |
+    <% end %>
+    </td>
+     </tr>
+  </tbody>
+</table>
+<% end %>
+<%= link_to "Export Excel", consumers_path(params.merge(format: "xls"))  %>

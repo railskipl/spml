@@ -66,7 +66,9 @@ Sndl::Application.routes.draw do
 resources :mobileusers
  resources :consumers do
     collection do 
+      get 'route_list'  => "consumers#route_list"
       get 'add_csv'
+      get 'route'
       post 'import'
     end 
  end

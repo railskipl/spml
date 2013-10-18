@@ -1,0 +1,8 @@
+<%= search_form_for @search,:url =>  route_list_consumers_path do |f| %>
+  <div class="field">
+   Route-Name
+    <%= f.text_field :bu_or_pc_cont, :name => "search" %>
+     
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>

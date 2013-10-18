@@ -1,10 +1,22 @@
 class ConsumersController < ApplicationController
 	
   def add_csv
+   @search = Consumer.search(params[:q])
+
+  end
+  
+  def index
+     @search = Consumer.search(params[:q])
+    @consumers = @search.result
+    respond_to do |format|
+     format.html
+     format.xls
+    end
   end
 
   def import
     upload  = params[:file]
+    unless upload.nil?
         data = upload.read
         data.split("\n").each do |b|
         graph_data = {}
@@ -50,7 +62,10 @@ class ConsumersController < ApplicationController
         end
 
     redirect_to user_root_path, notice: "CSV imported."
+  else
+    redirect_to add_csv_consumers_path, notice: "Please select file."
   end
+end
  def consumer
 
    @consumer = Consumer.find_by_consno(params[:consno])

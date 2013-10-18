@@ -1,6 +1,23 @@
-<h2>Import Excel File</h2>
+<h2>Import Text File</h2>
 
 <%= form_tag import_consumers_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
 <% end %>
+
+
+
+<%= search_form_for @search do |f| %>
+  <div class="field">
+    <%= f.label :name_cont, "Name" %>
+    <%= f.text_field :name_cont %>
+    <%= f.label :dtc_cont, "DTC" %>
+    <%= f.text_field :dtc_cont %>
+     <%= f.label :bu_cont, "Bu" %>
+    <%= f.text_field :bu_cont %>
+     <%= f.label :pc_cont, "PC" %>
+    <%= f.text_field :pc_cont %>
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+

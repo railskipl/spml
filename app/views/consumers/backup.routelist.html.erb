@@ -1,0 +1,16 @@
+<table border cellpadding = 10>
+  <tr>
+    <th>Route-Name</th>
+    <th>Name of consumers</th>
+  </tr>
+  <% @dtc.each do |dtc| %>
+  <tr>
+    <td><%= dtc %>-<%= @bu %>-<%= @pc %></td>
+    <td>
+    <% @consumers.find_all_by_dtc(dtc).each do |c| %>
+     <%= c.name %>,
+    <% end %>
+   </td>
+  <% end %>
+  </tr>
+</table>

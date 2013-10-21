@@ -1,5 +1,6 @@
 require 'sidekiq/web'
 Sndl::Application.routes.draw do
+  get "ankit/ank"
   resources :teams
 
   resources :meter_reader_statuses

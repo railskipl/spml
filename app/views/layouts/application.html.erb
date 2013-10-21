@@ -22,8 +22,8 @@
                     <img src="/assets/image001.gif" width="134px" height="100" alt="logo" /></a>
                     <% if signed_in? %>
                 <ul id="primary-nav" class="nav">
-                    <li><a href="<%= user_root_path %>"><i class="nav-icon-9"></i><span>Home</span></a></li>
-                    <li><a href="<%= readings_path %>"><i class="nav-icon-11"></i><span>
+<!--                     <li><a href="<%= user_root_path %>"><i class="nav-icon-9"></i><span>Home</span></a></li>
+ -->                    <li><a href="<%= readings_path %>"><i class="nav-icon-11"></i><span>
                        Readings</span></a>
                         
                     </li>
@@ -40,6 +40,7 @@
                      <li><a href="<%= add_csv_consumers_path %>"><i class="nav-icon-16"></i><span>Upload Consumers</span></a></li>
                      <li><a href="<%= meter_statuses_path %>"><i class="nav-icon-17"></i><span>Meter Status</span></a></li>
                      <li><a href="<%= meter_reader_statuses_path %>"><i class="nav-icon-18"></i><span>Meter Reader Status</span></a></li>
+                     <li><a href="<%= route_consumers_path %>"><i class="nav-icon-18"></i><span>Route Listing</span></a></li>
                        
                      <%end%>
                   <%end%>

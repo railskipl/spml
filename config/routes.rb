@@ -55,7 +55,11 @@ Sndl::Application.routes.draw do
   get 'search'  => "teams#search"
  
   get 'search_vendor'  => "teams#search_vendor"
-
+  
+  get 'search_vendor1'  => "readings#search_vendor1"
+  
+  get 'search_by_reader'  => "readings#search_by_reader"
+ get  'search_by_date'  => "readings#search_by_date"
 
  resources :password_resets
  resources :staffs

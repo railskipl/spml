@@ -12,6 +12,7 @@ class ReadingsController < ApplicationController
   # GET /dtc_staffs/1.json
   def show
     @reading = Reading.find(params[:id])
+      @json =  @reading.to_gmaps4rails
   end
 
   # GET /dtc_staffs/new
@@ -39,8 +40,8 @@ class ReadingsController < ApplicationController
     @ime_no = Mobileuser.find_by_user_id(@user.id)
 
    # @ime_no = Mobileuser.find_by_user_id(@user.id)
-   
-    @reading = Reading.create(:meter_reading=>params[:meter_reading],:consumer_no=>params[:consumer_no],:pc =>params[:pc],:pincode =>params[:pincode],:bu =>params[:bu],:address=>params[:address],:city=>params[:city],:consumer_name=> params[:consumer_name],:dtc =>params[:dtc],:pole_no =>params[:poleno],:reader_mobile_no=>params[:reader_mobile_no],:date_time=>params[:date_time],:latitude=>params[:latitude],:longitude =>params[:longitude],:ime_no=> @ime_no ,:image => params[:uploaded],
+  
+    @reading = Reading.create(:user_id => params[:user_id] ,:meter_reading=>params[:meter_reading],:consumer_no=>params[:consumer_no],:pc =>params[:pc],:pincode =>params[:pincode],:bu =>params[:bu],:address=>params[:address],:city=>params[:city],:consumer_name=> params[:consumer_name],:dtc =>params[:dtc],:pole_no =>params[:poleno],:reader_mobile_no=>params[:reader_mobile_no],:date_time=>params[:date_time],:latitude=>params[:latitude],:longitude =>params[:longitude],:ime_no=> @ime_no ,:image => params[:uploaded],
     :meter_status=>params[:meter_status],:old_meter_no=>params[:old_meter_no],:new_meter_no=>params[:new_meter_no],:bill_month=>params[:bill_month],:meter_reader_status=>params[:meter_reader_status],:remark=>params[:remark],:read_by=>@read_by,:status => params[:flag],:consumer_status=>params[:consumer_status])
     
     consumer = Consumer.find_by_consno(params[:consumer_no])
@@ -84,6 +85,41 @@ class ReadingsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+    def search_vendor1
+     if params[:search].nil? || params[:search].empty?
+      redirect_to readings_url ,:alert => "Search field cannot be empty"
+     else
+      user = User.where("username LIKE ?","%#{params[:search]}%")
+      user_id = user[0].id rescue nil
+      @user = UserRole.find_by_user_id(user_id).id rescue nil
+      @teams = Team.find_all_by_user_role_id(@user)
+      respond_to do |format|
+        format.html
+        format.xls 
+      end
+    end
+  end
+
+   def search_by_reader
+     if params[:search].nil? || params[:search].empty?
+      redirect_to readings_url ,:alert => "Search field cannot be empty"
+     else
+     @readings= Reading.where("read_by LIKE ? ", "%#{params[:search]}%")
+      respond_to do |format|
+        format.html
+        format.xls 
+      end
+    end
+  end
+
+  def search_by_date
+    start_from =  "#{params['start_date']} #{params['timepicker1']}"
+    start_to = "#{params['end_date']} #{params['timepicker2']}"
+    @readings = Reading.where("date_time >= ? and date_time <= ?" ,start_from,start_to)
+    
+  end
+
  
   
     # Use callbacks to share common setup or constraints between actions.

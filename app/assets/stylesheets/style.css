@@ -1,4 +1,9 @@
-﻿/* General */
+﻿/*
+
+ *= require jquery.ui.datepicker
+ */
+
+/* General */
 
 body {
     padding-top: 90px;
@@ -61,8 +66,8 @@ body {
 }
 
 .navbar .nav > li > a {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 5px !important;
+    padding-right: 5px  !important;
 }
 
 [class^="nav-icon-"], [class*=" nav-icon-"] {
@@ -71,7 +76,7 @@ body {
 }
 
 .navbar #primary-nav {
-    margin: 50px 0 0 10px;
+    margin: 10px 0 0 0;
 }
 
 .navbar #primary-nav > li > a {

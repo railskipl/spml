@@ -7,7 +7,7 @@
     <meta name="author" content="">
    <title>Meter Reading KIPL</title>
     <!--jquery-->
-    <%= stylesheet_link_tag "application","style","bootstrap.min" %>
+    <%= stylesheet_link_tag "application","style","bootstrap.min" ,"gmaps4rails.css" %>
 
    <%= javascript_include_tag "application","bootstrap-transition","bootstrap-alert","bootstrap-modal","bootstrap-dropdown","bootstrap-scrollspy","bootstrap-tab","bootstrap-tooltip","bootstrap-popover","bootstrap-button","bootstrap-collapse","bootstrap-carousel","bootstrap-typeahead", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
@@ -139,7 +139,7 @@
         </div>
     </div>
     <!--Container-->
-    <div class="container-fluid" style="margin-top:50px">
+    <div class="container-fluid" style="margin-top:0">
       	<% flash.each do |key, value| %>
            <div class="flash <%= key %>"><%= value %></div>
         <% end %>

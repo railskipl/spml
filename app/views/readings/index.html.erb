@@ -102,7 +102,7 @@ defaultTime: false
         <td><%= reading.consumer_no rescue nil%>&nbsp;</td>
         <td><%= reading.read_by rescue nil%>&nbsp;</td>
         <td><% a = TeamUser.find_by_user_role_id(reading.user_id).team_id rescue nil%>
-          <%= User.find(UserRole.find(Team.find(a).user_role_id).user_id).first_name  %>
+          <%= User.find(UserRole.find(Team.find(a).user_role_id).user_id).first_name rescue nil %>
         </td>
         <td><%= reading.meter_reading  rescue nil%>&nbsp;</td>
         <td><%= reading.dtc rescue nil%>&nbsp;</td>

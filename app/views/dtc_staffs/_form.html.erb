@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :user_id, "User" %><br>
-    <%= select("dtc_staff", "user_id", User.all.collect {|p| [ p.username, p.id ] }, {include_blank: 'select user'}) %>
+    <%= select("dtc_staff", "user_id", User.find_all_by_role_id(2).collect {|p| [ p.username, p.id ] }, {include_blank: 'select user'}) %>
   </div>
   <br/>
   <div class="actions">

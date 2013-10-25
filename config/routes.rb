@@ -61,8 +61,11 @@ Sndl::Application.routes.draw do
   get 'search_vendor_summary'  => "readings#search_vendor_summary"
   
   get 'search_by_reader'  => "readings#search_by_reader"
- get  'search_by_date'  => "readings#search_by_date"
+  
+  get  'search_by_date'  => "readings#search_by_date"
 
+  get  'search_by_date_summary'  => "readings#search_by_date_summary"
+ 
  resources :password_resets
  resources :staffs
  resources :readings do

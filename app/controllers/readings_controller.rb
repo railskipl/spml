@@ -90,7 +90,7 @@ class ReadingsController < ApplicationController
      if params[:search].nil? || params[:search].empty?
       redirect_to activity_report_readings_url ,:alert => "Search field cannot be empty"
      else
-        user = User.where("username LIKE ?","%#{params[:search]}%")
+        user = User.where("username iLIKE ?","%#{params[:search]}%")
       user_id = user[0].id rescue nil
       @user = User.find(user_id).id rescue nil
       @teams = Team.find_all_by_user_id(@user)
@@ -106,7 +106,7 @@ class ReadingsController < ApplicationController
      if params[:search].nil? || params[:search].empty?
       redirect_to activity_report_readings_url ,:alert => "Search field cannot be empty"
      else
-     @readings= Reading.where("read_by LIKE ? ", "%#{params[:search]}%")
+     @readings= Reading.where("read_by iLIKE ? ", "%#{params[:search]}%")
       respond_to do |format|
         format.html
         format.xls 
@@ -114,14 +114,16 @@ class ReadingsController < ApplicationController
     end
   end
 
+
   def search_by_date
     start_from =  "#{params['start_date']} #{params['timepicker1']}"
     start_to = "#{params['end_date']} #{params['timepicker2']}"
+    if start_from > start_to
+     redirect_to activity_report_readings_url, alert: "Start time cannot be greater"
+    else
     @readings = Reading.where("date_time >= ? and date_time <= ?" ,start_from,start_to)
-    
+    end
   end
-
- 
   
     # Use callbacks to share common setup or constraints between actions.
  private

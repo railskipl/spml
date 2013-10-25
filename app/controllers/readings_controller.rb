@@ -86,7 +86,7 @@ class ReadingsController < ApplicationController
     end
   end
 
-    def search_vendor1
+    def search_vendor_report
      if params[:search].nil? || params[:search].empty?
       redirect_to activity_report_readings_url ,:alert => "Search field cannot be empty"
      else
@@ -96,6 +96,21 @@ class ReadingsController < ApplicationController
       @teams = Team.find_all_by_user_id(@user)
 
       respond_to do |format|
+        format.html
+        format.xls 
+      end
+    end
+  end
+
+ def search_vendor_summary
+     if params[:search].nil? || params[:search].empty?
+      redirect_to activity_summary_report_readings_url ,:alert => "Search field cannot be empty"
+     else
+        user = User.where("username iLIKE ?","%#{params[:search]}%")
+      user_id = user[0].id rescue nil
+      @user = User.find(user_id).id rescue nil
+      @teams = Team.find_all_by_user_id(@user)
+       respond_to do |format|
         format.html
         format.xls 
       end

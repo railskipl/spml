@@ -56,7 +56,9 @@ Sndl::Application.routes.draw do
  
   get 'search_vendor'  => "teams#search_vendor"
   
-  get 'search_vendor1'  => "readings#search_vendor1"
+  get 'search_vendor_report'  => "readings#search_vendor_report"
+
+  get 'search_vendor_summary'  => "readings#search_vendor_summary"
   
   get 'search_by_reader'  => "readings#search_by_reader"
  get  'search_by_date'  => "readings#search_by_date"
@@ -69,6 +71,7 @@ Sndl::Application.routes.draw do
   end
   collection do
     get 'activity_report'
+    get 'activity_summary_report'
   end
  end
 resources :mobileusers

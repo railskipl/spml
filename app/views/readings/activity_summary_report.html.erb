@@ -1,0 +1,13 @@
+<div class="page-header-custom">
+ <h3 align = "center">Activity Summary Report</h3>
+</div>
+
+<%= form_tag search_vendor_summary_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search by vendor", :team_name => nil %>
+  </p>
+<% end %>
+
+
+

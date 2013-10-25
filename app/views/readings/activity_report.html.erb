@@ -2,7 +2,7 @@
  <h3 align = "center">Activity Report</h3>
 </div>
 
-<%= form_tag search_vendor1_path, :method => 'get' do %>
+<%= form_tag search_vendor_report_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search by vendor", :team_name => nil %>
@@ -66,3 +66,5 @@ defaultTime: false
 
 <%= submit_tag "Search by date and time" %>
 <% end %>
+
+<a href="<%= activity_summary_report_readings_path %>"><i class="nav-icon-12"></i><span>Activity Summary Report </span></a>

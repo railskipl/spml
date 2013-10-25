@@ -14,10 +14,10 @@
     <% @teams.each do |team| %>
       <tr>
         <td><%= team.team_name %></td>
-        <td><%= team.user_role.name %></td>
+        <td><%= team.user.username %></td>
         <td>
           <% TeamUser.find_all_by_team_id(team.id).each do |reader|%>
-          <%= reader.user_role.name %>,
+          <%= reader.user.first_name %>,
           <% end %>
         </td>
         <td><%= link_to 'Show', team %></td>

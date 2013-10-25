@@ -20,7 +20,7 @@ class CreateReadings < ActiveRecord::Migration
       t.string :reader_mobile_no
       t.string :meter_reader_status
       t.text :remark
-      t.integer :read_by
+      t.string :read_by
       
       t.timestamps
     end

@@ -6,12 +6,12 @@
 
 <p>
   <strong>User role:</strong>
-    <%= @team.user_role.name %><br/>
+    <%= @team.user.username %><br/>
 </p>
   <strong>Reader</strong>
 <% @readers.each do |reader|%>
 <p>
-  <%= reader.user_role.name rescue nil %>
+  <%= reader.user.first_name rescue nil %>
 </p>
 <% end %>
 

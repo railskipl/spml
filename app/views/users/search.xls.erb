@@ -9,7 +9,7 @@
   <tr>
     <td><%= user.first_name %> <%= user.last_name %></td>
     <td><%= user.username %></td>
-     <td><%= Role.find(user.role_id).name %></td>
+     <td><%= Role.find(user.role_id).name  rescue nil %></td>
   </tr>
 <% end %>
 </table>

@@ -100,17 +100,17 @@ end
 
 def search
   #@users = User.all
-  if params["name"] == "readers"
-    @users = User.find_all_by_role_id(3)
- elsif params["name"] == "vendors"
+   if params["name"] == "readers"
+    @users = User.find_all_by_role_id(2)
+   elsif params["name"] == "vendors"
     @users = User.find_all_by_role_id(1)
-  else
-  @users = User.where("first_name iLIKE ? OR last_name iLIKE ? OR concat(first_name,' ',last_name) iLIKE ?","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%")
-  end
-  respond_to do |format|
+   else
+    @users = User.where("first_name LIKE ? OR last_name LIKE ? OR concat(first_name,' ',last_name) LIKE ?","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%")
+   end
+ respond_to do |format|
       format.html
       format.xls 
-  end
+ end
 
 end
 

@@ -33,10 +33,10 @@
     <% @teams.each do |team| %>
       <tr>
         <td><%= team.team_name %></td>
-        <td><%= team.user_role.name rescue nil %></td>
+        <td><%= team.user.username rescue nil %></td>
         <td>
           <% TeamUser.find_all_by_team_id(team.id).each do |reader|%>
-          <%= reader.user_role.name rescue nil  %>,
+          <%= reader.user.first_name rescue nil  %>,
           <% end %>
         </td>
         <td><%= link_to 'Show', team %></td>

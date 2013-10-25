@@ -17,7 +17,7 @@ class TeamsController < ApplicationController
     if params[:search].nil? || params[:search].empty?
       redirect_to teams_url ,:alert => "Search field cannot be empty"
     else
-      @teams = Team.where('team_name iLIKE ?', "%#{params[:search]}%")
+      @teams = Team.where('team_name LIKE ?', "%#{params[:search]}%")
      respond_to do |format|
       format.html
       format.xls 
@@ -29,10 +29,11 @@ class TeamsController < ApplicationController
      if params[:search].nil? || params[:search].empty?
       redirect_to teams_url ,:alert => "Search field cannot be empty"
      else
-      user = User.where("username iLIKE ?","%#{params[:search]}%")
+      user = User.where("username LIKE ?","%#{params[:search]}%")
       user_id = user[0].id rescue nil
-      @user = UserRole.find_by_user_id(user_id).id rescue nil
-      @teams = Team.find_all_by_user_role_id(@user)
+      @user = User.find(user_id).id rescue nil
+      @teams = Team.find_all_by_user_id(@user)
+     
       respond_to do |format|
         format.html
         format.xls 
@@ -55,14 +56,14 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
       a =  params["name_id"]
       b = @team["team_name"]
-      c = @team["user_role_id"]
+      c = @team["user_id"]
       if (a.nil? || b.empty? || c.nil?)
        redirect_to new_team_path, notice: 'Please Select Mandatory fields' 
       else
         respond_to do |format|
           if @team.save
              a.each do |b|
-             TeamUser.create(:team_id => @team.id , :user_role_id => b)  
+             TeamUser.create(:team_id => @team.id , :user_id => b)  
             end
             format.html { redirect_to @team, notice: 'Team was successfully created.' }
             format.json { render action: 'show', status: :created, location: @team }
@@ -106,7 +107,7 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:team_name, :user_role_id)
+      params.require(:team).permit(:team_name, :user_id)
     end
 
 

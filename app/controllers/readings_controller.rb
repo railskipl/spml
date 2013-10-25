@@ -88,12 +88,13 @@ class ReadingsController < ApplicationController
 
     def search_vendor1
      if params[:search].nil? || params[:search].empty?
-      redirect_to readings_url ,:alert => "Search field cannot be empty"
+      redirect_to activity_report_readings_url ,:alert => "Search field cannot be empty"
      else
-      user = User.where("username LIKE ?","%#{params[:search]}%")
+        user = User.where("username LIKE ?","%#{params[:search]}%")
       user_id = user[0].id rescue nil
-      @user = UserRole.find_by_user_id(user_id).id rescue nil
-      @teams = Team.find_all_by_user_role_id(@user)
+      @user = User.find(user_id).id rescue nil
+      @teams = Team.find_all_by_user_id(@user)
+
       respond_to do |format|
         format.html
         format.xls 
@@ -103,7 +104,7 @@ class ReadingsController < ApplicationController
 
    def search_by_reader
      if params[:search].nil? || params[:search].empty?
-      redirect_to readings_url ,:alert => "Search field cannot be empty"
+      redirect_to activity_report_readings_url ,:alert => "Search field cannot be empty"
      else
      @readings= Reading.where("read_by LIKE ? ", "%#{params[:search]}%")
       respond_to do |format|

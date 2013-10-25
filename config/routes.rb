@@ -67,6 +67,9 @@ Sndl::Application.routes.draw do
   member do
     get 'show_image'
   end
+  collection do
+    get 'activity_report'
+  end
  end
 resources :mobileusers
  resources :consumers do

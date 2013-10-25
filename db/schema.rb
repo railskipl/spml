@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131024065051) do
+ActiveRecord::Schema.define(version: 20131025060936) do
 
   create_table "consumers", force: true do |t|
     t.string   "pc"
@@ -117,31 +117,26 @@ ActiveRecord::Schema.define(version: 20131024065051) do
     t.string   "bu"
     t.string   "pc"
     t.string   "dtc"
+    t.string   "bill_month"
     t.string   "pole_no"
     t.string   "consumer_name"
     t.string   "reader_mobile_no"
     t.string   "meter_reader_status"
     t.text     "remark"
-    t.string   "read_by",             limit: 25
+    t.string   "read_by"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "pincode"
-    t.string   "address"
-    t.string   "city"
-    t.string   "bill_month"
-    t.boolean  "status",                                 default: false
+    t.boolean  "status",              default: false
     t.string   "consumer_status"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.binary   "avatar_file",         limit: 2147483647
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.binary   "img"
     t.integer  "user_id"
+    t.string   "pincode"
+    t.string   "address"
+    t.string   "city"
   end
 
   create_table "roles", force: true do |t|
@@ -155,6 +150,7 @@ ActiveRecord::Schema.define(version: 20131024065051) do
     t.integer  "user_role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "teams", force: true do |t|
@@ -162,6 +158,7 @@ ActiveRecord::Schema.define(version: 20131024065051) do
     t.integer  "user_role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "user_roles", force: true do |t|

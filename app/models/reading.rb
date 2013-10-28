@@ -12,6 +12,14 @@ attr_accessible :meter_reading,:consumer_no,:meter_status,:date_time,:latitude,:
 #     self.photo = URI.parse(url)
 #   end
 
+def gmaps4rails_infowindow
+   " #{self.read_by} #{self.date_time.strftime("%T %a %b %e %Y ")}"
+end
+
+def combined_value
+  "#{self.bu}-#{self.pc}"
+end
+
 before_create :convert_time
 
 def convert_time

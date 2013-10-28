@@ -65,6 +65,15 @@ Sndl::Application.routes.draw do
   get  'search_by_date'  => "readings#search_by_date"
 
   get  'search_by_date_summary'  => "readings#search_by_date_summary"
+
+  get  'user_tracking'  => "readings#user_tracking"
+
+  get  'user_tracking_report'  => "readings#user_tracking_report"
+
+  get 'user_map' => 'readings#user_map'
+
+
+  get 'readers_map' => 'readings#readers_map'
  
  resources :password_resets
  resources :staffs

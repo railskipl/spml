@@ -20,11 +20,23 @@
     <%= select("dtc_staff", "dtc", Consumer.select("DISTINCT(dtc)").collect {|p| [ p.dtc, p.dtc ] }, {include_blank: 'select DTC'}) %>
   </div>
   <div class="field">
-    <%= f.label :user_id, "User" %><br>
-    <%= select("dtc_staff", "user_id", User.find_all_by_role_id(2).collect {|p| [ p.username, p.id ] }, {include_blank: 'select user'}) %>
+    <%= f.label :bu, "BU" %><br>
+    
+    <%= select("dtc_staff", "bu", Consumer.select("DISTINCT(bu)").collect {|p| [ p.bu, p.bu ] }, {include_blank: 'select BU'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :pc, "PC" %><br>
+    
+    <%= select("dtc_staff", "pc", Consumer.select("DISTINCT(pc)").collect {|p| [ p.pc, p.pc ] }, {include_blank: 'select pc'}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id, "Reader" %><br>
+    <%= select("dtc_staff", "user_id", User.find_all_by_role_id(2).collect {|p| [ p.username, p.id ] }, {include_blank: 'select reader'}) %>
   </div>
   <br/>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+

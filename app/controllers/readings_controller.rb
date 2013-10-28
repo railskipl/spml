@@ -86,6 +86,31 @@ class ReadingsController < ApplicationController
     end
   end
 
+  def user_tracking_report
+    reader = "%#{params['reader']}%"
+    start_from =  "#{params['start_date']} #{params['timepicker1']}"
+    start_to = "#{params['end_date']} #{params['timepicker2']}"
+
+    if start_from.blank? || start_to.blank?
+     redirect_to user_tracking_url, alert: "Please select date and time"
+    else
+    if start_from > start_to
+     redirect_to user_tracking_url, alert: "Start time cannot be greater"
+    else
+    @readings = Reading.where("read_by LIKE ? and  date_time >= ? and date_time <= ?" ,reader,start_from,start_to)
+    end
+    end
+  end
+
+  def user_map
+    readings =  params["reading_ids"]
+    @readings ||= []
+    readings.each do |reading|
+     @readings <<  Reading.find_by_id(reading)
+    end
+       @json =  @readings.to_gmaps4rails
+  end
+
     def search_vendor_report
      if params[:search].nil? || params[:search].empty?
       redirect_to activity_report_readings_url ,:alert => "Search field cannot be empty"
@@ -159,6 +184,12 @@ class ReadingsController < ApplicationController
     @readings = Reading.where("date_time >= ? and date_time <= ?" ,start_from,start_to)
     end
     end
+  end
+
+  def readers_map
+
+    @readings = Reading.where("concat(bu,'-',pc) LIKE ?",params[:myselecttsms1])
+    @json = @readings.to_gmaps4rails
   end
   
     # Use callbacks to share common setup or constraints between actions.

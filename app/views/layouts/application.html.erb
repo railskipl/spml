@@ -19,7 +19,7 @@
         <div class="navbar-inner">
             <div class="container-fluid">
                 <a class="brand" href="/dashboard">
-                    <img src="/assets/image001.gif" width="134px" height="100" alt="logo" /></a>
+                    <img src="/assets/logo.png" width="70" height="43" alt="logo" /></a>
                     <% if signed_in? %>
                 <ul id="primary-nav" class="nav">
 <!--                     <li><a href="<%= user_root_path %>"><i class="nav-icon-9"></i><span>Home</span></a></li>
@@ -34,14 +34,17 @@
 
 
 <li><a href="<%= activity_report_readings_path %>"><i class="nav-icon-12"></i><span>Activity Report </span></a></li>
+
+<li><a href="<%= user_tracking_path %>"><i class="nav-icon-12"></i><span>User Report </span></a></li>
+
 <li><a href="<%= staffs_path %>"><i class="nav-icon-12"></i><span>Add Staff</span></a></li>
 
 <li><a href="<%= teams_path %>"><i class="nav-icon-19"></i><span>Create Team</span></a></li>
-<li><a href="<%= dtc_staffs_path %>"><i class="nav-icon-10"></i><span>Dtc To Staff</span></a></li>
+<li><a href="<%= dtc_staffs_path %>"><i class="nav-icon-10"></i><span>Associate Route<br/> To Staff</span></a></li>
 
-<li><a href="<%= mobileusers_path %>"><i class="nav-icon-15"></i><span>Assign Mobile To User</span></a></li>
+<li><a href="<%= mobileusers_path %>"><i class="nav-icon-15"></i><span>Assign Mobile<br/> To User</span></a></li>
 
- <li><a href="<%= add_csv_consumers_path %>"><i class="nav-icon-16"></i><span>Upload Consumers</span></a></li>
+ <li><a href="<%= add_csv_consumers_path %>"><i class="nav-icon-16"></i><span>Upload<br/>Consumers</span></a></li>
  <li><a href="<%= meter_statuses_path %>"><i class="nav-icon-17"></i><span>Meter Status</span></a></li>
  <li><a href="<%= meter_reader_statuses_path %>"><i class="nav-icon-18"></i><span>Meter Reader Status</span></a></li>
  <li><a href="<%= route_consumers_path %>"><i class="nav-icon-18"></i><span>Route Listing</span></a></li>
@@ -57,14 +60,14 @@
                 <ul id="secondary-nav" class="nav pull-right">
                     
                     <li class="dropdown"><a href="#" data-toggle="dropdown"><i class="icon-cog icon-white">
-                    </i><span>Setting</span></a>
+                    </i><span>Settings</span></a>
                         <ul class="dropdown-menu">
                             <li><a href="<%= user_path(current_user) %>"><i class="icon-wrench"></i>&nbsp;Profile</a></li>
                            
                         </ul>
                     </li>
                     <% if signed_in? %>
-                    <li><a href="<%=  signout_path %> " data-method="destroy"><i class="icon-off icon-white"></i>&nbsp;Logout</a></li>
+                    <li><a href="<%=  signout_path %> " data-method="destroy"><i class="icon-off icon-white"></i>Logout</a></li>
                     <%else%>
                     <li><a href="<%= signin_path %>"><i class="icon-off icon-white"></i>&nbsp;Login</a></li>
                     <%end%>

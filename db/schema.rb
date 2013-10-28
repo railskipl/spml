@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131025060936) do
+ActiveRecord::Schema.define(version: 20131028102124) do
 
   create_table "consumers", force: true do |t|
     t.string   "pc"
@@ -73,6 +73,9 @@ ActiveRecord::Schema.define(version: 20131025060936) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "bu"
+    t.string   "pc"
+    t.string   "route_name"
   end
 
   create_table "meter_reader_statuses", force: true do |t|

@@ -3,7 +3,6 @@
     <tr>
       <th>Reader</th>
       <th>Team</th>
-      <th>Counts</th>
     </tr>
    
    <% @readings.each do |team| %>
@@ -12,7 +11,7 @@
   <% a = Reading.find_all_by_user_id(reader.user_id) rescue nil %>
    <td><%= reader.user.first_name rescue nil %></td>
    <td><%= Team.find(reader.team_id).user.username rescue nil %></td>
-  <td><%= link_to a.count, search_by_reader_path(:search => reader.user.first_name) rescue nil%>&nbsp;</td>
+  
    
     <% end %>
     </tr>
@@ -20,4 +19,3 @@
     <% end %>
 </table>
 
-<%= link_to "Excel", search_by_date_summary_path(params.merge(format: "xls")) %>

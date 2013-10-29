@@ -1,0 +1,91 @@
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>PC</th>
+      <th>BU</th>
+      <th>Consumer name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>DTC</th>
+    </tr>
+  </thead>
+
+  <tbody>
+   <% @consumers.each do |consumer| %>
+      <tr>
+        <td><%= consumer.bu %></td>
+        <td><%= consumer.pc %></td>
+        <td><%= consumer.name %></td>
+        <td><%= consumer.addrs %></td>
+        <td><%= consumer.city %></td>
+        <td><%= consumer.dtc %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
+  
+    <tr>
+      
+      <th>Consumer number</th>
+      <th>Reader</th>
+      <th>Team</th>
+      <th>Meter reading</th>
+      <th>Dtc</th>
+      <th>Meter Status</th>
+      <th>Meter Reader Status</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Action</th>
+    </tr>
+  
+
+ 
+    <%  @readers.each do |reading| %>
+      <tr>
+        <td><%= reading.consumer_no rescue nil%>&nbsp;</td>
+        <td><%= reading.read_by rescue nil%>&nbsp;</td>
+        <td><% a =  TeamUser.find_by_user_id(reading.user_id).team_id %>
+      <%= User.find(Team.find(a).user_id).username rescue nil %>
+        </td>
+        <td><%= reading.meter_reading  rescue nil%>&nbsp;</td>
+        <td><%= reading.dtc rescue nil%>&nbsp;</td>
+        <td><%= reading.meter_status rescue nil%>&nbsp;</td>
+        <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
+        <td><%= reading.latitude rescue nil%>&nbsp;</td>
+        <td><%= reading.longitude rescue nil%>&nbsp;</td>
+        <td> <%= link_to 'Show', reading %></td>
+
+      </tr>
+    <% end %>
+  
+</table>
+
+
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
+  
+    <tr>
+      <th>Name</th>
+      <th>User Name</th>
+      <th>Email</th>
+      <th>Mobile No</th>
+      <th>Role</th>
+    </tr>
+  
+
+ 
+    <%  @users.each do |user| %>
+      <tr>
+       <td><%= user.first_name rescue nil%>&nbsp;<%= user.last_name rescue nil%></td>
+       <td><%= user.username rescue nil%>&nbsp;</td>
+       <td><%= user.email rescue nil%>&nbsp;</td>
+       <td><%= user.mobile_no rescue nil%>&nbsp;</td>
+       <td><%= Role.find(user.role_id).name rescue nil%>&nbsp;</td>
+      </tr>
+    <% end %>
+  
+</table>

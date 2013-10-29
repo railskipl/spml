@@ -72,6 +72,7 @@ Sndl::Application.routes.draw do
 
   get 'user_map' => 'readings#user_map'
 
+ get 'search_all' => 'users#search_all'
 
   get 'readers_map' => 'readings#readers_map'
  

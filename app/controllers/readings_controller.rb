@@ -109,7 +109,7 @@ class ReadingsController < ApplicationController
     if start_from > start_to
      redirect_to user_tracking_url, alert: "Start time cannot be greater"
     else
-    @readings = Reading.where("read_by LIKE ? and  date_time >= ? and date_time <= ?" ,reader,start_from,start_to)
+    @readings = Reading.where("read_by iLIKE ? and  date_time >= ? and date_time <= ?" ,reader,start_from,start_to)
     end
     end
   end

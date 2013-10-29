@@ -1,11 +1,4 @@
 
-Search By : 
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
-<tr>
-  <td><%= link_to "All", readings_path %></td>
-  <td><%= link_to 'Old consumer' ,readings_consumer_status_path(:consumer_status => true)%></td>
-  <td><%= link_to 'New consumer' ,readings_consumer_status_path(:consumer_status => false)%></td>
-</table>
 <% if params[:consumer_status] == "true" %>
 
 <div class="page-header-custom">
@@ -28,7 +21,6 @@ Search By :
       <th>Meter Reader Status</th>
       <th>Latitude</th>
       <th>Longitude</th>
-      <th>Action</th>
     </tr>
   
 
@@ -46,14 +38,11 @@ Search By :
         <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
         <td><%= reading.latitude rescue nil%>&nbsp;</td>
         <td><%= reading.longitude rescue nil%>&nbsp;</td>
-        <td> <%= link_to 'Show', reading %></td>
 
       </tr>
     <% end %>
   
 </table>
-<%= link_to "Excel", readings_consumer_status_path(params.merge(format: "xls")) %>
-
 <% else %>
 <div class="page-header-custom">
             <h3 align = "center">
@@ -75,7 +64,6 @@ Search By :
       <th>Meter Reader Status</th>
       <th>Latitude</th>
       <th>Longitude</th>
-      <th>Action</th>
     </tr>
   
 
@@ -93,12 +81,9 @@ Search By :
         <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
         <td><%= reading.latitude rescue nil%>&nbsp;</td>
         <td><%= reading.longitude rescue nil%>&nbsp;</td>
-        <td> <%= link_to 'Show', reading %></td>
-
       </tr>
     <% end %>
   
 </table>
-<%= link_to "Excel", readings_consumer_status_path(params.merge(format: "xls")) %>
 
 <% end %>

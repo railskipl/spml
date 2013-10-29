@@ -106,11 +106,11 @@ class ReadingsController < ApplicationController
     if start_from.blank? || start_to.blank?
      redirect_to user_tracking_url, alert: "Please select date and time"
     else
-    if start_from > start_to
-     redirect_to user_tracking_url, alert: "Start time cannot be greater"
-    else
-    @readings = Reading.where("read_by iLIKE ? and  date_time >= ? and date_time <= ?" ,reader,start_from,start_to)
-    end
+     if start_from > start_to
+       redirect_to user_tracking_url, alert: "Start time cannot be greater"
+      else
+      @readings = Reading.where("read_by iLIKE ? and  date_time >= ? and date_time <= ?" ,reader,start_from,start_to)
+      end
     end
   end
 
@@ -120,7 +120,7 @@ class ReadingsController < ApplicationController
     readings.each do |reading|
      @readings <<  Reading.find_by_id(reading)
     end
-       @json =  @readings.to_gmaps4rails
+    @json =  @readings.to_gmaps4rails
   end
 
     def search_vendor_report
@@ -200,7 +200,7 @@ class ReadingsController < ApplicationController
 
   def readers_map
 
-    @readings = Reading.where("concat(bu,'-',pc) LIKE ?",params[:myselecttsms1])
+    @readings = Reading.where("concat(bu,'-',pc) iLIKE ?",params[:myselecttsms1])
     @json = @readings.to_gmaps4rails
   end
   

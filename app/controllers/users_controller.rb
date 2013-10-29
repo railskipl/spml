@@ -36,8 +36,7 @@ class UsersController < ApplicationController
     
    render :json => @dtc_staff1 
    
-
- end
+end
 
 
   def edit

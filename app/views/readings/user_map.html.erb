@@ -40,6 +40,14 @@ function initialize() {
     <% end %>
   ];
 
+    <% JSON.parse(@json).each do |j| %>
+
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(<%= j["lat"] %>,<%= j["lng"] %>),
+      map: map,
+      title: 'Hello World!'
+  });
+<% end %>
   // Construct the polygon.
   polygon = new google.maps.Polygon({
     paths: triangleCoords,

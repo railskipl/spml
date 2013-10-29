@@ -57,7 +57,7 @@ class ReadingsController < ApplicationController
   end
   
   def consumer_status
-    @readings_status = Reading.find_all_by_consumer_status(params[:consumer_status])
+    @readings_status = Reading.find_all_by_consumer_status(params[:consumer_status],:order => 'date_time DESC')
   end
 
   def redis

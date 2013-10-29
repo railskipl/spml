@@ -20,38 +20,38 @@ Search By :
     <tr>
       
       <th>Consumer number</th>
+      <th>Reader</th>
+      <th>Team</th>
       <th>Meter reading</th>
       <th>Dtc</th>
       <th>Meter Status</th>
       <th>Meter Reader Status</th>
       <th>Latitude</th>
       <th>Longitude</th>
-        <th>Reading image</th>
       <th>Action</th>
     </tr>
   
 
  
-    <%  @readings_status.each do |consumer_status|%>
+    <%  @readings_status.each do |reading| %>
       <tr>
-       
-        <td><%= consumer_status.consumer_no rescue nil%>&nbsp;</td>
-         <td><%= consumer_status.meter_reading  rescue nil%>&nbsp;</td>
-         <td><%= consumer_status.dtc rescue nil%>&nbsp;</td>
-         <td><%= consumer_status.meter_status rescue nil%>&nbsp;</td>
-         <td><%= consumer_status.meter_reader_status rescue nil%>&nbsp;</td>
-         <td><%= consumer_status.latitude rescue nil%>&nbsp;</td>
-         <td><%= consumer_status.longitude rescue nil%>&nbsp;</td>
-        <td><%= image_tag consumer_status.image_url.to_s ,:width => 155 %>
-        
-</td>
-    <td> <%= link_to 'Show', consumer_status%></td>
+        <td><%= reading.consumer_no rescue nil%>&nbsp;</td>
+        <td><%= reading.read_by rescue nil%>&nbsp;</td>
+        <td><% a =  TeamUser.find_by_user_id(reading.user_id).team_id %>
+      <%= User.find(Team.find(a).user_id).username rescue nil %>
+        </td>
+        <td><%= reading.meter_reading  rescue nil%>&nbsp;</td>
+        <td><%= reading.dtc rescue nil%>&nbsp;</td>
+        <td><%= reading.meter_status rescue nil%>&nbsp;</td>
+        <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
+        <td><%= reading.latitude rescue nil%>&nbsp;</td>
+        <td><%= reading.longitude rescue nil%>&nbsp;</td>
+        <td> <%= link_to 'Show', reading %></td>
 
       </tr>
     <% end %>
   
 </table>
-
 <% else %>
 <div class="page-header-custom">
             <h3 align = "center">
@@ -65,32 +65,33 @@ Search By :
     <tr>
       
       <th>Consumer number</th>
+      <th>Reader</th>
+      <th>Team</th>
       <th>Meter reading</th>
       <th>Dtc</th>
       <th>Meter Status</th>
       <th>Meter Reader Status</th>
       <th>Latitude</th>
       <th>Longitude</th>
-        <th>Reading image</th>
       <th>Action</th>
     </tr>
   
 
  
-    <%  @readings_status.each do |consumer_status|%>
+    <%  @readings_status.each do |reading| %>
       <tr>
-       
-        <td><%= consumer_status.consumer_no rescue nil%>&nbsp;</td>
-         <td><%= consumer_status.meter_reading  rescue nil%>&nbsp;</td>
-         <td><%= consumer_status.dtc rescue nil%>&nbsp;</td>
-         <td><%= consumer_status.meter_status rescue nil%>&nbsp;</td>
-         <td><%= consumer_status.meter_reader_status rescue nil%>&nbsp;</td>
-         <td><%= consumer_status.latitude rescue nil%>&nbsp;</td>
-         <td><%= consumer_status.longitude rescue nil%>&nbsp;</td>
-        <td><%= image_tag consumer_status.image_url.to_s ,:width => 155 %>
-        
-</td>
-    <td> <%= link_to 'Show', consumer_status%></td>
+        <td><%= reading.consumer_no rescue nil%>&nbsp;</td>
+        <td><%= reading.read_by rescue nil%>&nbsp;</td>
+        <td><% a =  TeamUser.find_by_user_id(reading.user_id).team_id %>
+      <%= User.find(Team.find(a).user_id).username rescue nil %>
+        </td>
+        <td><%= reading.meter_reading  rescue nil%>&nbsp;</td>
+        <td><%= reading.dtc rescue nil%>&nbsp;</td>
+        <td><%= reading.meter_status rescue nil%>&nbsp;</td>
+        <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
+        <td><%= reading.latitude rescue nil%>&nbsp;</td>
+        <td><%= reading.longitude rescue nil%>&nbsp;</td>
+        <td> <%= link_to 'Show', reading %></td>
 
       </tr>
     <% end %>

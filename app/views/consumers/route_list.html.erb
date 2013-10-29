@@ -1,10 +1,14 @@
 <table border>
+<tr>
+	<th>Route Name</th>
+	<th>Consumers</th>
+</tr>
   <% @dtc.each do |dtc| %>
     <tr>
 	 <td><%= dtc %>-<%= @consumers.find_by_dtc(dtc).bu %>-<%= @consumers.find_by_dtc(dtc).pc %></td>
 	<td>
      <% @consumers.where("dtc LIKE ?",dtc).each do |c| %>
-	  <%= c.name %>,
+	  <%= c.name %> |
      <% end %></td>
 	</tr>
   <% end %>

@@ -25,7 +25,7 @@ class DtcStaffsController < ApplicationController
   # POST /dtc_staffs
   # POST /dtc_staffs.json
   def create
-      raise params.inspect
+
     @dtc_staff = DtcStaff.new(params[:dtc_staff])
 
     respond_to do |format|

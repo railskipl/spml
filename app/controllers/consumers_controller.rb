@@ -11,7 +11,7 @@ class ConsumersController < ApplicationController
   end
   
   def route_list
-     @consumers = Consumer.where("concat(dtc,'-',bu,'-',pc) iLIKE ?","%#{params[:search]}%")
+     @consumers = Consumer.where("concat(dtc,'-',bu,'-',pc) LIKE ?","%#{params[:search]}%")
      @dtc =  @consumers.uniq.pluck(:dtc)
      # @bu =  @consumers.uniq.pluck(:bu)
      # @pc =  @consumers.uniq.pluck(:pc)

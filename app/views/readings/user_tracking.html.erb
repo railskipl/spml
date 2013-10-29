@@ -56,12 +56,11 @@ defaultTime: false
 
 <%= form_tag readers_map_path , :method => 'get' do %>
   <p>
-       <select  name="myselecttsms1"  id="select-toggle">
-      <% Consumer.all.each do |route_name| %>
-    <option> <%= route_name.bu %>-<%= route_name.pc %></option>
+    <select  name="myselecttsms1"  id="select-toggle">
+      <%= @consumer.each do |route_name| %>
+    <option> <%= route_name.bu %>-<%= route_name.pc %> </option>
     <% end %>
- 
-</select>
-    <%= submit_tag "Search by vendor", :team_name => nil %>
+   </select>
+    <%= submit_tag "Search", :team_name => nil %>
   </p>
 <% end %>

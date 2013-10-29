@@ -43,11 +43,17 @@ class ReadingsController < ApplicationController
   
     @reading = Reading.create(:user_id => params[:user_id] ,:meter_reading=>params[:meter_reading],:consumer_no=>params[:consumer_no],:pc =>params[:pc],:pincode =>params[:pincode],:bu =>params[:bu],:address=>params[:address],:city=>params[:city],:consumer_name=> params[:consumer_name],:dtc =>params[:dtc],:pole_no =>params[:poleno],:reader_mobile_no=>params[:reader_mobile_no],:date_time=>params[:date_time],:latitude=>params[:latitude],:longitude =>params[:longitude],:ime_no=> @ime_no ,:image => params[:uploaded],
     :meter_status=>params[:meter_status],:old_meter_no=>params[:old_meter_no],:new_meter_no=>params[:new_meter_no],:bill_month=>params[:bill_month],:meter_reader_status=>params[:meter_reader_status],:remark=>params[:remark],:read_by=>@read_by,:status => params[:flag],:consumer_status=>params[:consumer_status])
-    
-    consumer = Consumer.find_by_consno(params[:consumer_no])
-     
-    consumer.update_column(:status,true) rescue nil
-   render :status =>200,:json => { :error => "valid" } 
+
+    if @reading.consumer_status == "true"
+     consumer = Consumer.find_by_consno(params[:consumer_no])
+     consumer.update_column(:status,true) rescue nil
+     render :status =>200,:json => { :error => "valid" }
+
+    else
+      @reading.consumer_create
+         render :status =>200,:json => { :error => "valid" }
+
+    end
   end
   
   def consumer_status
@@ -84,6 +90,12 @@ class ReadingsController < ApplicationController
       format.html { redirect_to readings_url }
       format.json { head :no_content }
     end
+  end
+
+  def user_tracking
+    @consumer = Reading.select(:bu,:pc).distinct
+    # @consumer_r = Reading.select(:bu,:pc).distinct
+    # raise @consumer_r.inspect
   end
 
   def user_tracking_report

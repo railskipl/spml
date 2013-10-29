@@ -26,4 +26,11 @@ def convert_time
 	self.date_time = (self.created_at + (5.hour + 30.minutes))
 end
 
+def consumer_create
+  Consumer.create(:consno => self.consumer_no, :bu => self.bu, :pc => self.pc,:poleno => self.pole_no,:name => self.consumer_name,:addrs => self.address,:city => self.city)	
+end
+
+
+
+
 end

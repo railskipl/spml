@@ -51,7 +51,6 @@ class DtcStaffsController < ApplicationController
 
   @dtc1 = Hash["allocated_consumer" => @dtc, "meter_status" => @meter]
 
-   puts @dtc1
    respond_to do |format|
         format.html
         format.json { render json: @dtc1 }

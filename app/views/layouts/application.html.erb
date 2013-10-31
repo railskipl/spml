@@ -9,6 +9,11 @@
     <!--jquery-->
     <%= stylesheet_link_tag "application","style","bootstrap.min" ,"gmaps4rails.css" %>
 
+
+<%= stylesheet_link_tag  "token-input-facebook" %>
+<%= javascript_include_tag  "jquery.tokeninput" %>
+
+
    <%= javascript_include_tag "application","bootstrap-transition","bootstrap-alert","bootstrap-modal","bootstrap-dropdown","bootstrap-scrollspy","bootstrap-tab","bootstrap-tooltip","bootstrap-popover","bootstrap-button","bootstrap-collapse","bootstrap-carousel","bootstrap-typeahead", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
     <%= yield :scripts %>

@@ -35,6 +35,7 @@ Search By :<table cellpadding="0" cellspacing="0" border="0" class="table table-
  
     <%  @readings.each do |reading| %>
       <tr>
+
         <td><%= reading.consumer_no rescue nil%>&nbsp;</td>
         <td><%= reading.read_by rescue nil%>&nbsp;</td>
         <td><% a =  TeamUser.find_by_user_id(reading.user_id).team_id %>

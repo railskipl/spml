@@ -42,12 +42,16 @@ class DtcStaffsController < ApplicationController
   
    def dtc
    @dtc = Consumer.find_all_by_dtc(params[:dtc])
-   @meter = MeterStatus.all
-   @meter_reader_status = MeterReaderStatus.all
+   @meter ||= []
+   MeterStatus.all.each do |m_s|
+   @meter << m_s.billing_meter_status
+   end
+ 
+   #@meter_reader_status = MeterReaderStatus.all
 
-  @dtc1 = Hash["allocated_consumer" => @dtc, "meter_status" => @meter, "meter_reader_status" => @meter_reader_status]
+  @dtc1 = Hash["allocated_consumer" => @dtc, "meter_status" => @meter]
 
-   
+   puts @dtc1
    respond_to do |format|
         format.html
         format.json { render json: @dtc1 }

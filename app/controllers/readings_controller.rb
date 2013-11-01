@@ -6,6 +6,13 @@ class ReadingsController < ApplicationController
   # GET /dtc_staffs.json
   def index
     @readings = Reading.paginate(:page => params[:page], :per_page => 5, :order => 'date_time DESC')
+    respond_to do |format|
+      format.html
+      format.xls
+       format.pdf do
+         render :pdf => "file_name"
+       end
+      end
   end
 
   # GET /dtc_staffs/1

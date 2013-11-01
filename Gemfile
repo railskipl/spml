@@ -23,6 +23,8 @@
 	gem 'gmaps4rails' ,'1.5.5'
 	gem 'jquery-ui-rails'
 	gem 'bootstrap-timepicker-rails'
+	gem 'wkhtmltopdf-binary'
+    gem 'wicked_pdf'
 
 	# gem 'activerecord-oracle_enhanced-adapter', git: 'https://github.com/yahonda/oracle-enhanced.git', branch: 'rails4'
 	# gem 'ruby-oci8'

@@ -57,8 +57,8 @@ end
 
   def search_all
    q = params[:q]
-   @consumers    = Consumer.search(name_or_addrs_cont: q).result 
-   @readers = Reading.search(read_by_cont: q).result
+   @consumers    = Consumer.search(name_or_addrs_or_bu_or_pc_cont: q).result 
+   @readers = Reading.search(read_by_or_bu_or_pc_cont: q).result
    @users = User.search(username_cont: q).result
    @teams = Team.search(team_name_cont: q).result
   end

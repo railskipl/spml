@@ -15,6 +15,10 @@
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
+  <div>
+   <%= f.label :meter_statuses_id %><br>
+   <%= f.collection_select :meter_statuses_id, MeterStatus.all(:order => "id"), :id, :billing_meter_status %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

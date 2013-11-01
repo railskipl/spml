@@ -69,6 +69,6 @@ class MeterReaderStatusesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def meter_reader_status_params
-      params.require(:meter_reader_status).permit(:description)
+      params.require(:meter_reader_status).permit(:description,:meter_statuses_id)
     end
 end

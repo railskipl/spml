@@ -18,7 +18,6 @@ Search By :<table cellpadding="0" cellspacing="0" border="0" class="table table-
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
   
     <tr>
-      
       <th>Consumer number</th>
       <th>Reader</th>
       <th>Team</th>
@@ -28,6 +27,7 @@ Search By :<table cellpadding="0" cellspacing="0" border="0" class="table table-
       <th>Meter Reader Status</th>
       <th>Latitude</th>
       <th>Longitude</th>
+      <th>Image</th>
       <th>Action</th>
     </tr>
   
@@ -35,12 +35,10 @@ Search By :<table cellpadding="0" cellspacing="0" border="0" class="table table-
  
     <%  @readings.each do |reading| %>
       <tr>
-        <td><%= image_tag reading.image.url %></td>
-
         <td><%= reading.consumer_no rescue nil%>&nbsp;</td>
         <td><%= reading.read_by rescue nil%>&nbsp;</td>
         <td><% a =  TeamUser.find_by_user_id(reading.user_id).team_id %>
-      <%= User.find(Team.find(a).user_id).username rescue nil %>
+         <%= User.find(Team.find(a).user_id).username rescue nil %>
         </td>
         <td><%= reading.meter_reading  rescue nil%>&nbsp;</td>
         <td><%= reading.dtc rescue nil%>&nbsp;</td>
@@ -48,6 +46,7 @@ Search By :<table cellpadding="0" cellspacing="0" border="0" class="table table-
         <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
         <td><%= reading.latitude rescue nil%>&nbsp;</td>
         <td><%= reading.longitude rescue nil%>&nbsp;</td>
+        <td><%= image_tag reading.image.url ,:width => 410,:height=> 400 %></td>
         <td> <%= link_to 'Show', reading %></td>
 
       </tr>

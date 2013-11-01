@@ -52,7 +52,7 @@ class DtcStaffsController < ApplicationController
     @meter_reader_status << meter_reader_status.description
    end 
 
-  @dtc1 = Hash["allocated_consumer" => @dtc, "meter_status" => @meter, "meter_reader_status" =>   @meter_reader_status]
+  @dtc1 = Hash["allocated_consumer" => @dtc, "meter_status" => @meter]
 
    respond_to do |format|
         format.html

@@ -27,6 +27,7 @@ Search By :<table cellpadding="0" cellspacing="0" border="0" class="table table-
       <th>Meter Reader Status</th>
       <th>Latitude</th>
       <th>Longitude</th>
+      <th>Date Time</th>
       <th>Image</th>
       <th>Action</th>
     </tr>
@@ -46,6 +47,7 @@ Search By :<table cellpadding="0" cellspacing="0" border="0" class="table table-
         <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
         <td><%= reading.latitude rescue nil%>&nbsp;</td>
         <td><%= reading.longitude rescue nil%>&nbsp;</td>
+        <td><%= reading.created_at.strftime("%T %a %b %e %Y ")%></td>
         <td><%= image_tag reading.image.url ,:width => 410,:height=> 400 %></td>
         <td> <%= link_to 'Show', reading %></td>
 

@@ -1,0 +1,53 @@
+<%= form_tag search_by_date_path, :method => 'get' do %>
+
+<table>
+  <tr>
+    <td>Date From :</td>
+    <td><input type="text_field" class="date_time" name="start_date" id="start_date"></td>
+    <td> 
+    <div class="input-append bootstrap-timepicker">
+     <input id="timepicker1" type="text" class="input-small" name="timepicker1" style="height:26px;">
+      <span class="add-on" style="height:16px;">
+      <i class="icon-time"></i>
+      </span>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <td>Date To :</td> 
+    <td><input type="text_field" class="date_time1" name="end_date" id="end_date"></td>
+    <td> 
+    <div class="input-append bootstrap-timepicker" >
+     <input id="timepicker2" type="text" class="input-small" name="timepicker2" style="height:26px;">
+      <span class="add-on" style="height:16px;">
+      <i class="icon-time"></i>
+      </span>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<% if params[:action] == 'index' %>
+ <%= hidden_field_tag :reading_index , "reading_index"%>
+<% end %>
+ <script type="text/javascript">
+ $('#timepicker1').timepicker({
+minuteStep: 1,
+template: 'modal',
+appendWidgetTo: 'body',
+showSeconds: true,
+showMeridian: false,
+defaultTime: false
+});
+$('#timepicker2').timepicker({
+minuteStep: 1,
+template: 'modal',
+appendWidgetTo: 'body',
+showSeconds: true,
+showMeridian: false,
+defaultTime: false
+});
+</script>
+
+<%= submit_tag "Search by date and time" %>
+<% end %>

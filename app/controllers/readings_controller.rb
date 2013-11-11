@@ -194,7 +194,7 @@ class ReadingsController < ApplicationController
     else
     if start_from > start_to
      if params["reading_index"]
-      redirect_to readings_path , alert: "Start time cannot be greate"
+      redirect_to readings_path , alert: "Start time cannot be greater"
      else
      redirect_to activity_report_readings_url, alert: "Start time cannot be greater"
      end

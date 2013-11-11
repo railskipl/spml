@@ -29,6 +29,8 @@
 
 <% if params[:action] == 'index' %>
  <%= hidden_field_tag :reading_index , "reading_index"%>
+<% elsif params[:action] == 'consumer_status' %>
+ <%= hidden_field_tag :consumer_status , "consumer_status"%>
 <% end %>
  <script type="text/javascript">
  $('#timepicker1').timepicker({

@@ -65,6 +65,13 @@ class ReadingsController < ApplicationController
   
   def consumer_status
     @readings_status = Reading.find_all_by_consumer_status(params[:consumer_status],:order => 'date_time DESC')
+    respond_to do |format|
+      format.html
+      format.xls
+      format.pdf do
+         render :pdf => "file_name"
+      end
+    end
   end
 
   def redis

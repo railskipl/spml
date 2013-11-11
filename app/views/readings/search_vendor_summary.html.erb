@@ -7,7 +7,7 @@
     <tr>
       <th>Reader</th>
       <th>Team</th>
-      <th>Counts</th>
+      <th>Consumers</th>
     </tr>
    
   <% TeamUser.find_all_by_team_id(team.id).each do |reader|%>
@@ -21,8 +21,8 @@
     <% end %>
  </table>
     <% end %>
+  <%= link_to "Excel", search_vendor_summary_path(params.merge(format: "xls")) %>
 
 <% end %>
 
 
-  <%= link_to "Excel", search_vendor_summary_path(params.merge(format: "xls")) %>

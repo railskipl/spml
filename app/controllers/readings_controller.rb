@@ -57,8 +57,8 @@ class ReadingsController < ApplicationController
      render :status =>200,:json => { :error => "valid" }
 
     else
-      @reading.consumer_create
-         render :status =>200,:json => { :error => "valid" }
+     @reading.consumer_create
+     render :status =>200,:json => { :error => "valid" }
 
     end
   end

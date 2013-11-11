@@ -1,13 +1,13 @@
-<h1>Sign up</h1>
+<h1>Add Staff</h1>
 <%= form_for(@user) do |f| %>
 <%= render 'shared/error_messages', :object => f.object %>
 
 <div class="field">
-<%= f.label :first_name %><br />
+<%= f.label :first_name, "First Name" %><br />
 <%= f.text_field :first_name ,:style => "height: 30px;"%>
 </div>
 <div class="field">
-<%= f.label :last_name %><br />
+<%= f.label :last_name, "Last Name" %><br />
 <%= f.text_field :last_name,:style => "height: 30px;" %>
 </div>
 <div class="field">

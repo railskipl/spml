@@ -14,8 +14,8 @@
               </div>
             <% end %>
 <div>
-    <%= f.label "Select user" %><br />
-    <%= select("dtc_staff", "user_id", User.find_all_by_role_id(2).collect {|p| [ p.username, p.id ] }, {include_blank: 'select user'}) %>
+    <%= f.label "Select Reader" %><br />
+    <%= f.collection_select :user_id, User.find_all_by_role_id(2), :id, :username  ,:prompt => "Select Reader"%>
   </div>
  <div>
     <%= f.label "Select Imei" %><br />

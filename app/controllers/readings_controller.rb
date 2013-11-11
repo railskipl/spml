@@ -188,6 +188,8 @@ class ReadingsController < ApplicationController
     if start_from.blank? || start_to.blank?
       if  params["reading_index"]
         redirect_to readings_path , alert: "Please select date and time"
+      elsif params["consumer_status"]
+        redirect_to readings_consumer_status_path(params.merge(format: "")) , alert: "Please select date and time"
       else
         redirect_to activity_report_readings_url, alert: "Please select date and time"
       end
@@ -195,11 +197,18 @@ class ReadingsController < ApplicationController
       if start_from > start_to
         if params["reading_index"]
           redirect_to readings_path , alert: "Start time cannot be greater"
+        elsif params["consumer_status"]
+          redirect_to readings_consumer_status_path(params.merge(format: "")) , alert: "Start time cannot be greater"
         else
           redirect_to activity_report_readings_url, alert: "Start time cannot be greater"
         end
       else
-        @readings = Reading.where("date_time >= ? and date_time <= ?" ,start_from,start_to)
+        if params["consumer_status"]
+         @readings = Reading.where("date_time >= ? and date_time <= ? and consumer_status = ? " ,start_from,start_to, params["consumer_status"])
+
+        else
+         @readings = Reading.where("date_time >= ? and date_time <= ?" ,start_from,start_to)
+        end
       end
     end
   end

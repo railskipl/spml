@@ -11,7 +11,7 @@
 <% @mobileusers.each do |mobileuser| %>
  <tr>
 	<td><%= mobileuser.imei%></td>
-   <td> <%= mobileuser.user.first_name%></td>
+   <td> <%= mobileuser.user.username rescue nil %></td>
 
   <td> <%= link_to 'Show', mobileuser %>
    <%= link_to 'Edit', edit_mobileuser_path(mobileuser) %>

@@ -15,7 +15,7 @@
     Team Name:<br/> <%= f.text_field :team_name %> *
   </div>
 
-    <%= f.collection_select :user_id, User.find_all_by_role_id(1), :id, :username ,:prompt => "Select Team"%> *
+    <%= f.collection_select :user_id, User.find_all_by_role_id(1), :id, :username ,:prompt => "Select Vendor"%> *
 
   
 

@@ -39,7 +39,7 @@ Search By :<table cellpadding="0" cellspacing="0" border="0" class="table table-
       <tr>
         <td><%= reading.consumer_no rescue nil%>&nbsp;</td>
         <td><%= reading.read_by rescue nil%>&nbsp;</td>
-        <td><% a =  TeamUser.find_by_user_id(reading.user_id).team_id %>
+        <td><% a =  TeamUser.find_by_user_id(reading.user_id).team_id rescue nil %>
          <%= User.find(Team.find(a).user_id).username rescue nil %>
         </td>
         <td><%= reading.meter_reading  rescue nil%>&nbsp;</td>

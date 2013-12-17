@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  computer_no: MyString
+  cons_cd: MyString
+  cons_no: MyString
+  account_no: MyString
+  category: MyString
+  name: MyString
+  addr1: MyString
+  addr2: MyString
+  pole_no: MyString
+  meter_no: MyString
+  meter_capacity: MyString
+  connected_load: MyString
+  connection_status: MyString
+
+two:
+  computer_no: MyString
+  cons_cd: MyString
+  cons_no: MyString
+  account_no: MyString
+  category: MyString
+  name: MyString
+  addr1: MyString
+  addr2: MyString
+  pole_no: MyString
+  meter_no: MyString
+  meter_capacity: MyString
+  connected_load: MyString
+  connection_status: MyString

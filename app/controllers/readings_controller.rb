@@ -54,11 +54,11 @@ class ReadingsController < ApplicationController
     if @reading.consumer_status == "true"
      consumer = Consumer.find_by_consno(params[:consumer_no])
      consumer.update_column(:status,true) rescue nil
-     render :status =>200,:json => { :error => "valid" }
+     render :status =>200,:json => @reading.consumer_no.to_json
 
     else
      @reading.consumer_create
-     render :status =>200,:json => { :error => "valid" }
+     render :status =>200,:json => @reading.consumer_no.to_json
 
     end
   end

@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131101051732) do
+ActiveRecord::Schema.define(version: 20131118105159) do
+
+  create_table "consumer_spmls", force: true do |t|
+    t.string   "computer_no"
+    t.string   "cons_cd"
+    t.string   "cons_no"
+    t.string   "account_no"
+    t.string   "category"
+    t.string   "name"
+    t.string   "addr1"
+    t.string   "addr2"
+    t.string   "pole_no"
+    t.string   "meter_no"
+    t.string   "meter_capacity"
+    t.string   "connected_load"
+    t.string   "connection_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "consumers", force: true do |t|
     t.string   "pc"

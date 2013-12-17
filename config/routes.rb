@@ -1,6 +1,11 @@
 require 'sidekiq/web'
 Sndl::Application.routes.draw do
-  get "ankit/ank"
+ 
+    resources :consumer_spmls do
+      collection { post :import }
+    end
+
+  #get "ankit/ank"
   resources :teams
 
   resources :meter_reader_statuses

@@ -24,9 +24,9 @@
     <% @meter_reader_statuses.each do |meter_reader_status| %>
       <tr>
         <td><%= meter_reader_status.description %></td>
-        <td><%= link_to 'Show', meter_reader_status %></td>
-        <td><%= link_to 'Edit', edit_meter_reader_status_path(meter_reader_status) %></td>
-        <td><%= link_to 'Destroy', meter_reader_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', meter_reader_status ,:class=>"btn btn-secondary"%></td>
+        <td><%= link_to 'Edit', edit_meter_reader_status_path(meter_reader_status) ,:class=>"btn btn-secondary" %></td>
+        <td><%= link_to 'Destroy', meter_reader_status, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-secondary" %></td>
       </tr>
     <% end %>
   </tbody>

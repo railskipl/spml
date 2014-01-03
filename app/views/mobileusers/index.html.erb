@@ -24,9 +24,9 @@
 	<td><%= mobileuser.imei%></td>
    <td> <%= mobileuser.user.username rescue nil %></td>
 
-  <td> <%= link_to 'Show', mobileuser %>
-   <%= link_to 'Edit', edit_mobileuser_path(mobileuser) %>
-      <a href="/mobileusers/<%= mobileuser.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" >Destroy</a></td>
+  <td> <%= link_to 'Show', mobileuser ,:class=>"btn btn-secondary"%>
+   <%= link_to 'Edit', edit_mobileuser_path(mobileuser) ,:class=>"btn btn-secondary"%>
+      <a href="/mobileusers/<%= mobileuser.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" class="btn btn-secondary" >Destroy</a></td>
    </tr>   
 <% end %>
 </table>

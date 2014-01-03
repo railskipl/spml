@@ -1,11 +1,20 @@
+  <div class="row">
+        
+    <div class="span12">          
+          
+          <div class="widget stacked ">
+            
+            <div class="widget-header">
+              <i class="icon-pencil"></i>
+              <h3>Activity Report</h3>
+          </div> <!-- /widget-header -->
+        
 <style type="text/css">
 #ui-datepicker-div{
   z-index: 1100  !important;
 }
 </style>
-<div class="page-header-custom">
- <h3 align = "center">Activity Report</h3>
-</div>
+   <div class="widget-content">
 
 <%= form_tag search_vendor_report_path, :method => 'get' do %>
   <p>
@@ -23,4 +32,8 @@
 
 <%= render 'shared/date_search' %>
 
-<a href="<%= activity_summary_report_readings_path %>"><i class="nav-icon-12"></i><span>Activity Summary Report </span></a>
+<a href="<%= activity_summary_report_readings_path %>" class="btn btn-secondary">Activity Summary Report</a>
+</div>	
+</div>
+</div>
+</div>

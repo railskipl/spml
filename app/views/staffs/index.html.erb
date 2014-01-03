@@ -1,4 +1,16 @@
-<h2>Import Users</h2>
+  <div class="row">
+        
+    <div class="span12">          
+          
+          <div class="widget stacked ">
+            
+            <div class="widget-header">
+              <i class="icon-pencil"></i>
+              <h3>Import Users</h3>
+          </div> <!-- /widget-header -->
+        
+             <div class="widget-content">
+
 <%= form_tag import_users_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
@@ -30,3 +42,7 @@
 </table>
 
 
+</div>  
+</div>
+</div>
+</div>

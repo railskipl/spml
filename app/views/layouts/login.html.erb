@@ -4,29 +4,46 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Login | Adminstrap</title>
-         <%= stylesheet_link_tag "application","bootstrap.min.css","style" %>
-         <%= javascript_include_tag "application" %>
+    <title>Login | Meter Reading</title>
+         <%= stylesheet_link_tag "bootstrap.min.css","bootstrap-responsive.min.css","http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600","font-awesome.min.css","base-admin-2.css","base-admin-2-responsive.css","/assets/ui-lightness/jquery-ui-1.10.0.custom.min.css","/assets/pages/signin.css","custom.css" %>
+         <%= javascript_include_tag "application","libs/jquery-1.8.3.min.js","libs/jquery-ui-1.10.0.custom.min.js","libs/bootstrap.min.js","Application1.js"%>
 </head>
 
 
-<body id="login-page">
-	<div id="login" class="container">
-	        <div class="row logo">
-	            <div class="span4 offset4 center">
-                         <% flash.each do |key, value| %>
-                             <div class="flash <%= key %>"><%= value %></div>
-                            <% end %>
-	                <a href="<%= root_url %>">
-                       
-	                    <img src="/assets/image001.gif" height="55" alt="logo" /></a>
-	            </div>
-        	</div>
+<body>
+	
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	
+	<div class="navbar-inner">
 		
-         <%= yield%>
+		<div class="container">
+			
+			
+			
+			<a href="<%= root_url %>">
+          <img src="/assets/logo.png" height="55" alt="logo" />
+      </a>	
+					
+			
+		
+	
+		</div> <!-- /container -->
+		
+	</div> <!-- /navbar-inner -->
+	
+</div> <!-- /navbar -->
 
-    </div>
-    
+
+<%= yield %>
+
+
+<!-- Text Under Box -->
+<!-- /login-extra -->
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+
 </body>
 
 </html>

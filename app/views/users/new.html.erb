@@ -1,4 +1,16 @@
-<h1>Add Staff</h1>
+  <div class="row">
+        
+    <div class="span12">          
+          
+          <div class="widget stacked ">
+            
+            <div class="widget-header">
+              <i class="icon-pencil"></i>
+              <h3>Add Staff</h3>
+          </div> <!-- /widget-header -->
+        
+             <div class="widget-content">
+
 <%= form_for(@user) do |f| %>
 <%= render 'shared/error_messages', :object => f.object %>
 
@@ -28,7 +40,7 @@
 <%= f.label :email, "Email" %><br />
 <%= f.text_field :email,:style => "height: 30px;" %>
 </div>
-<div>
+
 <div class="field">
 <%= f.label :mobile_no, "Mobile Number" %><br />
 <%= f.text_field :mobile_no,:style => "height: 30px;" %>
@@ -41,3 +53,8 @@
 <%= f.submit "Create Staff" %>
 </div>
 <% end %>
+
+</div>	
+</div>
+</div>
+</div>

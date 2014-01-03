@@ -1,165 +1,111 @@
-
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="">  
+    
    <title>Meter Reading KIPL</title>
     <!--jquery-->
-    <%= stylesheet_link_tag "application","style","bootstrap.min" ,"gmaps4rails.css" %>
+    <%= stylesheet_link_tag "application","gmaps4rails.css","bootstrap.min.css","bootstrap-responsive.min.css","http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600","font-awesome.min.css","/assets/ui-lightness/jquery-ui-1.10.0.custom.min.css","base-admin-2.css","base-admin-2-responsive.css","/assets/pages/dashboard.css","custom.css" %>
 
 
 <%= stylesheet_link_tag  "token-input-facebook" %>
-<%= javascript_include_tag  "jquery.tokeninput" %>
 
 
-   <%= javascript_include_tag "application","bootstrap-transition","bootstrap-alert","bootstrap-modal","bootstrap-dropdown","bootstrap-scrollspy","bootstrap-tab","bootstrap-tooltip","bootstrap-popover","bootstrap-button","bootstrap-collapse","bootstrap-carousel","bootstrap-typeahead", "data-turbolinks-track" => true %>
+
+   <%= javascript_include_tag "application" %>
+   <%= javascript_include_tag  "jquery.tokeninput" %>
     <%= csrf_meta_tags %>
     <%= yield :scripts %>
 </head>
 <body>
-    <!--Navigation-->
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container-fluid">
-                <a class="brand" href="/dashboard">
-                    <img src="/assets/logo.png" width="70" height="43" alt="logo" /></a>
-                    <% if signed_in? %>
-                <ul id="primary-nav" class="nav">
-<!--                     <li><a href="<%= user_root_path %>"><i class="nav-icon-9"></i><span>Home</span></a></li>
- -->  
- <li>
-    <a href="<%= readings_path %>"><i class="nav-icon-11"></i>
-        <span>Readings</span>
-    </a>
-</li>
- <% if current_user.is_admin? %>
-<li><a href="<%=  mobile_devises_path %>"><i class="nav-icon-1"></i><span>Add Mobile</span></a></li>
+
+    	<div class="navbar-inner">
+
+    		<div class="container">
+
+    			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+    				<i class="icon-cog"></i>
+    			</a>
+
+    			<a class="brand" href="/dashboard">
+    				<img src="/assets/logo.png" alt="">
+    			</a>		
+
+    			<div class="nav-collapse collapse">
+    				<ul class="nav pull-right">
+    					<li class="dropdown">
+
+    						<a href="<%= user_path(current_user) %>" class="dropdown-toggle" data-toggle="dropdown">
+    							<i class="icon-cog"></i>
+    							Settings
+    							<b class="caret"></b>
+    						</a>
+
+    						<ul class="dropdown-menu">
+    							<li><a href="#">Profile</a></li>
 
 
-<li><a href="<%= activity_report_readings_path %>"><i class="nav-icon-12"></i><span>Activity Report </span></a></li>
 
-<li><a href="<%= user_tracking_path %>"><i class="nav-icon-12"></i><span>User Report </span></a></li>
+    						</ul>
 
-<li><a href="<%= staffs_path %>"><i class="nav-icon-12"></i><span>Add Staff</span></a></li>
+    					</li>
 
-<li><a href="<%= teams_path %>"><i class="nav-icon-19"></i><span>Create Team</span></a></li>
-<li><a href="<%= dtc_staffs_path %>"><i class="nav-icon-10"></i><span>Associate Route<br/> To Staff</span></a></li>
+    					<li class="dropdown">
 
-<li><a href="<%= mobileusers_path %>"><i class="nav-icon-15"></i><span>Assign Mobile<br/> To User</span></a></li>
+    						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    							<i class="icon-user"></i> 
+    							<%= current_user.username %>
+    							<b class="caret"></b>
+    						</a>
 
- <li><a href="<%= add_csv_consumers_path %>"><i class="nav-icon-16"></i><span>Upload<br/>Consumers</span></a></li>
- <li><a href="<%= meter_statuses_path %>"><i class="nav-icon-17"></i><span>Meter Status</span></a></li>
- <li><a href="<%= meter_reader_statuses_path %>"><i class="nav-icon-18"></i><span>Meter Reader Status</span></a></li>
- <li><a href="<%= route_consumers_path %>"><i class="nav-icon-18"></i><span>Route Listing</span></a></li>
-   
- <%end%>
-<%end%>
-</ul>
-                
-                  
-                  
+    						<ul class="dropdown-menu">
+    							<li><a href="#">My Profile</a></li>
 
-                
-                <ul id="secondary-nav" class="nav pull-right">
-                    
-                    <li class="dropdown"><a href="#" data-toggle="dropdown"><i class="icon-cog icon-white">
-                    </i><span>Settings</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="<%= user_path(current_user) %>"><i class="icon-wrench"></i>&nbsp;Profile</a></li>
-                           
-                        </ul>
-                    </li>
-                    <% if signed_in? %>
-                    <li><a href="<%=  signout_path %> " data-method="destroy"><i class="icon-off icon-white"></i>Logout</a></li>
-                    <%else%>
-                    <li><a href="<%= signin_path %>"><i class="icon-off icon-white"></i>&nbsp;Login</a></li>
-                    <%end%>
-                </ul>
-            </div>
-        </div>
+    							<li class="divider"></li>
+    							<li><a href="#">Logout</a></li>
+    						</ul>
+
+    					</li>
+    				</ul>
+
+    				<form class="navbar-search pull-right" />
+    					<input type="text" class="search-query" placeholder="Search" />
+    				</form>
+
+    			</div><!--/.nav-collapse -->	
+
+    		</div> <!-- /container -->
+
+    	</div> <!-- /navbar-inner -->
+
+    </div> <!-- /navbar -->
+
+
+    <%= render 'shared/menu'%>
+ <!-- /subnavbar -->
+        
     </div>
-    <!--Profile Form-->
-    <div class="modal hide fade" id="myModal">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">
-                ×</button>
-            <h3>
-                Profile</h3>
-        </div>
-        <div class="modal-body">
-            <form class="form-horizontal">
-            <legend>Contact Info</legend>
-            <div class="control-group">
-                <label class="control-label" for="txtContactName">
-                    Name</label>
-                <div class="controls">
-                    <div class="input-prepend">
-                        <span class="add-on"><i class="icon-user"></i></span>
-                        <input class="span4" id="txtContactName" type="text">
-                    </div>
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="txtPhone">
-                    Phone</label>
-                <div class="controls">
-                    <div class="input-prepend">
-                        <span class="add-on"><i class="icon-comment"></i></span>
-                        <input class="span4" id="txtPhone" type="text">
-                    </div>
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="txtEmail">
-                    E-mail</label>
-                <div class="controls">
-                    <div class="input-prepend">
-                        <span class="add-on"><i class="icon-envelope"></i></span>
-                        <input class="span4" id="txtEmail" type="text">
-                    </div>
-                </div>
-            </div>
-            <legend>Security Info</legend>
-            <div class="control-group">
-                <label class="control-label" for="txtLoginID">
-                    Login ID</label>
-                <div class="controls">
-                    <div class="input-prepend">
-                        <span class="add-on"><i class="icon-user"></i></span>
-                        <input class="span4" id="txtLoginID" type="text" value="admin" disabled>
-                    </div>
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="txtPassword">
-                    Password
-                </label>
-                <div class="controls">
-                    <div class="input-prepend">
-                        <span class="add-on"><i class="icon-lock"></i></span>
-                        <input class="span4" id="txtPassword" type="password">
-                    </div>
-                </div>
-            </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <a href="#" class="btn btn-primary" data-dismiss="modal">Save changes</a> <a href="#"
-                class="btn" data-dismiss="modal">Cancel</a>
-        </div>
-    </div>
+    
+    <div class="main">
+
+        <div class="container">
+        
+                  <%= yield %>
+                  
+        </div>        
+    </div>      
+    
+    <%= render 'shared/footer'%>
+     <!-- /footer -->
     <!--Container-->
-    <div class="container-fluid" style="margin-top:0">
-      	<% flash.each do |key, value| %>
-           <div class="flash <%= key %>"><%= value %></div>
-        <% end %>
+    
 
+     
 
-     <%= yield %>
-
-    </div>
+    
     <!--jquery-->
     
    

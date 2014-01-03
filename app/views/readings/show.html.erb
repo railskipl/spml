@@ -1,106 +1,141 @@
-
-
-<div class="container-fluid" style="margin-top:0px">
-        <div class="page-header-custom">
-            <h3 align="center">
-               Show Reading</h3>
+<div class="row">
+  <div class="span12">          
+    <div class="widget stacked ">
+      <div class="widget-header">
+        <i class="icon-pencil"></i>
+          <h3>Show Reading</h3>
             <!--subnav-->
           
         </div>
-<table cellpadding="0" cellspacing="0" border="1" class="table table-striped table-bordered">
-  <tr>
-    <th align="left" valign="top">Meter reading</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.meter_reading %></td>
-    <td rowspan="10" align="left" valign="top" style="text-align:center">
-
-      <%= image_tag @reading.image.url ,:width => 410,:height=> 400 %>
-         <%= gmaps4rails(@json) %>
+    
+        <div class="widget-content">
+          
+          
+          <table class="table table-bordered table-striped">
+                    
+                    <tbody>
+                      <tr>
+                        <td>Meter reading</td>
+                        <td><%=@reading.meter_reading %></td>
+                        <td rowspan="14" align="left" valign="top" style="text-align:center; vertical-align: top;">
+                  <%= image_tag @reading.image.url ,:width => 400,:height=> 400 %>
+                  <div class="map_container">
+                        <%= gmaps4rails(@json) %>
        
-    </td>
+                  
+                  </div>
+                  </td>
+                        </tr>
+                  
+                  
+                  <tr>
+                        <td>Consumer no</td>
+                        <td><%=@reading.consumer_no %></td>
+                        </tr>
+                  
+                  <tr>
+                        <td>Date Time</td>
+                        <td><%= @reading.created_at.strftime("%T %a %b %e %Y ")%></td>
+                        </tr>
+                  
+                  <tr>
+                        <td>IME Number</td>
+                        <td><%=@reading.ime_no %></td>
+                        </tr>
+                  
+                  <tr>
+                        <td>Meter No</td>
+                        <td>1234521548795</td>
+                        </tr>
+                  <tr>
+                    <td>BU</td>
+                    <td><%=@reading.bu %></td>
+                    </tr>
+                  <tr>
+                    <td>PC</td>
+                    <td><%=@reading.pc %></td>
+                    </tr>
+                  <tr>
+                    <td>DTC</td>
+                    <td><%=@reading.dtc %></td>
+                    </tr>
+                  <tr>
+                    <td>Consumer Name &amp; Address</td>
+                    <td><%=@reading.consumer_name %>  <%=@reading.address %></td>
+                    </tr>
+                  <tr>
+                    <td>Reader Mobile No</td>
+                    <td><%=@reading.reader_mobile_no %></td>
+                    </tr>
+                  <tr>
+                    <td>Meter Reader status</td>
+                    <td><%=@reading.meter_reader_status %></td>
+                    </tr>
+                  <tr>
+                    <td>Read By</td>
+                    <td><%=@reading.read_by %></td>
+                    </tr>
+                  <tr>
+                    <td>Latitude</td>
+                    <td><%=@reading.latitude %></td>
+                    </tr>
+                  <tr>
+                        <td>Longitude</td>
+                        <td><%=@reading.longitude %></td>
+                  </tr>
+                  <tr>
+                    <td>Old Meter No</td>
+                   <td>&nbsp;<%=@reading.old_meter_no %></td>
+                   </tr>
+                  <tr>
+                    <td>New Meter No</td>
+                   <td>&nbsp;<%=@reading.new_meter_no %></td>
+                    </tr>
 
-  </tr>
+                  <tr>
+                    <td>Bill Month</td>
+                   <td>&nbsp;<%=@reading.bill_month %></td>
+                    </tr>
+                  <tr>
+                    <td>Pole No</td>
+                   <td>&nbsp;<%=@reading.pole_no %></td>
+                    </tr>
 
-   <tr>
-    <th align="left" valign="top">Consumer no</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.consumer_no %></td>
-    </tr>
-  <tr>
-    <th align="left" valign="top">Date Time</th>
-    <td align="left" valign="top">&nbsp;<%= @reading.created_at.strftime("%T %a %b %e %Y ")%></td>
-    </tr>
-  <tr>
-    <th align="left" valign="top">Ime Number</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.ime_no %></td>
-    </tr>
-  <tr>
-    <th align="left" valign="top">Old Meter No</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.old_meter_no %></td>
-    </tr>
-  <tr>
-    <th align="left" valign="top">New Meter No</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.new_meter_no %></td>
-    </tr>
-  <tr>
-    <th align="left" valign="top">BU</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.bu %></td>
-    </tr>
-  <tr>
-    <th align="left" valign="top">PC</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.pc %></td>
-    </tr>
-  <tr>
-    <th align="left" valign="top">DTC</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.dtc %></td>
-    </tr>
-  <tr>
-    <th align="left" valign="top">Bill Month</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.bill_month %></td>
-    </tr>
-  <tr>
-    <th align="left" valign="top">Pole No</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.pole_no %></td>
-    </tr>
+                    <tr>
+                    <td>Remark</td>
+                   <td>&nbsp;<%=@reading.remark %></td>
+                    </tr>
+                   <tr>
+                    <td>Pincode</td>
+                   <td>&nbsp;<%=@reading.pincode %></td>
+                  </tr>
 
-    <tr>
-    <th align="left" valign="top">Consumer Name</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.consumer_name %></td>
-    </tr>
-    <tr>
-    <th align="left" valign="top">Reader Mobile No</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.reader_mobile_no %></td>
-    </tr>
-    <tr>
-    <th align="left" valign="top">Meter Reader status</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.meter_reader_status %></td>
-    </tr>
-    <tr>
-    <th align="left" valign="top">Remark</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.remark %></td>
-    </tr>
-   <tr>
-    <th align="left" valign="top">Read By</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.read_by %></td>
-   </tr>
-  <tr>
-    <th align="left" valign="top">Pincode</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.pincode %></td>
-  </tr>
-   <tr>
-    <th align="left" valign="top">Address</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.address %></td>
-  </tr>
-   <tr>
-    <th align="left" valign="top">Latitude</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.latitude %></td>
-  </tr>
-   <tr>
-    <th align="left" valign="top">Longitude</th>
-    <td align="left" valign="top">&nbsp;<%=@reading.longitude %></td>
-  </tr>
-</table>
+              </tbody>
+            </table>
+                  
+                  
+                 
+
+            
+            
+                  
+          </section>
+                
+            
+   
+          
+ 
+     
+
+  
+
+
+
 
  </div>
 
+ </div> 
+</div>
 
        
-
+</div>

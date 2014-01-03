@@ -33,7 +33,7 @@
  <%=  hidden_field_tag :consumer_status ,params["consumer_status"] %>
 <% end %>
  <script type="text/javascript">
- $('#timepicker1').timepicker({
+ jQuery('#timepicker1').timepicker({
 minuteStep: 1,
 template: 'modal',
 appendWidgetTo: 'body',
@@ -41,7 +41,7 @@ showSeconds: true,
 showMeridian: false,
 defaultTime: false
 });
-$('#timepicker2').timepicker({
+jQuery('#timepicker2').timepicker({
 minuteStep: 1,
 template: 'modal',
 appendWidgetTo: 'body',

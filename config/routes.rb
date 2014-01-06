@@ -42,7 +42,7 @@ Sndl::Application.routes.draw do
 
   get  '/users/:id/edit' => "users#edit" 
 
-  post '/signout' =>'sessions#destroy'
+  post '/signout' =>'sessions#destroy', via: :delete
 
   get '/user/:id/dtc_staffs', :to => "users#dtc"
 

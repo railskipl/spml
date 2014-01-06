@@ -20,6 +20,9 @@
     <%= yield :scripts %>
 </head>
 <body>
+        <% flash.each do |key, value| %>
+           <div class="flash <%= key %>"><%= value %></div>
+        <% end %>
     <div class="navbar navbar-inverse navbar-fixed-top">
 
     	<div class="navbar-inner">
@@ -65,7 +68,7 @@
     							<li><a href="#">My Profile</a></li>
 
     							<li class="divider"></li>
-    							<li><a href="<%= signout_path%>" data-method="destroy">Logout</a></li>
+    							<li><a href="<%= signout_path%>" data-method="delete">Logout</a></li>
     						</ul>
 
     					</li>

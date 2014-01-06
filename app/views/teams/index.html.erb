@@ -16,14 +16,14 @@
 <%= form_tag search_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search By Team Name", :team_name => nil %>
+    <%= submit_tag "Search By Team Name", :team_name => nil ,:class =>"btn btn-primary"%>
   </p>
 <% end %>
 
 <%= form_tag search_vendor_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search By Vendor", :team_name => nil %>
+    <%= submit_tag "Search By Vendor", :team_name => nil ,:class =>"btn btn-primary"%>
   </p>
 <% end %>
 
@@ -50,9 +50,9 @@
           <%= reader.user.first_name rescue nil  %>,
           <% end %>
         </td>
-        <td><%= link_to 'Show', team %></td>
+        <td><%= link_to 'Show', team ,:class =>"btn"%></td>
         <%#= link_to 'Edit', edit_team_path(team) %>
-        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' },:class =>"btn" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -60,7 +60,7 @@
 
 <br>
 
-<%= link_to 'New Team', new_team_path %>
+<%= link_to 'New Team', new_team_path,:class =>"btn" %>
 
 </div>  
 </div>

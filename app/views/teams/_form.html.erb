@@ -32,12 +32,12 @@
 <select multiple= true class="multiselect2" name="name_id[]" size="15" selected="selected" id="mySelect">
 </select>
 
-   <a class="add">Add</a>
-   <a class="remove">Remove</a>
+   <a class="add btn btn">Add</a>
+   <a class="remove btn">Remove</a>
   </div>
 
   <div class="actions">
-    <%= f.submit "Submit",:id => "submit"%>
+    <%= f.submit "Submit",:id => "submit",:class =>"btn btn-primary"%>
   </div>
 <% end %>
 

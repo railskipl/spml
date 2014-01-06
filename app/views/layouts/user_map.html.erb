@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Polygon Arrays</title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+        <%= stylesheet_link_tag "application","gmaps4rails.css","bootstrap.min.css","bootstrap-responsive.min.css","http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600","font-awesome.min.css","/assets/ui-lightness/jquery-ui-1.10.0.custom.min.css","base-admin-2.css","base-admin-2-responsive.css","/assets/pages/dashboard.css","custom.css" %>
+
+
+<%= stylesheet_link_tag  "token-input-facebook" %>
+
+
+
+   <%= javascript_include_tag "application" %>
+   <%= javascript_include_tag  "jquery.tokeninput" %>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    
+  </head>
+
+  <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+
+      <div class="navbar-inner">
+
+        <div class="container">
+
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <i class="icon-cog"></i>
+          </a>
+
+          <a class="brand" href="/dashboard">
+            <img src="/assets/logo.png" alt="">
+          </a>    
+
+          <div class="nav-collapse collapse">
+            <form class="navbar-search pull-right" />
+              <input type="text" class="search-query" placeholder="Search" />
+            </form>
+                    
+                        <a href="<%= user_path(current_user) %>" >Settings</a>
+
+                           <a href="<%= signout_path%>" data-method="destroy">Logout</a>
+          </div><!--/.nav-collapse -->  
+
+        </div> <!-- /container -->
+
+      </div> <!-- /navbar-inner -->
+
+    </div> <!-- /navbar -->
+
+
+    <%#= render 'shared/menu'%>
+ <!-- /subnavbar -->
+        
+    </div>
+<%= yield %>
+  </body>
+</html>

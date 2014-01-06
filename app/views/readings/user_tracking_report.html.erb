@@ -31,11 +31,11 @@ No results found!
         <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
         <td><%= reading.latitude rescue nil%>&nbsp;</td>
         <td><%= reading.longitude rescue nil%>&nbsp;</td>
-        <td> <%= link_to 'Show', reading %></td>
+        <td> <%= link_to 'Show', reading,:class => "btn" %></td>
 
       </tr>
     <% end %>
-    <%= submit_tag "Show map" %>
+    <%= submit_tag "Show map",:class => "btn" %>
   <% end %>
 </table>  
     <%= link_to "Excel", search_by_date_path(params.merge(format: "xls")) %>

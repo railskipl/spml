@@ -27,7 +27,7 @@
     <td><input type="text_field" class="date_time" name="start_date" id="start_date"></td>
     <td> 
     <div class="input-append bootstrap-timepicker">
-     <input id="timepicker1" type="text" class="input-small" name="timepicker1" style="height:26px;">
+     <input id="timepicker1" type="text" class="input-small" name="timepicker1">
       <span class="add-on" style="height:16px;">
       <i class="icon-time"></i>
       </span>
@@ -39,7 +39,7 @@
     <td><input type="text_field" class="date_time1" name="end_date" id="end_date"></td>
     <td> 
     <div class="input-append bootstrap-timepicker" >
-     <input id="timepicker2" type="text" class="input-small" name="timepicker2" style="height:26px;">
+     <input id="timepicker2" type="text" class="input-small" name="timepicker2">
       <span class="add-on" style="height:16px;">
       <i class="icon-time"></i>
       </span>
@@ -67,7 +67,7 @@ defaultTime: false
 });
 </script>
 
-<%= submit_tag "Search" %>
+<%= submit_tag "Search" ,:class =>"btn btn-primary"%>
 <% end %>
 
 <%= form_tag readers_map_path , :method => 'get' do %>
@@ -77,7 +77,7 @@ defaultTime: false
     <option> <%= route_name.bu %>-<%= route_name.pc %> </option>
     <% end %>
    </select>
-    <%= submit_tag "Search", :team_name => nil %>
+    <%= submit_tag "Search", :team_name => nil ,:class =>"btn btn-primary" %>
   </p>
 <% end %>
 

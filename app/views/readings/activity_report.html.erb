@@ -19,20 +19,20 @@
 <%= form_tag search_vendor_report_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search by vendor", :team_name => nil %>
+    <%= submit_tag "Search by vendor", :team_name => nil ,:class =>"btn btn-primary"%>
   </p>
 <% end %>
 
 <%= form_tag search_by_reader_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search by reader", :team_name => nil %>
+    <%= submit_tag "Search by reader", :team_name => nil ,:class =>"btn btn-primary"%>
   </p>
 <% end %>
 
 <%= render 'shared/date_search' %>
 
-<a href="<%= activity_summary_report_readings_path %>" class="btn btn-secondary">Activity Summary Report</a>
+<a href="<%= activity_summary_report_readings_path %>" class="btn">Activity Summary Report</a>
 </div>	
 </div>
 </div>

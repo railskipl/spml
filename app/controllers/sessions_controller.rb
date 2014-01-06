@@ -30,7 +30,7 @@ respond_to :json
         render 'new'
       else
         sign_in user
-        redirect_to user_root_path
+        redirect_to readings_path
       end
     end
  end

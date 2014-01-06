@@ -50,7 +50,7 @@
 <%= f.collection_select :role_id, Role.all(:order => "id"), :id, :name %>
 </div>
 <div class="actions">
-<%= f.submit "Create Staff" %>
+<%= f.submit "Create Staff" ,:class =>"btn btn-primary"%>
 </div>
 <% end %>
 

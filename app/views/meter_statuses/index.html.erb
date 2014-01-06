@@ -24,9 +24,9 @@
     <% @meter_statuses.each do |meter_status| %>
       <tr>
         <td><%= meter_status.billing_meter_status %></td>
-        <td><%= link_to 'Show', meter_status ,:class=>"btn btn-secondary"%></td>
-        <td><%= link_to 'Edit', edit_meter_status_path(meter_status) ,:class=>"btn btn-secondary"%></td>
-        <td><%= link_to 'Destroy', meter_status, method: :delete, data: { confirm: 'Are you sure?' } ,:class=>"btn btn-secondary"%></td>
+        <td><%= link_to 'Show', meter_status ,:class=>"btn"%></td>
+        <td><%= link_to 'Edit', edit_meter_status_path(meter_status) ,:class=>"btn"%></td>
+        <td><%= link_to 'Destroy', meter_status, method: :delete, data: { confirm: 'Are you sure?' } ,:class=>"btn"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,7 +34,7 @@
 
 <br>
 
-<%= link_to 'New Meter status', new_meter_status_path %>
+<%= link_to 'New Meter status', new_meter_status_path , :class => "btn btn-secondary"%>
 </div>  
 </div>
 </div>

@@ -13,19 +13,19 @@
 
 <%= form_tag import_users_path, multipart: true do %>
   <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
+  <%= submit_tag "Import" ,:class =>"btn btn-primary"%>
 <% end %>
 <%= form_tag search_users_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search"  %>
+    <%= submit_tag "Search"  ,:class =>"btn btn-primary"%>
   </p>
 <% end %>
 <p>
-<%= link_to "Show Readers", search_users_path(:name => "readers") %> |
-<%= link_to "Show Vendors", search_users_path(:name => "vendors") %>
+<%= link_to "Show Readers", search_users_path(:name => "readers") ,:class =>"btn" %> |
+<%= link_to "Show Vendors", search_users_path(:name => "vendors") ,:class =>"btn"%>
 </p>
-<p><%= link_to "Add Staff", signup_path %></p>
+<p><%= link_to "Add Staff", signup_path,:class =>"btn" %></p>
 
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
 

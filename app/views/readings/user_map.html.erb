@@ -1,19 +1,4 @@
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <title>Polygon Arrays</title>
-    <style>
-      html, body, #map-canvas {
-        height: 100%;
-        margin: 0px;
-        padding: 0px
-      }
-    </style>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script>
+<script>
 // This example creates a simple polygon representing the Bermuda Triangle.
 // When the user clicks on the polygon an info window opens, showing
 // information about the polygon's coordinates.
@@ -35,7 +20,7 @@ function initialize() {
 
   // Define the LatLng coordinates for the polygon.
   var triangleCoords = [
-  	<% JSON.parse(@json).each do |j| %>
+    <% JSON.parse(@json).each do |j| %>
       new google.maps.LatLng(<%= j["lat"] %>,<%= j["lng"] %>),
     <% end %>
   ];
@@ -96,9 +81,5 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
-  </head>
-  <body>
     <div id="map-canvas"></div>
-  </body>
-</html>
 

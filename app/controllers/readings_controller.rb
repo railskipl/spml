@@ -135,6 +135,7 @@ class ReadingsController < ApplicationController
      @readings <<  Reading.find_by_id(reading)
     end
     @json =  @readings.to_gmaps4rails
+    render :layout => "user_map"
   end
 
     def search_vendor_report

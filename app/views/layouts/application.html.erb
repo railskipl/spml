@@ -35,13 +35,13 @@
     			</a>		
 
     			<div class="nav-collapse collapse">
-    				<form class="navbar-search pull-right" />
+    				<form class="navbar-search pull-right" /> 
     					<input type="text" class="search-query" placeholder="Search" />
+                        <a href="<%= user_path(current_user) %>" class="orange" >Settings</a> | 
+                        <a href="<%= signout_path%>" data-method="destroy" class="orange">Logout</a>
     				</form>
                     
-                        <a href="<%= user_path(current_user) %>" >Settings</a>
-
-                           <a href="<%= signout_path%>" data-method="destroy">Logout</a>
+                 
     			</div><!--/.nav-collapse -->	
 
     		</div> <!-- /container -->

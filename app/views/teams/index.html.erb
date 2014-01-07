@@ -36,7 +36,7 @@
       <th>Team name</th>
       <th>Vendor</th>
       <th>Reader</th>
-      <th colspan="2">Action</th>
+      <th>Action</th>
     </tr>
   </thead>
 
@@ -50,8 +50,7 @@
           <%= reader.user.first_name rescue nil  %>,
           <% end %>
         </td>
-        <td><%= link_to 'Show', team ,:class =>"btn"%></td>
-        <%#= link_to 'Edit', edit_team_path(team) %>
+       <%#= link_to 'Edit', edit_team_path(team) %>
         <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' },:class =>"btn" %></td>
       </tr>
     <% end %>

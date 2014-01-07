@@ -1,4 +1,4 @@
-class ReadingsController < ApplicationController
+  class ReadingsController < ApplicationController
 
  before_filter :authenticate ,:except => [:create]
 
@@ -130,8 +130,8 @@ class ReadingsController < ApplicationController
 
   def user_tracking_report
     reader = "%#{params['reader']}%"
-    start_from =  "#{params['start_date']} #{params['timepicker1']}"
-    start_to = "#{params['end_date']} #{params['timepicker2']}"
+    start_from =  "#{params['start_date']}"
+    start_to = "#{params['end_date']}"
 
     if start_from.blank? || start_to.blank?
      redirect_to user_tracking_url, alert: "Please select date and time"
@@ -139,7 +139,7 @@ class ReadingsController < ApplicationController
      if start_from > start_to
        redirect_to user_tracking_url, alert: "Start time cannot be greater"
       else
-      @readings = Reading.where("read_by iLIKE ? and  date_time >= ? and date_time <= ?" ,reader,start_from,start_to)
+      @readings = Reading.where("read_by iLIKE ? and  date_time >= ? and date(date_time) <= ?" ,reader,start_from,start_to)
       end
     end
   end
@@ -189,18 +189,21 @@ class ReadingsController < ApplicationController
      if params[:search].nil? || params[:search].empty?
       redirect_to activity_report_readings_url ,:alert => "Search field cannot be empty"
      else
-     @readings= Reading.where("read_by iLIKE ? ", "%#{params[:search]}%")
+     @readings= Reading.where("read_by LIKE ? ", "%#{params[:search]}%")
       respond_to do |format|
         format.html
         format.xls 
+        format.pdf do
+            render :pdf => "file_name"
+        end
       end
     end
   end
 
 
   def search_by_date
-    start_from =  "#{params['start_date']} #{params['timepicker1']}"
-    start_to = "#{params['end_date']} #{params['timepicker2']}"
+    start_from =  "#{params['start_date']}"
+    start_to = "#{params['end_date']}"
 
     if start_from.blank? || start_to.blank?
       if  params["reading_index"]
@@ -221,10 +224,23 @@ class ReadingsController < ApplicationController
         end
       else
         if params["consumer_status"]
-         @readings = Reading.where("date_time >= ? and date_time <= ? and consumer_status = ? " ,start_from,start_to, params["consumer_status"])
-
+         @readings = Reading.where("date_time >= ? and Date(date_time) <= ? and consumer_status = ? " ,start_from,start_to, params["consumer_status"])
+         respond_to do |format|
+          format.html
+          format.xls
+          format.pdf do
+            render :pdf => "file_name"
+          end
+         end
         else
-         @readings = Reading.where("date_time >= ? and date_time <= ?" ,start_from,start_to)
+         @readings = Reading.where("date_time >= ? and Date(date_time) <= ?" ,start_from,start_to)
+         respond_to do |format|
+          format.html
+          format.xls
+          format.pdf do
+            render :pdf => "file_name"
+          end
+         end
         end
       end
     end

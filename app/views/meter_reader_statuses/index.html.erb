@@ -16,7 +16,7 @@
   <thead>
     <tr>
       <th>Description</th>
-      <th colspan = 3>Action</th>
+      <th colspan = 2>Action</th>
       </tr>
   </thead>
 
@@ -24,7 +24,6 @@
     <% @meter_reader_statuses.each do |meter_reader_status| %>
       <tr>
         <td><%= meter_reader_status.description %></td>
-        <td><%= link_to 'Show', meter_reader_status ,:class=>"btn"%></td>
         <td><%= link_to 'Edit', edit_meter_reader_status_path(meter_reader_status) ,:class=>"btn" %></td>
         <td><%= link_to 'Destroy', meter_reader_status, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn" %></td>
       </tr>

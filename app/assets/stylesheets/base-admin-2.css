@@ -129,9 +129,9 @@ h6 {
   font-weight: bold;
   line-height: 20px;
 }
-.navbar.navbar-inverse .navbar-search .search-query:focus {
+/*.navbar.navbar-inverse .navbar-search .search-query:focus {
   background-color: #FFF;
-}
+}*/
 .navbar.navbar-inverse .navbar-search .search-query::-webkit-input-placeholder {
   color: #666;
 }

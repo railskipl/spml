@@ -20,7 +20,7 @@
 <%= form_tag search_vendor_summary_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search by vendor", :team_name => nil %>
+    <%= submit_tag "Search by vendor", :team_name => nil ,:class => "btn btn-primary"%>
   </p>
 <% end %>
 
@@ -34,7 +34,7 @@
     <td><input type="text_field" class="date_time" name="start_date" id="start_date"></td>
     <td> 
     <div class="input-append bootstrap-timepicker">
-     <input id="timepicker1" type="text" class="input-small" name="timepicker1" style="height:26px;">
+     <input id="timepicker1" type="text" class="input-small" name="timepicker1">
       <span class="add-on" style="height:16px;">
       <i class="icon-time"></i>
       </span>
@@ -46,7 +46,7 @@
     <td><input type="text_field" class="date_time1" name="end_date" id="end_date"></td>
     <td> 
     <div class="input-append bootstrap-timepicker" >
-     <input id="timepicker2" type="text" class="input-small" name="timepicker2" style="height:26px;">
+     <input id="timepicker2" type="text" class="input-small" name="timepicker2">
       <span class="add-on" style="height:16px;">
       <i class="icon-time"></i>
       </span>
@@ -74,7 +74,7 @@ defaultTime: false
 });
 </script>
 
-<%= submit_tag "Search by date and time" %>
+<%= submit_tag "Search by date and time" ,:class => "btn btn-primary" %>
 <% end %>
 
 </div>  

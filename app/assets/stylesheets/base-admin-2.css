@@ -1442,7 +1442,7 @@ body:not(:-moz-handler-blocked) .dropdown-submenu > a:after {
 }
 /*------------------------------------------------------------------
 [ Pagination / .pagination ]
-*/
+*//*
 .pagination ul li a {
   padding: 0 10px;
   margin-right: .5em;
@@ -1500,7 +1500,7 @@ body:not(:-moz-handler-blocked) .dropdown-submenu > a:after {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-}
+}*/
 /*------------------------------------------------------------------
 [ Gallery / .gallery-container ]
 */

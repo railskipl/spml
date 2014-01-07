@@ -38,8 +38,8 @@
     <% end %>
   
 </table>
+ <a href="<%= search_by_reader_path(params.merge(format: "xls")) %>" class="btn btn-secondary"><img src="/assets/excel.png" alt=""> Excel</a> 
 
-  <%= link_to "Excel", search_by_reader_path(params.merge(format: "xls")) %>
 
 <% end %>
 

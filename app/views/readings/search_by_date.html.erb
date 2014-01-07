@@ -36,7 +36,7 @@ No results found!
     <% end %>
   
 </table>  
-    <%= link_to "Excel", search_by_date_path(params.merge(format: "xls")) %>
+ <a href="<%= search_by_date_path(params.merge(format: "xls")) %>" class="btn btn-secondary"><img src="/assets/excel.png" alt=""> Excel</a> 
 
-  <% end %>
+<% end %>
 

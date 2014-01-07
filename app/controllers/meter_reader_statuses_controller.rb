@@ -1,5 +1,9 @@
 class MeterReaderStatusesController < ApplicationController
   before_action :set_meter_reader_status, only: [:show, :edit, :update, :destroy]
+    before_filter :authenticate 
+
+   
+
 
   # GET /meter_reader_statuses
   # GET /meter_reader_statuses.json
@@ -71,4 +75,9 @@ class MeterReaderStatusesController < ApplicationController
     def meter_reader_status_params
       params.require(:meter_reader_status).permit(:description,:meter_statuses_id)
     end
+
+     
+  def authenticate
+    deny_access unless signed_in?
+  end
 end

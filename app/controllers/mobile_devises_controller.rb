@@ -1,5 +1,6 @@
 class MobileDevisesController < ApplicationController
   before_action :set_mobile_devise, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate
 
   # GET /mobile_devises
   # GET /mobile_devises.json
@@ -71,4 +72,8 @@ class MobileDevisesController < ApplicationController
     def mobile_devise_params
       params.require(:mobile_devise).permit(:imei, :manufacturer_name, :purchase_date, :phone_no)
     end
+
+    def authenticate
+      deny_access unless signed_in?
+    end 
 end

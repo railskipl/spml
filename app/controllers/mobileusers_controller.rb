@@ -1,4 +1,5 @@
 class MobileusersController < ApplicationController
+  before_filter :authenticate
  def index
     @mobileusers = Mobileuser.all
 
@@ -78,6 +79,12 @@ class MobileusersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  private
+   
+   def authenticate
+      deny_access unless signed_in?
+   end
 
  
 

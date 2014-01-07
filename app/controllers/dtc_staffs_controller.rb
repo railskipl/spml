@@ -1,5 +1,7 @@
 class DtcStaffsController < ApplicationController
   before_action :set_dtc_staff, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate 
+
 
   # GET /dtc_staffs
   # GET /dtc_staffs.json
@@ -92,6 +94,10 @@ end
     def set_dtc_staff
       @dtc_staff = DtcStaff.find(params[:id])
     end
+    
+    def authenticate
+      deny_access unless signed_in?
+    end 
 
    
 end

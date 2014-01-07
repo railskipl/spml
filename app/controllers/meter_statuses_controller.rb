@@ -1,5 +1,8 @@
 class MeterStatusesController < ApplicationController
   before_action :set_meter_status, only: [:show, :edit, :update, :destroy]
+      before_filter :authenticate 
+
+  
 
   # GET /meter_statuses
   # GET /meter_statuses.json
@@ -80,4 +83,8 @@ class MeterStatusesController < ApplicationController
     def meter_status_params
       params.require(:meter_status).permit(:billing_meter_status)
     end
+
+    def authenticate
+     deny_access unless signed_in?
+    end 
 end

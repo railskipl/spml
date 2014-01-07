@@ -38,28 +38,44 @@ class ReadingsController < ApplicationController
   # POST /dtc_staffs
   # POST /dtc_staffs.json
   def create
-  #raise params[:reading][:image].inspect
-  #params[:uploaded].inspect
-     @user = User.find(params[:user_id])
-    #@user = current_user
-      @read_by = "#{@user.first_name} #{@user.last_name}" 
-
-    @ime_no = Mobileuser.find_by_user_id(@user.id)
-
-   # @ime_no = Mobileuser.find_by_user_id(@user.id)
+   reading = {}
+    packet = params["Packet1"].split("%")
+    @user = User.find(packet[16])
+    @read_by = "#{@user.first_name} #{@user.last_name}" 
+    @ime_no = Mobileuser.find_by_user_id(@user.id).imei
+    location = params["location"].split("%")
+    reading["latitude"]            = location[0]
+    reading["longitude"]           = location[1]
+    reading["pincode"]             = packet[0]
+    reading["pc"]                  = packet[1]
+    reading["pole_no"]             = packet[2]
+    reading["bu"]                  = packet[3]
+    reading["consumer_no"]         = packet[4]
+    reading["consumer_name"]       = packet[5]
+    reading["meter_reading"]       = packet[6]
+    reading["meter_status"]        = packet[7]
+    reading["old_meter_no"]        = packet[8]
+    reading["bill_month"]          = packet[9]
+    reading["remark"]              = packet[10]
+    reading["dtc"]                 = packet[11]
+    reading["meter_reader_status"] = packet[12]
+    reading["sl_no"]               = packet[13]
+    reading["consumer_status"]     = packet[14]
+    reading["new_meter_no"]        = packet[15]
+    reading["user_id"]             = packet[16]
+    reading["read_by"]             = @read_by
+    reading["ime_no"]              = @ime_no
+    reading["image"]               = params["uploaded"]
+    
+    @reading = Reading.create(reading)
   
-    @reading = Reading.create(:user_id => params[:user_id] ,:meter_reading=>params[:meter_reading],:consumer_no=>params[:consumer_no],:pc =>params[:pc],:pincode =>params[:pincode],:bu =>params[:bu],:address=>params[:address],:city=>params[:city],:consumer_name=> params[:consumer_name],:dtc =>params[:dtc],:pole_no =>params[:poleno],:reader_mobile_no=>params[:reader_mobile_no],:date_time=>params[:date_time],:latitude=>params[:latitude],:longitude =>params[:longitude],:ime_no=> @ime_no ,:image => params[:uploaded],
-    :meter_status=>params[:meter_status],:old_meter_no=>params[:old_meter_no],:new_meter_no=>params[:new_meter_no],:bill_month=>params[:bill_month],:meter_reader_status=>params[:meter_reader_status],:remark=>params[:remark],:read_by=>@read_by,:status => params[:flag],:consumer_status=>params[:consumer_status])
-
     if @reading.consumer_status == "true"
-     consumer = Consumer.find_by_consno(params[:consumer_no])
+     consumer = Consumer.find_by_consno(packet[4])
      consumer.update_column(:status,true) rescue nil
      render :status =>200,:json => @reading.consumer_no.to_json
-
     else
      @reading.consumer_create
      render :status =>200,:json => @reading.consumer_no.to_json
-
     end
   end
   

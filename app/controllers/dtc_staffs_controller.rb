@@ -1,6 +1,6 @@
 class DtcStaffsController < ApplicationController
   before_action :set_dtc_staff, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate 
+  before_filter :authenticate ,except: [:dtc]
 
 
   # GET /dtc_staffs

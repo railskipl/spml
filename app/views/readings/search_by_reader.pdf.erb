@@ -22,6 +22,7 @@
       <th>Meter Reader Status</th>
       <th>Latitude</th>
       <th>Longitude</th>
+      <th>Date Time</th>
       <th>Image</th>
     </tr>
   </thead>
@@ -40,6 +41,7 @@
         <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
         <td><%= reading.latitude rescue nil%>&nbsp;</td>
         <td><%= reading.longitude rescue nil%>&nbsp;</td>
+        <td><%= reading.created_at.strftime("%T %a %b %e %Y ")%></td>
         <td><%= image_tag reading.image.url ,:class => "img1" rescue nil%></td>
       </tr>
     <% end %>

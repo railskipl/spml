@@ -22,8 +22,8 @@ No results found!
       <th>Meter Reader Status</th>
       <th>Latitude</th>
       <th>Longitude</th>
+      <th>Date Time</th>
       <th>Image</th>
-      <th>Action</th>
     </tr>
   </thead>
     <%  @readings.each do |reading| %>
@@ -39,9 +39,8 @@ No results found!
         <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
         <td><%= reading.latitude rescue nil%>&nbsp;</td>
         <td><%= reading.longitude rescue nil%>&nbsp;</td>
-        <td><%= image_tag reading.image.url :width => 250,:height=> 200 rescue nil %></td>
-        <td> <%= link_to 'Show', reading %></td>
-
+        <td><%= reading.created_at.strftime("%T %a %b %e %Y ")%></td>
+        <td><%= image_tag reading.image.url rescue nil %></td>
       </tr>
     <% end %>
   

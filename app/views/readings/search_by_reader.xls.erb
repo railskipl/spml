@@ -14,6 +14,7 @@
       <th>Meter Reader Status</th>
       <th>Latitude</th>
       <th>Longitude</th>
+      <th>Date Time</th>
     </tr>
   
 
@@ -31,7 +32,7 @@
         <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
         <td><%= reading.latitude rescue nil%>&nbsp;</td>
         <td><%= reading.longitude rescue nil%>&nbsp;</td>
-
+        <td><%= reading.created_at.strftime("%T %a %b %e %Y ")%></td>
       </tr>
     <% end %>
   

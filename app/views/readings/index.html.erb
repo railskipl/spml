@@ -89,7 +89,6 @@ transform:rotate(0deg);
                       <tr>
                         <th>Consumer Number</th>
                         <th>Reader</th>
-                        <th>Team</th>
                         <th>Meter Reading</th>
                         <th>Dtc</th>
                         <th>Meter Status</th>
@@ -98,26 +97,26 @@ transform:rotate(0deg);
                         <th>Longitude</th>
                         <th>Date Time</th>
                         <th>Image</th>
-                        <th>Action</th>
+                        <th colspan = "2">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
 
                   <%  @readings.each do |reading| %>  
-                      <tr>
-                        <td><%= reading.consumer_no rescue nil%></td>
-                        <td><%= reading.read_by rescue nil%></td>
-                        <td><% a =  TeamUser.find_by_user_id(reading.user_id).team_id rescue nil %>
-                        <%= User.find(Team.find(a).user_id).username rescue nil %> </td>
-                        <td><%= reading.meter_reading  rescue nil%></td>
-                        <td><%= reading.dtc rescue nil%></td>
-                        <td><%= reading.meter_status rescue nil%></td>
-                        <td><%= reading.meter_reader_status rescue nil%></td>
-                        <td><%= reading.latitude rescue nil%></td>
-                        <td><%= reading.longitude rescue nil%></td>
-                        <td><%= reading.created_at.strftime("%T %a %b %e %Y ")%></td>
-                        <td><%= image_tag reading.image.url ,:class => "img1" %></td>
-                        <td><%= link_to 'Show', reading ,:class =>"btn btn-primary"%></td>
+                    <tr>
+                      <td><%= reading.consumer_no rescue nil%></td>
+                      <td><%= reading.read_by rescue nil%></td>
+                 
+                      <td><%= reading.meter_reading  rescue nil%></td>
+                      <td><%= reading.dtc rescue nil%></td>
+                      <td><%= reading.meter_status rescue nil%></td>
+                      <td><%= reading.meter_reader_status rescue nil%></td>
+                      <td><%= reading.latitude rescue nil%></td>
+                      <td><%= reading.longitude rescue nil%></td>
+                      <td><%= reading.created_at.strftime("%T %a %b %e %Y ")%></td>
+                      <td><%= image_tag reading.image.url ,:class => "img1" %></td>
+                      <td><%= link_to 'Show', reading ,:class =>"btn btn-primary"%></td>
+                      <td><%= link_to "Reject", reading , method: :delete, data: { confirm: 'Are you sure, you want to reject reading?' }, :class => "btn btn-primary" %></td>
                       </tr>
                   <% end %>
                   

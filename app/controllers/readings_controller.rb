@@ -115,6 +115,9 @@
   # DELETE /dtc_staffs/1
   # DELETE /dtc_staffs/1.json
   def destroy
+    @reading = Reading.find(params[:id])   
+    consumer = Consumer.find_by_consno(@reading.consumer_no)
+    consumer.update_column(:status,false) rescue nil
     @reading.destroy
     respond_to do |format|
       format.html { redirect_to readings_url }

@@ -19,16 +19,7 @@
     
     <%= select("dtc_staff", "dtc", Consumer.select("DISTINCT(dtc)").collect {|p| [ p.dtc, p.dtc ] }, {include_blank: 'select DTC'}) %>
   </div>
-  <div class="field">
-    <%= f.label :bu, "BU" %><br>
-    
-    <%= select("dtc_staff", "bu", Consumer.select("DISTINCT(bu)").collect {|p| [ p.bu, p.bu ] }, {include_blank: 'select BU'}) %>
-  </div>
-  <div class="field">
-    <%= f.label :pc, "PC" %><br>
-    
-    <%= select("dtc_staff", "pc", Consumer.select("DISTINCT(pc)").collect {|p| [ p.pc, p.pc ] }, {include_blank: 'select pc'}) %>
-  </div>
+
 
   <div class="field">
     <%= f.label :user_id, "Reader" %><br>

@@ -7,6 +7,7 @@ server "59.90.127.144", :web, :app, :db, primary: true
 
 set :application, "meter-reading"
 set :user, "root"
+run "~#{user}/.rvm/bin/rvm gemset create #{application}"
 set :rvm_type, "rvm use 1.9.3 --default"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache

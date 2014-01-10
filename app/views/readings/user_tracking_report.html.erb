@@ -38,10 +38,9 @@ No results found!
       <tr>
 	     <td><%= check_box_tag "reading_ids[]", reading.id %></td>        
        <%= render 'shared/readingss' ,:reading => reading %>
-
       </tr>
     <% end %>
-    <%= submit_tag "Show map",:class => "btn" %>
+    <%= submit_tag "Show map",:class => "btn",:style => "margin-bottom:4px;" %></br>
   <% end %>
 </table>  
 

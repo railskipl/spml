@@ -149,12 +149,16 @@
 
   def user_map
     readings =  params["reading_ids"]
-    @readings ||= []
-    readings.each do |reading|
-     @readings <<  Reading.find_by_id(reading)
+    if readings.nil?
+    redirect_to :back , :alert => "Please Select Reading"
+    else
+      @readings ||= []
+      readings.each do |reading|
+       @readings <<  Reading.find_by_id(reading)
+      end
+      @json =  @readings.to_gmaps4rails
+      render :layout => "user_map"
     end
-    @json =  @readings.to_gmaps4rails
-    render :layout => "user_map"
   end
 
 

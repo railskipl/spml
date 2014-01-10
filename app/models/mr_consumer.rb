@@ -14,6 +14,7 @@ class MrConsumer < ActiveRecord::Base
     product.computer_no = product.computer_no.to_s
     product.walking_seq_no = product.walking_seq_no.to_i.to_s if product.walking_seq_no.class == Float
     product.walking_seq_no = product.walking_seq_no.to_s
+
     product.save!
   end
 end

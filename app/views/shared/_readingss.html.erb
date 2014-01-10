@@ -3,12 +3,13 @@
          <td><%a =  TeamUser.find_by_user_id(reading.user_id).team_id %>
             <%= User.find(Team.find(a).user_id).username rescue nil %>
         </td>
+        <td><%= reading.old_meter_no rescue nil %></td>
+        <td><%= reading.new_meter_no rescue nil %></td>
         <td><%= reading.meter_reading  rescue nil%>&nbsp;</td>
         <td><%= reading.sub_cluster rescue nil%>&nbsp;</td>
         <td><%= reading.meter_status rescue nil%>&nbsp;</td>
         <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
-        <td><%= reading.latitude rescue nil%>&nbsp;</td>
-        <td><%= reading.longitude rescue nil%>&nbsp;</td>
         <td><%= reading.created_at.strftime("%T %a %b %e %Y ")   %></td>
         <td><%= image_tag reading.image.url ,:class => "img1" rescue nil %></td>
         <td> <%= link_to 'Show', reading,:class => "btn btn-primary" %></td>
+         <td><%= link_to "Reject", reading , method: :delete, data: { confirm: 'Are you sure, you want to reject reading?' }, :class => "btn btn-primary" %></td>

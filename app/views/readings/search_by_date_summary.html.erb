@@ -1,6 +1,7 @@
 <% if @readings.empty? %>
 No results found!
 <% else %>
+<a href="<%= search_by_date_summary_path(params.merge(format: "xls")) %>" class="btn btn-secondary"><img src="/assets/excel.png" alt=""> Excel</a> <br/>
   <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
     <tr>
       <th>Reader</th>
@@ -22,6 +23,6 @@ No results found!
    
  
 </table>
- <a href="<%= search_by_date_summary_path(params.merge(format: "xls")) %>" class="btn btn-secondary"><img src="/assets/excel.png" alt=""> Excel</a> 
+ 
 
 <% end %>

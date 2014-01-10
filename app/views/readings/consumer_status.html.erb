@@ -71,26 +71,28 @@ transform:rotate(0deg);
           <table class="table table-bordered table-striped table-highlight">
                     <thead>
                       <tr>
+                        <th>Sr. No.</th>
                         <th>Consumer Number</th>
                         <th>Reader</th>
                         <th>Team</th>
+                        <th>Meter No</th>
+                        <th>New Meter No</th>
                         <th>Meter Reading</th>
                         <th>Sub Cluster</th>
                         <th>Meter Status</th>
                         <th>Meter Reader Status</th>
-                        <th>Latitude</th>
-                        <th>Longitude</th>
                         <th>Date Time</th>
                         <th>Image</th>
-                        <th>Action</th>
+                        <th colspan=2 >Action</th>
                       </tr>
                     </thead>
                     <tbody>
 
-                  <%  @readings_status.each do |reading| %>  
-                      <tr>
-                    <%= render 'shared/readingss' ,:reading => reading %>
-                      </tr>
+                  <%  @readings_status.each.with_index(1) do |reading,index| %>  
+                    <tr>
+                      <td><%= index %></td>
+                      <%= render 'shared/readingss' ,:reading => reading %>
+                     </tr>
                   <% end %>
                   
                    </tbody>
@@ -138,26 +140,28 @@ transform:rotate(0deg);
           <table class="table table-bordered table-striped table-highlight">
                     <thead>
                       <tr>
+                        <th>Sr. No.</th>
                         <th>Consumer Number</th>
                         <th>Reader</th>
                         <th>Team</th>
+                        <th>Meter No</th>
+                        <th>New Meter No</th>
                         <th>Meter Reading</th>
                         <th>Sub Cluster</th>
                         <th>Meter Status</th>
                         <th>Meter Reader Status</th>
-                        <th>Latitude</th>
-                        <th>Longitude</th>
                         <th>Date Time</th>
                         <th>Image</th>
-                        <th>Action</th>
+                        <th colspan = "2">Action</th>
                       </tr>
                     </thead>
                     <tbody>
 
-                  <%  @readings_status.each do |reading| %>  
-                      <tr>
+                  <%  @readings_status.each.with_index(1) do |reading,index| %>  
+                    <tr>
+                      <td><%= index %></td>
                   <%= render 'shared/readingss' ,:reading => reading %>
-                      </tr>
+                     </tr>
                   <% end %>
                   
                    </tbody>

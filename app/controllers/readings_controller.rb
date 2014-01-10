@@ -137,10 +137,10 @@
     start_to = "#{params['end_date']}"
 
     if start_from.blank? || start_to.blank?
-     redirect_to user_tracking_url, alert: "Please select date and time"
+     redirect_to user_tracking_url, alert: "Please Select Date"
     else
      if start_from > start_to
-       redirect_to user_tracking_url, alert: "Start time cannot be greater"
+       redirect_to user_tracking_url, alert: "Start Date Cannot Be Greater"
       else
       @readings = Reading.where("read_by LIKE ? and  created_at >= ? and date(created_at) <= ?" ,reader,start_from,start_to)
       end
@@ -199,20 +199,20 @@
 
     if start_from.blank? || start_to.blank?
       if  params["reading_index"]
-        redirect_to readings_path , alert: "Please select date and time"
+        redirect_to readings_path , alert: "Please Select Date"
       elsif params["consumer_status"]
         redirect_to readings_consumer_status_path(params.merge(format: "")) , alert: "Please select date and time"
       else
-        redirect_to activity_report_readings_url, alert: "Please select date and time"
+        redirect_to activity_report_readings_url, alert: "Please Select Date"
       end
     else
       if start_from > start_to
         if params["reading_index"]
-          redirect_to readings_path , alert: "Start time cannot be greater"
+          redirect_to readings_path , alert: "Start Date Cannot Be Greater"
         elsif params["consumer_status"]
-          redirect_to readings_consumer_status_path(params.merge(format: "")) , alert: "Start time cannot be greater"
+          redirect_to readings_consumer_status_path(params.merge(format: "")) , alert: "Start Date Cannot Be Greater"
         else
-          redirect_to activity_report_readings_url, alert: "Start time cannot be greater"
+          redirect_to activity_report_readings_url, alert: "Start Date Cannot Be Greater"
         end
       else
         if params["consumer_status"]
@@ -245,10 +245,10 @@
     start_to = "#{params['end_date']}"
 
     if start_from.blank? || start_to.blank?
-     redirect_to activity_summary_report_readings_url, alert: "Please select date and time"
+     redirect_to activity_summary_report_readings_url, alert: "Please Select Date"
     else
       if start_from > start_to
-        redirect_to activity_summary_report_readings_url, alert: "Start time cannot be greater"
+        redirect_to activity_summary_report_readings_url, alert: "Start Date Cannot Be Greater"
       else
         @readings = Reading.where("created_at >= ? and date(created_at) <= ?" ,start_from,start_to).uniq.pluck(:user_id)
       end

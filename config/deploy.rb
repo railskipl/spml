@@ -15,6 +15,7 @@ set :use_sudo, false
 set :scm, "git"
 set :repository,  "git@github.com:railskipl/spml.git"
 set :branch, "master"
+set :bundle_cmd, 'source $HOME/.bash_profile && bundle'
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true

@@ -3,4 +3,4 @@ load 'deploy'
 load 'deploy/assets'
 load 'config/deploy' # remove this line to skip loading any of the default tasks
 set :rvm_type, :system
-set :rvm_path, "/usr/local/rvm/bin/rvm"
+set :rvm_path, "/usr/local/rvm/bin"

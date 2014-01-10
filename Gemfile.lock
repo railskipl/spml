@@ -259,7 +259,6 @@ DEPENDENCIES
   aws-sdk
   bootstrap-timepicker-rails
   cancan
-  capistrano
   carrierwave
   coffee-rails (~> 4.0.0)
   delayed_job_active_record

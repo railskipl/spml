@@ -3,7 +3,7 @@ require "bundler/capistrano"
 
 
 server "59.90.127.144", :web, :app, :db, primary: true
-
+before 'deploy:setup', 'rvm:install_rvm'
 
 set :application, "meter-reading"
 set :user, "root"

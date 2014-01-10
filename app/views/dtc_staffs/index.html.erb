@@ -11,20 +11,19 @@
           </div> <!-- /widget-header -->
         
              <div class="widget-content">
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
-
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-highlight">
+<thead>
     <tr>
       <th>Sub Cluster</th>
       <th>Reader</th>
-      <th>Actions</th>
+      <th colspan=2>Actions</th>
       
     </tr>
-
+</thead>
     <% @dtc_staffs.each do |dtc_staff| %>
       <tr>
         <td><%= dtc_staff.sub_cluster %></td>
         <td><%= User.find(dtc_staff.user_id).username  rescue nil %></td>
-        <td><%= link_to 'Show', dtc_staff ,:class => "btn" %></td>
          <% if can? :update, dtc_staff %>
         <td><%= link_to 'Edit', edit_dtc_staff_path(dtc_staff) ,:class => "btn" %></td>
         <% end %>

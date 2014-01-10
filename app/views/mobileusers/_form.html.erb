@@ -14,16 +14,16 @@
               </div>
             <% end %>
 <div>
-    <%= f.label "Select Reader" %><br />
+    <%= f.label "Select Reader" %>
     <%= f.collection_select :user_id, User.find_all_by_role_id(2), :id, :username  ,:prompt => "Select Reader"%>
-  </div>
+  </div><br />
  <div>
-    <%= f.label "Select Imei" %><br />
+    <%= f.label "Select Imei" %>
     <%= f.collection_select :imei, MobileDevise.all(:order => "imei"), :imei, :imei  %>
   </div>
-
+<br/>
 <div class="actions">
-	<%= f.submit "Save"  %>
+	<%= f.submit "Save" ,:class => "btn btn-primary" %>
 	
 </div>
 <% end %>

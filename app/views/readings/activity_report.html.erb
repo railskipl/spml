@@ -16,12 +16,7 @@
 </style>
    <div class="widget-content">
 
-<%= form_tag search_vendor_report_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search by vendor", :team_name => nil ,:class =>"btn btn-primary"%>
-  </p>
-<% end %>
+
 
 <%= form_tag search_by_reader_path, :method => 'get' do %>
   <p>

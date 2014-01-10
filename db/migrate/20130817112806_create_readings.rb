@@ -11,17 +11,17 @@ class CreateReadings < ActiveRecord::Migration
       t.string :image
       t.string :old_meter_no
       t.string :new_meter_no
-      t.string :bu
-      t.string :pc
-      t.string :dtc
       t.string :bill_month
-      t.string :pole_no
       t.string :consumer_name
       t.string :reader_mobile_no
       t.string :meter_reader_status
       t.text :remark
       t.string :read_by
-      
+      t.string :consumer_status 
+      t.string :walking_seq_no
+      t.integer :user_id
+      t.string :cons_code
+      t.string :computer_no
       t.timestamps
     end
   end

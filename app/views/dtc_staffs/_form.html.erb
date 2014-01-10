@@ -15,9 +15,9 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :dtc, "DTC" %><br>
+    Sub Cluster<br>
     
-    <%= select("dtc_staff", "dtc", Consumer.select("DISTINCT(dtc)").collect {|p| [ p.dtc, p.dtc ] }, {include_blank: 'select DTC'}) %>
+    <%= select("dtc_staff", "sub_cluster", MrConsumer.select("DISTINCT(sub_cluster)").collect {|p| [ p.sub_cluster, p.sub_cluster ] }, {include_blank: 'select sub_cluster'}) %>
   </div>
 
 

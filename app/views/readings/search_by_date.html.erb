@@ -22,7 +22,7 @@ No results found!
       <th>Reader</th>
       <th>Team</th>
       <th>Meter reading</th>
-      <th>Dtc</th>
+      <th>Sub Cluster</th>
       <th>Meter Status</th>
       <th>Meter Reader Status</th>
       <th>Latitude</th>
@@ -34,19 +34,7 @@ No results found!
   </thead>
     <%  @readings.each do |reading| %>
       <tr>
-        <td><%= reading.consumer_no rescue nil%>&nbsp;</td>
-        <td><%= reading.read_by rescue nil%>&nbsp;</td>
-        <td><% a =  TeamUser.find_by_user_id(reading.user_id).team_id %>
-      <%= User.find(Team.find(a).user_id).username rescue nil %>
-        </td>
-        <td><%= reading.meter_reading  rescue nil%>&nbsp;</td>
-        <td><%= reading.dtc rescue nil%>&nbsp;</td>
-        <td><%= reading.meter_status rescue nil%>&nbsp;</td>
-        <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
-        <td><%= reading.latitude rescue nil%>&nbsp;</td>
-        <td><%= reading.longitude rescue nil%>&nbsp;</td>
-        <td><%= image_tag reading.image.url ,:class => "img1" rescue nil %></td>
-        <td> <%= link_to 'Show', reading %></td>
+      <%= render 'shared/readingss' ,:reading => reading %>
 
       </tr>
     <% end %>

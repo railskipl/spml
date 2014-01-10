@@ -2,32 +2,36 @@
 class Reading < ActiveRecord::Base
 
  include Gmaps4rails::ActsAsGmappable
-attr_accessible :meter_reading,:consumer_no,:meter_status,:date_time,:latitude,:longitude,:ime_no,:img,:old_meter_no,:new_meter_no,:bu,:pc,:dtc,:bill_month,:consumer_name,:reader_mobile_no,:meter_reader_status,:remark,:read_by,:pincode,:address,:city,:consumer_name,:pole_no,:status,:consumer_status,:image,:photo,:user_id,:sl_no
+attr_accessible :meter_reading,:consumer_no,:meter_status,:date_time,:latitude,:longitude,
+                :ime_no,:img,:old_meter_no,:new_meter_no,:bill_month,:consumer_name,
+                :reader_mobile_no,:meter_reader_status,:remark,:read_by,:consumer_status,
+                :image,:user_id,:walking_seq_no,:cons_code,:computer_no,:sub_cluster,
+                :conn_add1,:conn_add2
 
   #has_attached_file :photo
   mount_uploader :image, ImageUploader
   acts_as_gmappable :process_geocoding => false
-
+belongs_to :user
 # def picture_from_url(url)
 #     self.photo = URI.parse(url)
 #   end
 
 def gmaps4rails_infowindow
-   " #{self.read_by} #{self.date_time.strftime("%T %a %b %e %Y ")}"
+   " #{self.read_by} #{self.created_at.strftime("%T %a %b %e %Y ")}"
 end
 
 def combined_value
   "#{self.bu}-#{self.pc}"
 end
 
-before_create :convert_time
+# before_create :convert_time
 
-def convert_time
-	self.date_time = (self.created_at + (5.hour + 30.minutes))
-end
+# def convert_time
+# 	self.date_time = (self.created_at + (5.hour + 30.minutes))
+# end
 
 def consumer_create
-  Consumer.create(:consno => self.consumer_no, :bu => self.bu, :pc => self.pc,:poleno => self.pole_no,:name => self.consumer_name,:addrs => self.address,:city => self.city)	
+  MrConsumer.create(:meter_no => self.old_meter_no,:sub_cluster => self.sub_cluster,:conn_add1 => self.conn_add1,:conn_add2 => self,:cons_no => self.consumer_no,:walking_seq_no => self.walking_seq_no ,:computer_no => self.computer_no, :name => self.consumer_name,:cons_code => self.cons_code)
 end
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131118105159) do
+ActiveRecord::Schema.define(version: 20140109114025) do
 
   create_table "consumer_spmls", force: true do |t|
     t.string   "computer_no"
@@ -31,45 +31,6 @@ ActiveRecord::Schema.define(version: 20131118105159) do
     t.datetime "updated_at"
   end
 
-  create_table "consumers", force: true do |t|
-    t.string   "pc"
-    t.string   "bu"
-    t.string   "consno"
-    t.string   "disc_tag"
-    t.string   "tag2"
-    t.string   "yymm1"
-    t.string   "yymm2"
-    t.string   "mtr1"
-    t.string   "mt1dgt"
-    t.string   "mf1"
-    t.string   "avgc1"
-    t.string   "mtr1st"
-    t.string   "rdng1"
-    t.string   "rdmm1"
-    t.string   "mtr2"
-    t.string   "mt2dgt"
-    t.string   "mf2"
-    t.string   "avgc2"
-    t.string   "mtr2st"
-    t.string   "rdng2"
-    t.string   "rdmm2"
-    t.string   "heatcon"
-    t.string   "oldcon"
-    t.string   "poleno"
-    t.string   "mrc"
-    t.string   "route"
-    t.string   "seq"
-    t.string   "name"
-    t.string   "addrs"
-    t.string   "city"
-    t.string   "pincode"
-    t.string   "dtc"
-    t.string   "trf"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "status"
-  end
-
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
     t.integer  "attempts",   default: 0, null: false
@@ -87,13 +48,10 @@ ActiveRecord::Schema.define(version: 20131118105159) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "dtc_staffs", force: true do |t|
-    t.integer  "dtc"
+    t.string   "sub_cluster"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "bu"
-    t.string   "pc"
-    t.string   "route_name"
   end
 
   create_table "meter_reader_statuses", force: true do |t|
@@ -125,6 +83,21 @@ ActiveRecord::Schema.define(version: 20131118105159) do
     t.datetime "updated_at"
   end
 
+  create_table "mr_consumers", force: true do |t|
+    t.string   "computer_no"
+    t.string   "name"
+    t.string   "conn_add1"
+    t.string   "conn_add2"
+    t.string   "cons_code"
+    t.string   "meter_no"
+    t.string   "sub_cluster"
+    t.string   "walking_seq_no"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "cons_no"
+    t.boolean  "status",         default: false
+  end
+
   create_table "readings", force: true do |t|
     t.float    "meter_reading"
     t.string   "consumer_no"
@@ -136,29 +109,22 @@ ActiveRecord::Schema.define(version: 20131118105159) do
     t.string   "image"
     t.string   "old_meter_no"
     t.string   "new_meter_no"
-    t.string   "bu"
-    t.string   "pc"
-    t.string   "dtc"
     t.string   "bill_month"
-    t.string   "pole_no"
     t.string   "consumer_name"
     t.string   "reader_mobile_no"
     t.string   "meter_reader_status"
     t.text     "remark"
     t.string   "read_by"
+    t.string   "consumer_status"
+    t.string   "walking_seq_no"
+    t.integer  "user_id"
+    t.string   "cons_code"
+    t.string   "computer_no"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "status",              default: false
-    t.string   "consumer_status"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-    t.binary   "img"
-    t.integer  "user_id"
-    t.string   "pincode"
-    t.string   "address"
-    t.string   "city"
+    t.string   "sub_cluster"
+    t.string   "conn_add1"
+    t.string   "conn_add2"
   end
 
   create_table "roles", force: true do |t|

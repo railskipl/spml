@@ -1,9 +1,7 @@
 require 'sidekiq/web'
 Sndl::Application.routes.draw do
  
-    resources :consumer_spmls do
-      collection { post :import }
-    end
+
 
   #get "ankit/ank"
   resources :teams
@@ -93,7 +91,8 @@ Sndl::Application.routes.draw do
   end
  end
 resources :mobileusers
- resources :consumers do
+
+resources :consumers do
     collection do 
       get 'route_list'  => "consumers#route_list"
       get 'add_csv'
@@ -101,6 +100,13 @@ resources :mobileusers
       post 'import'
     end 
  end
+
+resources :mr_consumers do
+  collection do 
+    get 'add_csv'
+    post 'import'
+  end
+end 
 
 
 

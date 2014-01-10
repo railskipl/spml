@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  computer_no: MyString
+  name: MyString
+  conn_add1: MyString
+  conn_add2: MyString
+  cons_code: MyString
+  meter_no: MyString
+  sub_cluster: MyString
+  walking_seq_no: MyString
+
+two:
+  computer_no: MyString
+  name: MyString
+  conn_add1: MyString
+  conn_add2: MyString
+  cons_code: MyString
+  meter_no: MyString
+  sub_cluster: MyString
+  walking_seq_no: MyString

@@ -1,6 +1,6 @@
 development:
   adapter: mysql2
-  database: sndl_oct24
+  database: spml
   username: root
   password: 'root'
   #socket: /var/run/mysqld/mysqld.sock

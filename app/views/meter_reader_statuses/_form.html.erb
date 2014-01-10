@@ -20,6 +20,6 @@
    <%= f.collection_select :meter_status_id, MeterStatus.all(:order => "id"), :id, :billing_meter_status %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
 <% end %>

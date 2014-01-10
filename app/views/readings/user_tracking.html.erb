@@ -11,13 +11,13 @@
             
             <div class="widget-header">
               <i class="icon-pencil"></i>
-              <h3>User Tracking Report</h3>
+              <h3>Reader Tracking Report</h3>
           </div> <!-- /widget-header -->
         
              <div class="widget-content">
 <%= form_tag user_tracking_report_path, :method => 'get' do %>
 
-<table>
+<table cellpadding = 4>
   <tr>
     <td>Reader : </td>
     <td><%= text_field_tag :reader %></td>
@@ -32,20 +32,11 @@
   </tr>
 </table>
 
-
+<br/>
 <%= submit_tag "Search" ,:class =>"btn btn-primary"%>
 <% end %>
 
-<%= form_tag readers_map_path , :method => 'get' do %>
-  <p>
-    <select  name="myselecttsms1"  id="select-toggle">
-      <%= @consumer.each do |route_name| %>
-    <option> <%= route_name.bu %>-<%= route_name.pc %> </option>
-    <% end %>
-   </select>
-    <%= submit_tag "Search", :team_name => nil ,:class =>"btn btn-primary" %>
-  </p>
-<% end %>
+
 
 </div>  
 </div>

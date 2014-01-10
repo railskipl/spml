@@ -1,7 +1,7 @@
 class CreateDtcStaffs < ActiveRecord::Migration
   def change
     create_table :dtc_staffs do |t|
-      t.integer :dtc
+      t.string :sub_cluster
       t.integer :user_id
 
       t.timestamps

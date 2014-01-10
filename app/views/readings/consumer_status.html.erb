@@ -31,8 +31,8 @@ transform:rotate(0deg);
           
          
   <%= link_to "All", readings_path , :class =>"btn "%>
-  <%= link_to 'Old consumer' ,readings_consumer_status_path(:consumer_status => true), :class =>"btn " %>
-  <%= link_to 'New consumer' ,readings_consumer_status_path(:consumer_status => false) , :class =>"btn "%>
+  <%= link_to 'Old Consumer' ,readings_consumer_status_path(:consumer_status => true), :class =>"btn " %>
+  <%= link_to 'New Consumer' ,readings_consumer_status_path(:consumer_status => false) , :class =>"btn "%>
 
 
                   
@@ -75,7 +75,7 @@ transform:rotate(0deg);
                         <th>Reader</th>
                         <th>Team</th>
                         <th>Meter Reading</th>
-                        <th>Dtc</th>
+                        <th>Sub Cluster</th>
                         <th>Meter Status</th>
                         <th>Meter Reader Status</th>
                         <th>Latitude</th>
@@ -89,19 +89,7 @@ transform:rotate(0deg);
 
                   <%  @readings_status.each do |reading| %>  
                       <tr>
-                        <td><%= reading.consumer_no rescue nil%></td>
-                        <td><%= reading.read_by rescue nil%></td>
-                        <td><% a =  TeamUser.find_by_user_id(reading.user_id).team_id rescue nil %>
-                        <%= User.find(Team.find(a).user_id).username rescue nil %> </td>
-                        <td><%= reading.meter_reading  rescue nil%></td>
-                        <td><%= reading.dtc rescue nil%></td>
-                        <td><%= reading.meter_status rescue nil%></td>
-                        <td><%= reading.meter_reader_status rescue nil%></td>
-                        <td><%= reading.latitude rescue nil%></td>
-                        <td><%= reading.longitude rescue nil%></td>
-                        <td><%= reading.created_at.strftime("%T %a %b %e %Y ")%></td>
-                        <td><%= image_tag reading.image.url ,:class => "img1" %></td>
-                        <td><%= link_to 'Show', reading ,:class =>"btn btn-primary"%></td>
+                    <%= render 'shared/readingss' ,:reading => reading %>
                       </tr>
                   <% end %>
                   
@@ -154,7 +142,7 @@ transform:rotate(0deg);
                         <th>Reader</th>
                         <th>Team</th>
                         <th>Meter Reading</th>
-                        <th>Dtc</th>
+                        <th>Sub Cluster</th>
                         <th>Meter Status</th>
                         <th>Meter Reader Status</th>
                         <th>Latitude</th>
@@ -168,19 +156,7 @@ transform:rotate(0deg);
 
                   <%  @readings_status.each do |reading| %>  
                       <tr>
-                        <td><%= reading.consumer_no rescue nil%></td>
-                        <td><%= reading.read_by rescue nil%></td>
-                        <td><% a =  TeamUser.find_by_user_id(reading.user_id).team_id rescue nil %>
-                        <%= User.find(Team.find(a).user_id).username rescue nil %> </td>
-                        <td><%= reading.meter_reading  rescue nil%></td>
-                        <td><%= reading.dtc rescue nil%></td>
-                        <td><%= reading.meter_status rescue nil%></td>
-                        <td><%= reading.meter_reader_status rescue nil%></td>
-                        <td><%= reading.latitude rescue nil%></td>
-                        <td><%= reading.longitude rescue nil%></td>
-                        <td><%= reading.created_at.strftime("%T %a %b %e %Y ")%></td>
-                        <td><%= image_tag reading.image.url ,:class => "img1" %></td>
-                        <td><%= link_to 'Show', reading ,:class =>"btn btn-primary"%></td>
+                  <%= render 'shared/readingss' ,:reading => reading %>
                       </tr>
                   <% end %>
                   

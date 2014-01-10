@@ -43,7 +43,7 @@ class DtcStaffsController < ApplicationController
   end
   
    def dtc
-   @dtc = Consumer.find_all_by_dtc(params[:dtc])
+   @dtc = MrConsumer.find_all_by_sub_cluster(params[:dtc])
    @meter ||= []
    @meter_reader_status ||= []
    MeterStatus.all.each do |meter_status|

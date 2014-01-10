@@ -4,22 +4,23 @@ No results found!
   <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
     <tr>
       <th>Reader</th>
-      <th>Team</th>
-      <th>Counts</th>
+      <th>Reading Counts</th>
     </tr>
-   
-   <% @readings.each do |team| %>
-  <% TeamUser.find_all_by_team_id(team.id).each do |reader|%>
+  
+   <% @readings.each do |r| %>
+   <% reader = Reading.find_by_user_id(r)%>
+   <% count = Reading.find_all_by_user_id(r).count %>
    <tr>
-  <% a = Reading.find_all_by_user_id(reader.user_id) rescue nil %>
-   <td><%= reader.user.first_name rescue nil %></td>
-   <td><%= Team.find(reader.team_id).user.username rescue nil %></td>
-  <td><%= link_to a.count, search_by_reader_path(:search => reader.user.first_name) rescue nil%>&nbsp;</td>
+    <td><%= reader.read_by %></td>
+    <td>
+    <%= link_to count ,search_by_reader_path(:search => reader.user.first_name) %>
+    </td>
+   </tr>
+  <% end %>
+
    
-    <% end %>
-    </tr>
+   
  
-    <% end %>
 </table>
  <a href="<%= search_by_date_summary_path(params.merge(format: "xls")) %>" class="btn btn-secondary"><img src="/assets/excel.png" alt=""> Excel</a> 
 

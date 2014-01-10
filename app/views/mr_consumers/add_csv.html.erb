@@ -6,14 +6,20 @@
             
             <div class="widget-header">
               <i class="icon-pencil"></i>
-              <h3>New Mobile User</h3>
+              <h3>Import Text File</h3>
           </div> <!-- /widget-header -->
         
              <div class="widget-content">
 
-<%= render 'form' %>
 
-<p><%#= link_to "Back to List", mobileusers_path %></p>
+<%= form_tag import_mr_consumers_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+
+
+
 </div>  
 </div>
 </div>

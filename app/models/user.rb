@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
  attr_accessible :first_name,:last_name,:username,:password, :password_confirmation,:is_admin,:role_id,:email,:mobile_no
 
 
-has_many :mobileusers
+has_one :mobileuser,:dependent => :destroy
+has_one :team_user, :dependent => :destroy
+has_many :dtc_staffs, :dependent => :destroy
 
 validates_uniqueness_of :username
 

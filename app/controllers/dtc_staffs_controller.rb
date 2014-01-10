@@ -33,7 +33,7 @@ class DtcStaffsController < ApplicationController
     respond_to do |format|
       if @dtc_staff.save
 
-        format.html { redirect_to @dtc_staff, notice: 'Dtc staff was successfully created.' }
+        format.html { redirect_to dtc_staffs_url, notice: 'Route Associated' }
         format.json { render action: 'show', status: :created, location: @dtc_staff }
       else
         format.html { render action: 'new' }
@@ -70,7 +70,7 @@ end
   def update
     respond_to do |format|
       if @dtc_staff.update(params[:dtc_staff])
-        format.html { redirect_to @dtc_staff, notice: 'Dtc staff was successfully updated.' }
+        format.html { redirect_to dtc_staffs_url, notice: 'Route Updated' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

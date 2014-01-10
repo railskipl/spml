@@ -29,6 +29,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to :back
+  end
+
  def dtc
    @dtc_staff = DtcStaff.find_all_by_user_id(params[:id])
 

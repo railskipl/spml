@@ -23,7 +23,6 @@
       <th>Longitude</th>
       <th>Date time</th>
       <th>Image</th>
-      <th>Action</th>
     </tr>
   
 
@@ -44,7 +43,6 @@
         <td><%= reading.longitude rescue nil%>&nbsp;</td>
         <td><%= reading.created_at.strftime("%T %a %b %e %Y ")%></td>
         <td><%= image_tag reading.image.url ,:width => 410,:height=> 400 %></td>
-        <td> <%= link_to 'Show', reading %></td>
 
       </tr>
     <% end %>
@@ -73,7 +71,6 @@
       <th>Longitude</th>
       <th>Date Time</th>
       <th>Image</th>
-      <th>Action</th>
     </tr>
   
 
@@ -94,8 +91,6 @@
         <td><%= reading.longitude rescue nil%>&nbsp;</td>
         <td><%= reading.created_at.strftime("%T %a %b %e %Y ")%></td>
         <td><%= image_tag reading.image.url ,:width => 410,:height=> 400 %></td>
-        <td> <%= link_to 'Show', reading %></td>
-
       </tr>
     <% end %>
   

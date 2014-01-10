@@ -65,7 +65,7 @@ class TeamsController < ApplicationController
              a.each do |b|
              TeamUser.create(:team_id => @team.id , :user_id => b)  
             end
-            format.html { redirect_to @team, notice: 'Team was successfully created.' }
+            format.html { redirect_to teams_path, notice: 'Team was successfully created.' }
             format.json { render action: 'show', status: :created, location: @team }
           else
             format.html { render action: 'new' }

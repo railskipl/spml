@@ -29,7 +29,7 @@ class MobileDevisesController < ApplicationController
 
     respond_to do |format|
       if @mobile_devise.save
-        format.html { redirect_to @mobile_devise, notice: 'Mobile devise was successfully created.' }
+        format.html { redirect_to mobile_devises_url, notice: 'Mobile devise was successfully created.' }
         format.json { render action: 'show', status: :created, location: @mobile_devise }
       else
         format.html { render action: 'new' }

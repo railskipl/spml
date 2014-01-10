@@ -43,7 +43,7 @@ class MobileusersController < ApplicationController
 
     respond_to do |format|
       if @mobileuser.save
-        format.html { redirect_to(@mobileuser, :notice => 'mobileuser was successfully created.') }
+        format.html { redirect_to(mobileusers_url, :notice => 'Mobile Assigned') }
         format.xml  { render :xml => @mobileuser, :status => :created, :location => @mobileuser }
       else
         format.html { render :action => "new" ,:notice => 'IMEI no already assign'}

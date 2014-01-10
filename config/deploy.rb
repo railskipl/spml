@@ -1,3 +1,4 @@
+set :bundle_dir, "/usr/local/rvm/gems/ruby-1.9.3-p392"
 require "rvm/capistrano"
 require "bundler/capistrano"
 

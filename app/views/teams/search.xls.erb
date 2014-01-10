@@ -1,6 +1,6 @@
 <h1>Listing teams</h1>
 
-<table border cellpadding = "12" >
+<table>
   <thead>
     <tr>
       <th>Team name</th>
@@ -13,10 +13,10 @@
     <% @teams.each do |team| %>
       <tr>
         <td><%= team.team_name %></td>
-        <td><%= team.user_role.name %></td>
+        <td><%= team.user.username %></td>
         <td>
           <% TeamUser.find_all_by_team_id(team.id).each do |reader|%>
-          <%= reader.user_role.name %>,
+          <%= reader.user.first_name %>,
           <% end %>
         </td>
 

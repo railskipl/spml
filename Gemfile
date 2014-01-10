@@ -26,6 +26,7 @@
 	gem 'wkhtmltopdf-binary'
     gem 'wicked_pdf'
     gem 'capistrano'
+    gem 'rvm-capistrano'
 
 	# gem 'activerecord-oracle_enhanced-adapter', git: 'https://github.com/yahonda/oracle-enhanced.git', branch: 'rails4'
 	# gem 'ruby-oci8'

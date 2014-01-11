@@ -13,19 +13,19 @@
 
 
 
-<%= form_tag search_path, :method => 'get' do %>
+<%#= form_tag search_path, :method => 'get' do %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search By Team Name", :team_name => nil ,:class =>"btn btn-primary"%>
+    <%#= text_field_tag :search, params[:search] %>
+    <%#= submit_tag "Search By Team Name", :team_name => nil ,:class =>"btn btn-primary"%>
   </p>
-<% end %>
+<%# end %>
 
-<%= form_tag search_vendor_path, :method => 'get' do %>
+<%#= form_tag search_vendor_path, :method => 'get' do %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search By Vendor", :team_name => nil ,:class =>"btn btn-primary"%>
+    <%#= text_field_tag :search, params[:search] %>
+    <%#= submit_tag "Search By Vendor", :team_name => nil ,:class =>"btn btn-primary"%>
   </p>
-<% end %>
+<%# end %>
 
 
 
@@ -33,6 +33,7 @@
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-highlight">
   <thead>
     <tr>
+      <th>Sr. No.</th>
       <th>Team name</th>
       <th>Vendor</th>
       <th>Reader</th>
@@ -41,8 +42,9 @@
   </thead>
 
   <tbody>
-    <% @teams.each do |team| %>
+    <% @teams.each.with_index(1) do |team,index| %>
       <tr>
+        <td><%= index %></td>
         <td><%= team.team_name %></td>
         <td><%= team.user.username rescue nil %></td>
         <td>

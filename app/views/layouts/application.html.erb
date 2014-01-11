@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -35,9 +35,9 @@
     			</a>		
 
     			<div class="nav-collapse collapse">
-    				<%= form_tag search_all_path, :method => 'get',:class=>"navbar-search pull-right" do %>
-                      <%= text_field_tag :q, nil, :class=>"search-query" %>
-                      <%= submit_tag "GO",:class => "btn" ,:style => "background:transparent;border-radius:0;padding:0 6px;left:-38px;position:relative;color:white;border-width:0;box-shadow:none"  %>
+    				<%  = form_tag search_all_path, :method => 'get',:class=>"navbar-search pull-right" do %>
+                      <%#= text_field_tag :q, nil, :class=>"search-query" %>
+                      <%#= submit_tag "GO",:class => "btn" ,:style => "background:transparent;border-radius:0;padding:0 6px;left:-38px;position:relative;color:white;border-width:0;box-shadow:none"  %>
                         <a href="<%= user_path(current_user) %>" class="orange" >Settings</a> | 
                         <a href="<%= signout_path%>" data-method="destroy" class="orange">Logout</a>
     			<% end %>

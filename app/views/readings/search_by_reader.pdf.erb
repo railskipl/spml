@@ -8,7 +8,7 @@
           </div>
           
           </div>
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
+<table cellpadding="10" cellspacing="0" border="1" class="table table-striped table-bordered">
   <thead>
   
     <tr>
@@ -19,6 +19,8 @@
       <th>Meter No</th>
       <th>New Meter No</th>
       <th>Meter Reading</th>
+      <th>Meter Status</th>
+      <th>Meter Reader Status</th>
       <th>Sub Cluster</th>
       <th>Date Time</th>
       <th>Image</th>
@@ -26,8 +28,9 @@
   </thead>
 
  
-    <%  @readings.each do |reading| %>
+     <%  @readings.each.with_index(1) do |reading,index| %>
       <tr>
+        <td><%= index %></td>
         <td><%= reading.consumer_no rescue nil%>&nbsp;</td>
         <td><%= reading.read_by rescue nil%>&nbsp;</td>
         <td><% a =  TeamUser.find_by_user_id(reading.user_id).team_id %>
@@ -40,7 +43,8 @@
         <td><%= reading.meter_status rescue nil%>&nbsp;</td>
         <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
         <td><%= reading.created_at.strftime("%T %a %b %e %Y ")%></td>
-        <td><%= image_tag reading.image.url ,:class => "img1" rescue nil%></td>
+        <td><%= image_tag reading.image.url ,:width => 250,:height=> 200%></td>
+
       </tr>
     <% end %>
   

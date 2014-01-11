@@ -32,6 +32,7 @@
           <table class="table table-bordered table-striped table-highlight">
                     <thead>
                       <tr>
+                        <th>Sr. No.</th>
                         <th>IMEI</th>
                         <th>Manufacturer Bame</th>
                         <th>Purchase Date</th>
@@ -41,8 +42,9 @@
                     </thead>
                     <tbody>
 
-                    <% @mobile_devises.each do |mobile_devise| %>
+                    <% @mobile_devises.each.with_index(1) do |mobile_devise,index| %>
                       <tr>
+                        <td><%= index %></td>
                         <td><%= mobile_devise.imei %></td>
                         <td><%= mobile_devise.manufacturer_name %></td>
                         <td><%= mobile_devise.purchase_date %></td>

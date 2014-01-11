@@ -17,6 +17,8 @@
       <th>New Meter No</th>
       <th>Meter Reading</th>
       <th>Sub Cluster</th>
+      <th>Meter Status</th>
+      <th>Meter Reader Status</th>
       <th>Date Time</th>
       <th>Image</th>
     </tr>
@@ -35,6 +37,8 @@
         <td><%= reading.new_meter_no rescue nil %></td>
         <td><%= reading.meter_reading  rescue nil%>&nbsp;</td>
         <td><%= reading.sub_cluster rescue nil%>&nbsp;</td>
+        <td><%= reading.meter_status rescue nil%>&nbsp;</td>
+        <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
         <td><%= reading.created_at.strftime("%T %a %b %e %Y ")%></td>
         <td><%= image_tag reading.image.url ,:width => 250,:height=> 200%></td>
      </tr>

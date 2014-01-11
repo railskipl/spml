@@ -15,14 +15,16 @@
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-highlight">
   <thead>
     <tr>
+      <th>Sr. No.</th>
       <th>Description</th>
       <th colspan = 2>Action</th>
       </tr>
   </thead>
 
   <tbody>
-    <% @meter_reader_statuses.each do |meter_reader_status| %>
+    <% @meter_reader_statuses.each.with_index(1) do |meter_reader_status,index| %>
       <tr>
+        <td><%= index %></td>
         <td><%= meter_reader_status.description %></td>
         <td><%= link_to 'Edit', edit_meter_reader_status_path(meter_reader_status) ,:class=>"btn" %></td>
         <td><%= link_to 'Destroy', meter_reader_status, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn" %></td>

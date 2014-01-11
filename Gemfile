@@ -25,6 +25,7 @@
 	gem 'bootstrap-timepicker-rails'
 	gem 'wkhtmltopdf-binary'
     gem 'wicked_pdf'
+    gem 'rufus-scheduler'
     # gem 'capistrano'
     gem 'rvm-capistrano'
 
@@ -58,7 +59,7 @@
 
 	gem 'roo'
 	gem 'savon', '~> 2.0'
-	gem 'pg'
+	# gem 'pg'
 
 	gem 'sidekiq'
 	gem 'sinatra', require: false

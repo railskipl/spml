@@ -15,6 +15,11 @@
       end
   end
 
+   def self.do_something
+      count = Reading.all.count
+      ReadingMailer.reading_count("ankit@kunalinfotech.net",count).deliver
+   end
+
   # GET /dtc_staffs/1
   # GET /dtc_staffs/1.json
   def show

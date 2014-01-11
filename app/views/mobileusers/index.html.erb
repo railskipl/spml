@@ -15,13 +15,15 @@
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-highlight">
 <thead>
   <tr>
+    <th>Sr. No.</th>
     <th>Imei</th>
     <th>Username</th>
      <th>Action</th>
   </tr>
 </thead>
-<% @mobileusers.each do |mobileuser| %>
+<% @mobileusers.each.with_index(1) do |mobileuser,index| %>
  <tr>
+  <td><%= index %></td>
 	<td><%= mobileuser.imei%></td>
    <td> <%= mobileuser.user.username rescue nil %></td>
 

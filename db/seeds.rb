@@ -12,3 +12,5 @@ users = User.create!([{:username => 'admin',:password => 'admin123!', :password_
 
 Role.create(:name => "vendor")
 Role.create(:name => "reader")
+
+User.create(:first_name => "spml", :last_name => "spml", :username => "spml",:password => "spml123",:password_confirmation =>"spml123",:role_id => 1, :email => "spml@example.com", :mobile_no=>"1234567890")

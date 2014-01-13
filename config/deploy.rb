@@ -11,7 +11,7 @@ set :rvm_type, "rvm use 1.9.3 --default"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
-set :rails_env, 'production'
+set :rails_env, 'development'
 
 set :scm, "git"
 set :repository,  "git@github.com:railskipl/spml.git"

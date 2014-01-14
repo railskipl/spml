@@ -5,6 +5,7 @@
 
 	# Use sqlite3 as the database for Active Record
 	gem 'mysql2'
+	gem 'mysql'
 	gem 'therubyracer'
 	gem 'execjs'
 	gem "rmagick"

@@ -31,6 +31,45 @@ ActiveRecord::Schema.define(version: 20140109114025) do
     t.datetime "updated_at"
   end
 
+  create_table "consumers", force: true do |t|
+    t.string   "pc"
+    t.string   "bu"
+    t.string   "consno"
+    t.string   "disc_tag"
+    t.string   "tag2"
+    t.string   "yymm1"
+    t.string   "yymm2"
+    t.string   "mtr1"
+    t.string   "mt1dgt"
+    t.string   "mf1"
+    t.string   "avgc1"
+    t.string   "mtr1st"
+    t.string   "rdng1"
+    t.string   "rdmm1"
+    t.string   "mtr2"
+    t.string   "mt2dgt"
+    t.string   "mf2"
+    t.string   "avgc2"
+    t.string   "mtr2st"
+    t.string   "rdng2"
+    t.string   "rdmm2"
+    t.string   "heatcon"
+    t.string   "oldcon"
+    t.string   "poleno"
+    t.string   "mrc"
+    t.string   "route"
+    t.string   "seq"
+    t.string   "name"
+    t.string   "addrs"
+    t.string   "city"
+    t.string   "pincode"
+    t.string   "dtc"
+    t.string   "trf"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "status"
+  end
+
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
     t.integer  "attempts",   default: 0, null: false
@@ -122,6 +161,12 @@ ActiveRecord::Schema.define(version: 20140109114025) do
     t.string   "computer_no"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "status",              default: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.binary   "img"
     t.string   "sub_cluster"
     t.string   "conn_add1"
     t.string   "conn_add2"

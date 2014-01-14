@@ -48,6 +48,7 @@ Sndl::Application.routes.draw do
  
   get '/consumer/:consno', :to => "consumers#consumer"
 
+  post "/dtc_staffs/update_model", :to => "dtc_staffs#update_model" 
 
   get '/readings/submit', :to => "readings#submit"
 

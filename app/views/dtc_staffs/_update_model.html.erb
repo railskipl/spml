@@ -1,0 +1,9 @@
+<%= javascript_include_tag "prototype" %>
+
+<%#= select "carprofile", :car_model_id,   @car_model.map {|s| [s.name, s.id]},{:prompt => "Select model"}  ,:onchange => "#{remote_function(:url => {:controller =>"carprofiles", :action => "update_body"}, :with => "'update_body='+value",:loading => "Element.show('loader');",:complete => "Element.hide('loader');")}"  rescue nil %>
+
+<br/>
+<% if @dtc_staff.class == Array %>
+Sub Cluster :
+<%= select("dtcstaff", "sub_cluster", @dtc_staff.map {|p| [ p,p ] }, {include_blank: 'None'}) %>
+<%end %>

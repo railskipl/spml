@@ -16,6 +16,7 @@
 	gem 'rubyzip', :require => 'zip/zip'
 	gem  'zip'
 	gem 'httparty'
+	gem 'prototype-rails'
 	gem 'will_paginate'
 	gem 'will_paginate-bootstrap'
 	gem 'cancan'

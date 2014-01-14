@@ -15,6 +15,7 @@
 <thead>
     <tr>
       <th>Sr. No.</th>
+      <th>Cluster</th>
       <th>Sub Cluster</th>
       <th>Reader</th>
       <th colspan=2>Actions</th>
@@ -24,6 +25,7 @@
     <% @dtc_staffs.each.with_index(1) do |dtc_staff,index| %>
       <tr>
         <td><%= index %></td>
+        <td><%= dtc_staff.cluster_id %></td>
         <td><%= dtc_staff.sub_cluster %></td>
         <td><%= User.find(dtc_staff.user_id).username  rescue nil %></td>
          <% if can? :update, dtc_staff %>
@@ -36,7 +38,7 @@
 
 <br>
 
-<%= link_to 'New SubCluster Staff', new_dtc_staff_path, :class => "btn btn-secondary" %>
+<%= link_to 'Assign Sub Cluster', new_dtc_staff_path, :class => "btn btn-secondary" %>
 </div>  
 </div>
 </div>

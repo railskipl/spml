@@ -14,6 +14,9 @@ class DtcStaffsController < ApplicationController
   def show
   end
 
+  def update_model
+    @dtc_staff = MrConsumer.where(["cluster_id =? ", params[:update_model]]).uniq.pluck(:sub_cluster) 
+  end
   # GET /dtc_staffs/new
   def new
     @dtc_staff = DtcStaff.new
@@ -27,9 +30,9 @@ class DtcStaffsController < ApplicationController
   # POST /dtc_staffs
   # POST /dtc_staffs.json
   def create
-
+    sub_cluster = params["dtcstaff"]["sub_cluster"]
     @dtc_staff = DtcStaff.new(params[:dtc_staff])
-
+    @dtc_staff.subcluster(sub_cluster)
     respond_to do |format|
       if @dtc_staff.save
 

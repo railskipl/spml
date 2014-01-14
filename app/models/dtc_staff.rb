@@ -1,9 +1,8 @@
 class DtcStaff < ActiveRecord::Base
-	attr_accessible :sub_cluster, :user_id
+	attr_accessible :sub_cluster, :user_id,:cluster_id
 
-	# before_create :create_route_name
 
-	# def create_route_name
-	# 	self.route_name = "#{dtc}-#{bu}-#{pc}"
-	# end
+	 def subcluster(sub)
+	 	self.sub_cluster = sub
+	 end
 end

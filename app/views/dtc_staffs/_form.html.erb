@@ -18,7 +18,7 @@
     <div class="field">
      Cluster<br>
     <%#= select "carprofile",  :car_make_id, CarMake.all.map {|s| [s.name, s.id]},{:prompt => "Select Carmake"}, :onchange => "#{remote_function(:url => {:controller =>"carprofiles", :action => "update_model"}, :with => "'update_model='+value",:loading => "Element.show('loader');",:complete => "Element.hide('loader');")}" %>
-
+    
     <%= select("dtc_staff", "cluster_id", MrConsumer.select("DISTINCT(cluster_id)").collect {|p| [ p.cluster_id, p.cluster_id ] }, {include_blank: 'select cluster_id'} , :onchange => "#{remote_function(:url => {:controller =>"dtc_staffs", :action => "update_model"}, :with => "'update_model='+value",:loading => "Element.show('loader');",:complete => "Element.hide('loader');")}")%>
   </div>
   <div id="cluster_id">

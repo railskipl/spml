@@ -7,6 +7,18 @@
     <title>Login | Meter Reading</title>
          <%= stylesheet_link_tag "bootstrap.min.css","bootstrap-responsive.min.css","http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600","font-awesome.min.css","base-admin-2.css","base-admin-2-responsive.css","/assets/ui-lightness/jquery-ui-1.10.0.custom.min.css","/assets/pages/signin.css","custom.css" %>
          <%= javascript_include_tag "application","libs/jquery-1.8.3.min.js","libs/jquery-ui-1.10.0.custom.min.js","libs/bootstrap.min.js","Application1.js"%>
+<style type="text/css">
+.error{
+background-color: #FCF8E3;
+border: 1px solid #FBEED5;
+border-radius: 4px;
+margin-bottom: 20px;
+padding: 8px 35px 8px 14px;
+text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+text-align: center;
+color: #000;
+}
+</style>
 </head>
 
 
@@ -21,7 +33,7 @@
 			
 			
 			<a href="<%= root_url %>">
-          <img src="/assets/spml_new.png" height="55" alt="logo" />
+          <img src="/assets/bhagalpur.jpg" height="55" alt="logo" />
       </a>	
 					
 			
@@ -33,7 +45,9 @@
 	
 </div> <!-- /navbar -->
 
-
+<% flash.each do |key, value| %>
+<div class="flash <%= key %>" style="color:#000;text-align:center"><%= value %></div>
+<% end %>
 <%= yield %>
 
 

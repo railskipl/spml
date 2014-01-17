@@ -12,7 +12,7 @@ has_many :dtc_staffs, :dependent => :destroy
 
 validates_uniqueness_of :username
 
- validates_presence_of :first_name,:last_name,:username,:email,:mobile_no
+ validates_presence_of :username,:mobile_no
  validates_presence_of :password,:password_confirmation, :on  => :create
  validates :password,  :confirmation => true
  

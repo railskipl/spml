@@ -15,10 +15,10 @@
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
-  <div>
-   <%= f.label :meter_status_id %><br>
-   <%= f.collection_select :meter_status_id, MeterStatus.all(:order => "id"), :id, :billing_meter_status %>
-  </div>
+<!--  <div>
+   <%#= f.label :meter_status_id %><br>
+   <%#= f.collection_select :meter_status_id, MeterStatus.all(:order => "id"), :id, :billing_meter_status %>
+  </div> --></br>
   <div class="actions">
     <%= f.submit :class => "btn btn-primary" %>
   </div>

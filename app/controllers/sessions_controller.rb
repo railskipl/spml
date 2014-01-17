@@ -29,8 +29,12 @@ respond_to :json
         @title = "Sign in"
         render 'new'
       else
+        if user.is_admin?
         sign_in user
         redirect_to readings_path
+  	else
+	redirect_to root_path, alert: "Access Denied"
+	end
       end
     end
  end

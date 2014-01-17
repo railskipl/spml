@@ -14,22 +14,29 @@ class DtcStaffsController < ApplicationController
   def show
   end
 
+  def update_model
+    @sub_cluster = MrConsumer.where(["cluster_id =? ", params[:update_model]]).uniq.pluck(:sub_cluster) 
+  end
   # GET /dtc_staffs/new
   def new
     @dtc_staff = DtcStaff.new
+    @cluster = MrConsumer.select("DISTINCT(cluster_id)").delete_if {|i| i.cluster_id.nil?}
+    @sub_cluster = []
   end
 
   # GET /dtc_staffs/1/edit
   def edit
-    @edu_class = DtcStaff.find(params[:id])
+    @dtc_staff = DtcStaff.find(params[:id])
+    @cluster = MrConsumer.select("DISTINCT(cluster_id)").delete_if {|i| i.cluster_id.nil?}
+    @sub_cluster = MrConsumer.where(["cluster_id =? ", @dtc_staff.cluster_id]).uniq.pluck(:sub_cluster)
   end
 
   # POST /dtc_staffs
   # POST /dtc_staffs.json
   def create
-
+    sub_cluster = params["dtcstaff"]["sub_cluster"]
     @dtc_staff = DtcStaff.new(params[:dtc_staff])
-
+    @dtc_staff.subcluster(sub_cluster)
     respond_to do |format|
       if @dtc_staff.save
 

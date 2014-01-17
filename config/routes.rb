@@ -10,7 +10,7 @@ Sndl::Application.routes.draw do
 
   resources :meter_statuses
 
-  resources :dtc_staffs
+  resources :dtc_staffs,  :path => "clusters"
 
   resources :mobile_devises
 
@@ -34,7 +34,7 @@ Sndl::Application.routes.draw do
 
   get 'dashboard' => 'users#dashboard', :as => 'user_root'
 
-  get '/signup' =>'users#new'
+  get '/add_staff' =>'users#new'
 
   get '/signin' =>'sessions#new'
 
@@ -48,6 +48,7 @@ Sndl::Application.routes.draw do
  
   get '/consumer/:consno', :to => "consumers#consumer"
 
+  post "/dtc_staffs/update_model", :to => "dtc_staffs#update_model" 
 
   get '/readings/submit', :to => "readings#submit"
 

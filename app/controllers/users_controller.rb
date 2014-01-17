@@ -20,8 +20,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save 
-      UserRole.create(:user_id => @user.id , :role_id => @user.role_id,:name => @user.first_name)
-      #sign_in @user
+      UserRole.create(:user_id => @user.id , :role_id => @user.role_id,:name => @user.first_name)	
+       TeamUser.create(:team_id => 1 , :user_id => @user.id)
       redirect_to staffs_path
     else
       @title = "Sign up"
@@ -105,6 +105,7 @@ def import
    user.save!
    
    UserRole.create(:user_id => user.id , :role_id => user.role_id,:name => user.first_name)
+   TeamUser.create(:team_id => 1, :user_id => user.id)
    #redirect_to staffs_path, notice: user.errors.full_messages.to_sentence
   end
    redirect_to staffs_path, notice: "Users imported."

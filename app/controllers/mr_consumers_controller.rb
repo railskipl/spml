@@ -9,7 +9,7 @@ class MrConsumersController < ApplicationController
 
   def import
   MrConsumer.import(params[:file])
-  redirect_to :back, notice: "Consumer imported."
+  redirect_to readings_path, notice: "Consumer imported."
 end
 
  # def consumer

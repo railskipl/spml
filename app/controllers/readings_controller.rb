@@ -43,7 +43,7 @@
   # POST /dtc_staffs
   # POST /dtc_staffs.json
   def create
-   reading = {}
+    reading = {}
     packet = params["Packet1"].split("%")
     @user = User.find(packet[14])
     @read_by = "#{@user.first_name} #{@user.last_name}" 
@@ -68,6 +68,8 @@
     reading["user_id"]             = packet[14]
     reading["conn_add1"]           = packet[15]
     reading["conn_add2"]           = packet[16]
+    reading["cluster_id"]          = packet[17]
+    reading["account_no"]          = packet[18]
     reading["read_by"]             = @read_by
     reading["ime_no"]              = @ime_no
     reading["image"]               = params["uploaded"]
@@ -75,7 +77,7 @@
     @reading = Reading.create(reading)
   
     if @reading.consumer_status == "true"
-     consumer = MrConsumer.find_by_cons_no(packet[3])
+     consumer = MrConsumer.find_by_cons_no_and_sub_cluster(packet[3], packet[10])
      consumer.update_column(:status,true) rescue nil
      render :status =>200,:json => @reading.consumer_no.to_json
     else

@@ -16,7 +16,7 @@ production:
 
 test: 
   adapter: mysql2
-  database: spml1_production
+  database: spml1_test
   host: localhost
   username: 'root'
   password: 'root'

@@ -17,6 +17,7 @@
 	gem 'rubyzip', :require => 'zip/zip'
 	gem  'zip'
 	gem 'httparty'
+	gem 'prototype-rails'
 	gem 'will_paginate'
 	gem 'will_paginate-bootstrap'
 	gem 'cancan'
@@ -27,7 +28,7 @@
 	gem 'wkhtmltopdf-binary'
     gem 'wicked_pdf'
     gem 'rufus-scheduler'
-    # gem 'capistrano'
+    gem 'capistrano'
     gem 'rvm-capistrano'
 
 	# gem 'activerecord-oracle_enhanced-adapter', git: 'https://github.com/yahonda/oracle-enhanced.git', branch: 'rails4'

@@ -17,13 +17,13 @@
                       <tr>
                         <td>Meter reading</td>
                         <td><%=@reading.meter_reading %></td>
-                        <td rowspan="14" align="left" valign="top" style="text-align:center; vertical-align: top;">
+                        <td rowspan="23" align="left" valign="top" style="text-align:center; vertical-align: top;">
                   <%= image_tag @reading.image.url ,:width => 400,:height=> 400 %>
-                  <div class="map_container">
+                  
                         <%= gmaps4rails(@json) %>
        
                   
-                  </div>
+                  
                   </td>
                         </tr>
                   
@@ -42,22 +42,56 @@
                         <td>IME Number</td>
                         <td><%=@reading.ime_no %></td>
                         </tr>
+
+		   <tr>
+                    <td>Cluster</td>
+                    <td><%=@reading.cluster_id %></td>
+                    </tr> 
           
                   <tr>
                     <td>Sub Cluster</td>
                     <td><%=@reading.sub_cluster %></td>
                     </tr>
+                   <tr>
+                        <td>Account Number</td>
+                    <td><%=@reading.account_no %></td>
+                    </tr>
+                    <td>Computer No</td>
+                    <td>&nbsp;<%= @reading.computer_no %></td>
+                  </tr>
+                   <tr>
+                    <td>Consumer Code</td>
+                    <td>&nbsp;<%= @reading.cons_code %></td>
+                  </tr>
+
+
+
                   <tr>
                     <td>Consumer Name</td>
                     <td><%=@reading.consumer_name %></td>
                     </tr>
+
+		<tr>
+                    <td>Consumer Address Line 1</td>
+                    <td><%=@reading.conn_add1 %></td>
+                    </tr>
+                  
+                  <tr>
+                    <td>Consumer Address Line 2</td>
+                    <td><%=@reading.conn_add2 %></td>
+                    </tr>
+                  
+                  <tr>
+                    <td>Meter Status</td>
+                    <td><%=@reading.meter_status %></td>
+                    </tr>
               
                   <tr>
                     <td>Meter Reader status</td>
                     <td><%=@reading.meter_reader_status %></td>
                     </tr>
                   <tr>
-                    <td>Read By</td>
+                   <td>Read By</td>
                     <td><%=@reading.read_by %></td>
                     </tr>
                   <tr>

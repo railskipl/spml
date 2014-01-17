@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140109114025) do
+ActiveRecord::Schema.define(version: 20140114050038) do
 
   create_table "consumer_spmls", force: true do |t|
     t.string   "computer_no"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20140109114025) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cluster_id"
   end
 
   create_table "meter_reader_statuses", force: true do |t|
@@ -135,6 +136,8 @@ ActiveRecord::Schema.define(version: 20140109114025) do
     t.datetime "updated_at"
     t.string   "cons_no"
     t.boolean  "status",         default: false
+    t.string   "account_no"
+    t.string   "cluster_id"
   end
 
   create_table "readings", force: true do |t|
@@ -170,6 +173,8 @@ ActiveRecord::Schema.define(version: 20140109114025) do
     t.string   "sub_cluster"
     t.string   "conn_add1"
     t.string   "conn_add2"
+    t.string   "account_no"
+    t.string   "cluster_id"
   end
 
   create_table "roles", force: true do |t|

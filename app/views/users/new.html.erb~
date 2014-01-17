@@ -1,0 +1,62 @@
+<% content_for :scripts do %>
+   <%= javascript_include_tag  "jquery-1.5.2.min.js","jquery.validate.min","validation" %>
+  <% end %> 
+ <div class="row">
+        
+    <div class="span12">          
+          
+          <div class="widget stacked ">
+            
+            <div class="widget-header">
+              <i class="icon-pencil"></i>
+              <h3>Add Staff</h3>
+          </div> <!-- /widget-header -->
+        
+             <div class="widget-content">
+
+<%= form_for(@user) do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+
+<div class="field">
+<%= f.label :first_name, "First Name" %>
+<%= f.text_field :first_name ,:style => "height: 30px;"%>
+</div><br />
+<div class="field">
+<%= f.label :last_name, "Last Name" %>
+<%= f.text_field :last_name,:style => "height: 30px;" %>
+</div><br />
+<div class="field">
+<%= f.label :username %>
+<%= f.text_field :username,:style => "height: 30px;" %>
+</div><br />
+
+<div class="field">
+<%= f.label :password %>
+<%= f.password_field :password,:style => "height: 30px;" %>
+</div><br />
+<div class="field">
+<%= f.label :password_confirmation, "Confirmation" %>
+<%= f.password_field :password_confirmation,:style => "height: 30px;" %>
+</div><br />
+
+<div class="field">
+<%= f.label :email, "Email" %>
+<%= f.text_field :email,:style => "height: 30px;" %>
+</div><br />
+
+<div class="field">
+<%= f.label :mobile_no, "Mobile Number" %>
+<%= f.text_field :mobile_no,:style => "height: 30px;" %>
+</div><br />
+<div>
+<%= f.hidden_field :role_id, :value => 2  %>
+</div><br/>
+<div class="actions">
+<%= f.submit "Create Staff" ,:class =>"btn btn-primary"%>
+</div>
+<% end %>
+
+</div>	
+</div>
+</div>
+</div>

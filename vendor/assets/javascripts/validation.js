@@ -44,7 +44,25 @@ jQuery(document).ready(function() {
            }
        }
      });
+     
+     jQuery("#new_user").validate({
+      errorElement:'span',
+      rules: {
+        "user[email]":{
+                        required: true,
+                        email: true
+                  },
+       "user[mobile_no]":{
+                  required: true,
+                  number: true
+             }
+      
+          },
+      messages: {
+  
+       }
 
+     });
 	
 	  
 	

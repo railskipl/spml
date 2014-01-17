@@ -5,6 +5,7 @@
      <tr>
       <th>Sr. No.</th>
       <th>Consumer number</th>
+      <th>Account Number </th>
       <th>Reader</th>
       <th>Team</th>
       <th>Meter No</th>
@@ -14,7 +15,7 @@
       <th>Meter Status</th>
       <th>Meter Reader Status</th>
       <th>Date Time</th>
-      <th>Image</th>
+      	 
     </tr>
   
 
@@ -23,6 +24,7 @@
       <tr>
         <td><%= index %></td>
         <td><%= reading.consumer_no rescue nil%>&nbsp;</td>
+	<td><%= reading.account_no rescue nil %>&nbsp;</td>
         <td><%= reading.read_by rescue nil%>&nbsp;</td>
         <td><% a =  TeamUser.find_by_user_id(reading.user_id).team_id %>
          <%= User.find(Team.find(a).user_id).username rescue nil %>
@@ -33,7 +35,8 @@
         <td><%= reading.sub_cluster rescue nil%>&nbsp;</td>
         <td><%= reading.meter_status rescue nil%>&nbsp;</td>
         <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
-        <td><%= reading.created_at.strftime("%T %a %b %e %Y ")%></td> 
+        <td><%= reading.created_at.strftime("%T %a %b %e %Y ")%></td>
+        
       </tr>
     <% end %>
   

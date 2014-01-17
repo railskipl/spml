@@ -12,6 +12,7 @@
   
     <tr>
       <th>Sr. No.</th>
+      <th>Account Number</th>
       <th>Consumer number</th>
       <th>Reader</th>
       <th>Team</th>
@@ -30,6 +31,7 @@
     <%  @readings_status.each.with_index(1) do |reading,index| %>
       <tr>
         <td><%= index %></td>
+	<td><%= reading.account_no rescue nil %>&nbsp;</td>
         <td><%= reading.consumer_no rescue nil%>&nbsp;</td>
         <td><%= reading.read_by rescue nil%>&nbsp;</td>
         <td><% a =  TeamUser.find_by_user_id(reading.user_id).team_id %>
@@ -60,7 +62,8 @@
   
     <tr>
       <th>Sr. No.</th>
-      <th>Consumer number</th>
+      <th>Account Number</th>
+      <th>Consumer number</th>      
       <th>Reader</th>
       <th>Team</th>
       <th>Meter No</th>
@@ -78,6 +81,7 @@
      <%  @readings_status.each.with_index(1) do |reading,index| %>
       <tr>
         <td><%= index %></td>
+	<td><%= reading.account_no rescue nil %>&nbsp;</td>
         <td><%= reading.consumer_no rescue nil%>&nbsp;</td>
         <td><%= reading.read_by rescue nil%>&nbsp;</td>
         <td><% a =  TeamUser.find_by_user_id(reading.user_id).team_id %>

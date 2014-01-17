@@ -44,6 +44,7 @@ class TeamsController < ApplicationController
   # GET /teams/new
   def new
     @team = Team.new
+    redirect_to teams_path
   end
 
   # GET /teams/1/edit

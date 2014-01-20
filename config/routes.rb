@@ -42,6 +42,9 @@ Sndl::Application.routes.draw do
 
   post '/signout' =>'sessions#destroy'
 
+  get '/readings/:id/toggled_status'  => "readings#toggled_status"
+
+
   get '/user/:id/dtc_staffs', :to => "users#dtc"
 
   get '/dtc_staff/:dtc', :to => "dtc_staffs#dtc"

@@ -1,0 +1,1 @@
+<%= link_to format_boolean(@reading.status?), {:controller => 'readings', :action => 'toggled_status', :id => @reading.id,:remote => true} %>

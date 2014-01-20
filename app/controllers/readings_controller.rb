@@ -168,6 +168,11 @@
     end
   end
 
+   def toggled_status
+    @reading = Reading.find(params[:id])
+    @reading.status = !@reading.status?
+    @reading.save!
+   end
 
  # def search_vendor_summary
  #     if params[:search].nil? || params[:search].empty?

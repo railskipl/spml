@@ -27,7 +27,7 @@
         <td><%= index %></td>
         <td><%= dtc_staff.cluster_id %></td>
         <td><%= dtc_staff.sub_cluster %></td>
-        <td><%= User.find(dtc_staff.user_id).username  rescue nil %></td>
+        <td><%= User.find(dtc_staff.user_id).first_name  rescue nil %></td>
          <% if can? :update, dtc_staff %>
         <td><%= link_to 'Edit', edit_dtc_staff_path(dtc_staff) ,:class => "btn" %></td>
         <% end %>

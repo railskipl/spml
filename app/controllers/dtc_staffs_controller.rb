@@ -22,6 +22,8 @@ class DtcStaffsController < ApplicationController
     @dtc_staff = DtcStaff.new
     @cluster = MrConsumer.select("DISTINCT(cluster_id)").delete_if {|i| i.cluster_id.nil?}
     @sub_cluster = []
+    @search = MrConsumer.search(params[:q])
+    @sub_clusters = MrConsumer.all.uniq.pluck(:sub_cluster)
   end
 
   # GET /dtc_staffs/1/edit

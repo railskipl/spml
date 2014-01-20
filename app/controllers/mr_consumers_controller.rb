@@ -10,8 +10,8 @@ class MrConsumersController < ApplicationController
   end
 
   def add_csv
-    @search = MrConsumer.search(params[:q])
-    @sub_cluster = MrConsumer.all.uniq.pluck(:sub_cluster)
+    # @search = MrConsumer.search(params[:q])
+    # @sub_cluster = MrConsumer.all.uniq.pluck(:sub_cluster)
   end
 
   def import

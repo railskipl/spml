@@ -10,10 +10,21 @@
           </div> <!-- /widget-header -->
         
              <div class="widget-content">
+<%= search_form_for @search do |f| %>
+  <div class="field">
+    <%= f.label :sub_cluster_cont, "Sub Cluster" %>
+    
 
+   <%= select(:sub_cluster_cont,:sub_cluster_cont, @sub_clusters.map {|p| [ p,p ] }, {include_blank: 'None'}) %>
+  </div><br/>
+  <div class="actions"><%= f.submit "Search" ,:class => "btn btn-primary" %></div>
+<% end %>
+<hr/>
 <%= render 'form' %>
+
 
 </div>  
 </div>
 </div>
 </div>
+

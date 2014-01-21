@@ -32,7 +32,7 @@ class MeterReaderStatusesController < ApplicationController
 
     respond_to do |format|
       if @meter_reader_status.save
-        format.html { redirect_to @meter_reader_status, notice: 'Meter reader status was successfully created.' }
+        format.html { redirect_to meter_reader_statuses_url, notice: 'Meter reader status was successfully created.' }
         format.json { render action: 'show', status: :created, location: @meter_reader_status }
       else
         format.html { render action: 'new' }
@@ -46,7 +46,7 @@ class MeterReaderStatusesController < ApplicationController
   def update
     respond_to do |format|
       if @meter_reader_status.update(meter_reader_status_params)
-        format.html { redirect_to @meter_reader_status, notice: 'Meter reader status was successfully updated.' }
+        format.html { redirect_to meter_reader_statuses_url, notice: 'Meter reader status was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

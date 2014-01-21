@@ -27,7 +27,7 @@
         <td><%= index %></td>
         <td><%= meter_status.billing_meter_status %></td>
        <td><%= link_to 'Edit', edit_meter_status_path(meter_status) ,:class=>"btn"%></td>
-        <td><%= link_to 'Destroy', meter_status, method: :delete, data: { confirm: 'Are you sure?' } ,:class=>"btn"%></td>
+        <td><%= link_to 'Delete', meter_status, method: :delete, data: { confirm: 'Are you sure?' } ,:class=>"btn"%></td>
       </tr>
     <% end %>
   </tbody>

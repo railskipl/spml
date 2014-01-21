@@ -9,7 +9,7 @@
       
       <th>Consumer number</th>
       <th>Reader</th>
-      <th>Team</th>
+      <th>Remarks</th>
       <th>Meter reading</th>
       <th>Dtc</th>
       <th>Meter Status</th>
@@ -24,7 +24,7 @@
     <% a.each do |reading | %> <tr>
       <td><%= reading.consumer_no rescue nil%>&nbsp;</td>
       <td><%= reading.read_by rescue nil%>&nbsp;</td>
-      <td><%= team.user.username %></td>
+      <td><%= reading.remark rescue nil %></td>
       <td><%= reading.meter_reading  rescue nil%>&nbsp;</td>
       <td><%= reading.dtc rescue nil%>&nbsp;</td>
       <td><%= reading.meter_status rescue nil%>&nbsp;</td>

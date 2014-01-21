@@ -6,6 +6,7 @@
   # GET /dtc_staffs.json
   def index
     @readings = Reading.paginate(:page => params[:page], :per_page => 5, :order => 'created_at DESC')
+    @reads = Reading.all
     respond_to do |format|
       format.html
       format.xls
@@ -193,7 +194,13 @@
      if params[:search].nil? || params[:search].empty?
       redirect_to activity_report_readings_url ,:alert => "Search field cannot be empty"
      else
-     @readings= Reading.where("read_by LIKE ? ", "%#{params[:search]}%")
+     start_from =  "#{params['start_from']}"
+     start_to = "#{params['start_to']}"
+     if start_from.blank? || start_to.blank?
+       @readings= Reading.where("read_by LIKE ?", "%#{params[:search]}%")
+     else
+      @readings= Reading.where("read_by LIKE ? and created_at >= ? and Date(created_at) <= ?  ", "%#{params[:search]}%",start_from,start_to)
+     end
       respond_to do |format|
         format.html
         format.xls 
@@ -253,16 +260,20 @@
 
   def search_by_date_summary
 
-    start_from =  "#{params['start_date']}"
-    start_to = "#{params['end_date']}"
-
-    if start_from.blank? || start_to.blank?
+    @start_from =  "#{params['start_date']}"
+    @start_to = "#{params['end_date']}"
+    @reader = params['reader']
+    if @start_from.blank? || @start_to.blank?
      redirect_to activity_summary_report_readings_url, alert: "Please Select Date"
     else
-      if start_from > start_to
+      if @start_from > @start_to
         redirect_to activity_summary_report_readings_url, alert: "Start Date Cannot Be Greater"
       else
-        @readings = Reading.where("created_at >= ? and date(created_at) <= ?" ,start_from,start_to).uniq.pluck(:user_id)
+         if @reader.blank?
+          @readings = Reading.where("created_at >= ? and date(created_at) <= ?" ,@start_from,@start_to).uniq.pluck(:user_id)
+         else
+          @readings = Reading.where("read_by LIKE ? and  created_at >= ? and date(created_at) <= ?" ,"%#{@reader}%",@start_from,@start_to).uniq.pluck(:user_id)
+         end
       end
     end
   end

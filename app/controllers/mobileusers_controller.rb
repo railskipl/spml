@@ -59,7 +59,7 @@ class MobileusersController < ApplicationController
 
     respond_to do |format|
       if @mobileuser.update_attributes(params[:mobileuser])
-        format.html { redirect_to(@mobileuser, :notice => 'mobileuser was successfully updated.') }
+        format.html { redirect_to(mobileusers_url, :notice => 'mobileuser was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

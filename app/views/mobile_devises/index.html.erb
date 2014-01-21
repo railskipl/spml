@@ -37,7 +37,7 @@
                         <th>Manufacturer Name</th>
                         <th>Purchase Date</th>
                         <th>Phone No</th>
-                        <th>Action</th>
+                        <th colspan=2>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,8 +50,8 @@
                         <td><%= mobile_devise.purchase_date %></td>
                         <td><%= mobile_devise.phone_no %></td>
                         <td> <%= link_to 'Edit', edit_mobile_devise_path(mobile_devise) ,
-                         :class => "btn"%>
-                        <%= link_to 'Destroy', mobile_devise, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn"%>
+                         :class => "btn"%></td>
+                        <td><%= link_to 'Delete', mobile_devise, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn"%>
                         </td>
                         </tr>
                     <% end %>

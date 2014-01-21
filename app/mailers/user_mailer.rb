@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "rubyrails9@gmail.com"
+  default from: "android@bedcpl.com"
 
   def password_reset(user)
     @user = user

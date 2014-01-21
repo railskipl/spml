@@ -31,7 +31,7 @@
          <% if can? :update, dtc_staff %>
         <td><%= link_to 'Edit', edit_dtc_staff_path(dtc_staff) ,:class => "btn" %></td>
         <% end %>
-        <td><%= link_to 'Destroy', dtc_staff, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn"%></td>
+        <td><%= link_to 'Delete', dtc_staff, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn"%></td>
       </tr>
     <% end %>
 </table>

@@ -1,5 +1,5 @@
 class ReadingMailer < ActionMailer::Base
-   default from: "rubyrails9@gmail.com"
+   default from: "android@bedcpl.com"
 
    def reading_count(email,count)
    	@count = count

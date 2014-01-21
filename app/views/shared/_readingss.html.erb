@@ -1,7 +1,6 @@
 	     <td><%= reading.consumer_no rescue nil%>&nbsp;</td>
          <td><%= reading.read_by rescue nil%>&nbsp;</td>
-         <td><%a =  TeamUser.find_by_user_id(reading.user_id).team_id rescue nil %>
-            <%= User.find(Team.find(a).user_id).username rescue nil %>
+         <td><%= reading.remark  rescue nil %>
         </td>
         <td><%= reading.old_meter_no rescue nil %></td>
         <td><%= reading.new_meter_no rescue nil %></td>

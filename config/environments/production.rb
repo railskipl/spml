@@ -51,8 +51,8 @@ Sndl::Application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :domain               => 'meterreading-kipl.herokuapp.com',
-    :user_name            => 'rubyrails9@gmail.com',
-    :password             => 'kipl123!@#',
+    :user_name            => 'android@bedcpl.com',
+    :password             => 'Password07',
     :authentication       => 'login',
     :enable_starttls_auto => true  }
 

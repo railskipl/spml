@@ -6,7 +6,7 @@
   # GET /dtc_staffs.json
   def index
     @readings = Reading.paginate(:page => params[:page], :per_page => 5, :order => 'created_at DESC')
-    @reads = Reading.all
+    # @reads = Reading.all
     respond_to do |format|
       format.html
       format.xls
@@ -199,7 +199,7 @@
      if start_from.blank? || start_to.blank?
        @readings= Reading.where("read_by LIKE ?", "%#{params[:search]}%")
      else
-      @readings= Reading.where("read_by LIKE ? and created_at >= ? and Date(created_at) <= ?  ", "%#{params[:search]}%",start_from,start_to)
+      @readings= Reading.where("user_id LIKE ? and created_at >= ? and Date(created_at) <= ?  ", "%#{params[:search]}%",start_from,start_to)
      end
       respond_to do |format|
         format.html

@@ -13,7 +13,7 @@ has_many :dtc_staffs, :dependent => :destroy
 validates_uniqueness_of :username
 
  validates_presence_of :username,:mobile_no
- validates_presence_of :password,:password_confirmation, :on  => :create
+ validates_presence_of :password,:password_confirmation
  validates :password,  :confirmation => true
  
 before_save :encrypt_password

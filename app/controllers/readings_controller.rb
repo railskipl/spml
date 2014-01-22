@@ -16,18 +16,18 @@
       end
   end
 
-  def ankit
-    @readings = Reading.all
-    file = "my_file.txt"
-     account_no = []
-     @readings.each do |r|
+  # def ankit
+  #   @readings = Reading.all
+  #   file = "my_file.txt"
+  #    account_no = []
+  #    @readings.each do |r|
     
-     account_no << r.account_no  << "$" << r.consumer_no << "\n"
-     end
+  #    account_no << r.account_no  << "$" << r.consumer_no << "\n"
+  #    end
 
-     File.open(file, "w"){ |f| f << account_no.join }
-    send_file( file )
-  end
+  #    File.open(file, "w"){ |f| f << account_no.join }
+  #   send_file( file )
+  # end
 
    def self.do_something
       count = Reading.all.count

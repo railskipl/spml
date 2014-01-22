@@ -78,7 +78,7 @@ end
   # PATCH/PUT /dtc_staffs/1.json
   def update
    sub_cluster = params["dtcstaff"]["sub_cluster"]
-   @dtc_staff.subcluster(sub_cluster)
+   @dtc_staff.subcluster(sub_cluster) 
     respond_to do |format|
       if @dtc_staff.update(params[:dtc_staff])
         format.html { redirect_to dtc_staffs_url, notice: 'Route Updated' }

@@ -137,7 +137,7 @@
   # DELETE /dtc_staffs/1.json
   def destroy
     @reading = Reading.find(params[:id])   
-    consumer = MrConsumer.find_by_cons_no(@reading.consumer_no)
+    consumer = MrConsumer.find_by_cons_no_and_sub_cluster(@reading.consumer_no,@reading.sub_cluster)
     consumer.update_column(:status,false) rescue nil
     @reading.destroy
     respond_to do |format|

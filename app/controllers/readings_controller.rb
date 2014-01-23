@@ -5,7 +5,7 @@
   # GET /dtc_staffs
   # GET /dtc_staffs.json
   def index
-    @readings = Reading.paginate(:page => params[:page], :per_page => 1, :order => 'created_at DESC')
+    @readings = Reading.paginate(:page => params[:page], :per_page => 5, :order => 'created_at DESC')
     # @reads = Reading.all
     respond_to do |format|
       format.html

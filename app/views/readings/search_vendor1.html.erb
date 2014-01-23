@@ -10,7 +10,7 @@
  <tr>
     <% a.each do |reading | %> <tr>
       <td><%= reading.consumer_no rescue nil%>&nbsp;</td>
-      <td><%= reading.read_by rescue nil%>&nbsp;</td>
+      <td><%= reading.user.first_name rescue nil%>&nbsp;</td>
       <td><%= reading.remark rescue nil %></td>
       <td><%= reading.meter_reading  rescue nil%>&nbsp;</td>
       <td><%= reading.dtc rescue nil%>&nbsp;</td>

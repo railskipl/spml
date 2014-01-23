@@ -30,7 +30,7 @@ No results found!
       <tr>
         <td><%= index %></td>
         <td><%= reading.consumer_no rescue nil%>&nbsp;</td>
-        <td><%= reading.read_by rescue nil%>&nbsp;</td>
+        <td><%= reading.user.first_name rescue nil%>&nbsp;</td>
         <td><%= reading.remark rescue nil %></td>
         <td><%= reading.old_meter_no rescue nil %></td>
         <td><%= reading.new_meter_no rescue nil %></td>

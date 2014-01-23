@@ -28,7 +28,7 @@ No results found!
    <% count = reading_count(r) %>
    <tr>
     <td><%= index %></td>
-    <td><%= reader.read_by rescue nil %></td>
+    <td><%= reader.user.first_name rescue nil %></td>
     <td>
     <%= link_to count ,search_by_reader_path(:search => "#{reader.user.id}", :start_from => "#{@start_from}", :start_to =>  "#{@start_to}") rescue nil %>
     </td>

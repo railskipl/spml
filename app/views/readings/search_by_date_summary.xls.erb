@@ -28,7 +28,7 @@ No results found!
    <% count = Reading.where("created_at >= ? and date(created_at) <= ? and user_id = ?" ,@start_from,@start_to,r).count %>
    <tr>
     <td><%= index %></td>
-    <td><%= reader.read_by rescue nil %></td>
+    <td><%= reader.user.first_name rescue nil %></td>
     <td>
     <%=  count  %>
     </td>

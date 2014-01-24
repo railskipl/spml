@@ -20,8 +20,8 @@
     @readings = Reading.all
     file = "b30.txt"
      account_no = []
-     @readings.each do |r|
-     account_no << "b30" << "$" << r.account_no  << "$" << r.sub_cluster << "$" << r.meter_status[0]  << "$" << r.meter_reading << "$" << r.created_at.strftime("%Y%m") << "S" << "" << "$" << "" << "$" << "" << "$" << r.bill_month << "$" << ""<< "\n"
+     @readings.each.with_index(1) do |r,index|
+     account_no << "#{index}$$$"<< "b30" << "$" << r.account_no  << "$" << r.sub_cluster << "$" << r.meter_status[0]  << "$" << r.meter_reading << "$" << r.created_at.strftime("%Y%m%d") << "S" << "" << "$" << "" << "$" << "" << "$" << r.bill_month << "$" << ""<< "\n"
      end
 
      File.open(file, "w"){ |f| f << account_no.join }

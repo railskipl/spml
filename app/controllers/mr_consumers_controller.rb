@@ -2,7 +2,8 @@ class MrConsumersController < ApplicationController
   
   def index
   	query =  params["sub_cluster_cont"]["sub_cluster_cont"]
-  	@consumers = MrConsumer.where("sub_cluster LIKE ? ", query)
+   	@consumers = MrConsumer.find_all_by_sub_cluster(query)
+    @consumers = @consumers.sort_by {|i| i.walking_seq_sr_no}
   	respond_to do |format|
      format.html
      format.xls

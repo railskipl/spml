@@ -1,23 +1,30 @@
+
+<% if @consumers1.empty? %> 
+<% if @consumers.empty? %>
+<p>Sorry! Consumer not found!</p>
+<% else %>
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-highlight">  <thead>
     <tr>
-      <th>ACCOUNT_NO</th>
-      <th>COMUTER_NO</th>
-      <th>CONS_CODE</th>
-      <th>CONS_NO</th>
-      <th>NAME</th>
-      <th>CONN_ADD1</th>
-      <th>CONN_ADD2</th>
-      <th>METER_NO</th>
-      <th>SUB_CLUSTER</th>
-      <th>CLUSTER_ID</th>
-      <th>WALKING_SEQ_NO</th>
+      <th>Sr. No</th>
+      <th>Account Number</th>
+      <th>Computer Number</th>
+      <th>Consumer Code</th>
+      <th>Consumer Number</th>
+      <th>Name</th>
+      <th>Consumer add1</th>
+      <th>Consumer add2</th>
+      <th>Meter No</th>
+      <th>Sub Cluster</th>
+      <th>Cluster Id</th>
+      <th>Walking Sequence Serial Number</th>
     </tr>
   </thead>
 
   <tbody>
-   <% @consumers.each do |consumer| %>
+   <% @consumers.each.with_index(1) do |consumer,index| %>
       <tr>
-      	<td><%= consumer.account_no %></td>
+        <td><%= index %></td>
+        <td><%= consumer.account_no %></td>
         <td><%= consumer.computer_no %></td>
         <td><%= consumer.cons_code %></td>
         <td><%= consumer.cons_no %></td>
@@ -32,4 +39,47 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 
+<% else %>
+<% if @consumers.empty? %>
+<p>Sorry! Consumer not found!</p>
+<% else %>
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-highlight">  <thead>
+    <tr>
+      <th>Sr. No</th>
+      <th>Account Number</th>
+      <th>Computer Number</th>
+      <th>Consumer Code</th>
+      <th>Consumer Number</th>
+      <th>Name</th>
+      <th>Consumer add1</th>
+      <th>Consumer add2</th>
+      <th>Meter No</th>
+      <th>Sub Cluster</th>
+      <th>Cluster Id</th>
+      <th>Walking Sequence Serial Number</th>
+    </tr>
+  </thead>
+
+  <tbody>
+   <% @consumers1.each.with_index(1) do |consumer,index| %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= consumer.account_no %></td>
+        <td><%= consumer.computer_no %></td>
+        <td><%= consumer.cons_code %></td>
+        <td><%= consumer.cons_no %></td>
+        <td><%= consumer.name %></td>
+        <td><%= consumer.conn_add1 %></td>
+        <td><%= consumer.conn_add2 %></td>
+        <td><%= consumer.meter_no %></td>
+        <td><%= consumer.sub_cluster %></td>
+        <td><%= consumer.cluster_id %></td>
+        <td><%= consumer.walking_seq_sr_no rescue nil %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+<% end %>

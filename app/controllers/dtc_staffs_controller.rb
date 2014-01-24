@@ -53,8 +53,9 @@ class DtcStaffsController < ApplicationController
   
    def dtc
    @dtc = MrConsumer.find_all_by_sub_cluster(params[:dtc])
-   @dtc = @dtc.delete_if {|i| i.walking_seq_sr_no.nil? }
-   @dtc = @dtc.sort_by {|i| i.walking_seq_sr_no}
+   @dtc_m = @dtc.reject {|i| i.walking_seq_sr_no.nil? }
+   @dtc_m = @dtc_m.sort_by {|i| i.walking_seq_sr_no}
+    
    @meter ||= []
    @meter_reader_status ||= []
    MeterStatus.all.each do |meter_status|
@@ -64,8 +65,11 @@ class DtcStaffsController < ApplicationController
    MeterReaderStatus.all.each do |meter_reader_status|
     @meter_reader_status << meter_reader_status.description
    end 
-
-  @dtc1 = Hash["allocated_consumer" => @dtc, "meter_status" => @meter]
+   if @dtc_m.empty?
+    @dtc1 = Hash["allocated_consumer" => @dtc, "meter_status" => @meter]
+   else
+    @dtc1 = Hash["allocated_consumer" => @dtc_m, "meter_status" => @meter]
+   end
 
    respond_to do |format|
         format.html

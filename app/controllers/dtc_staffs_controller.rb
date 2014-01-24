@@ -53,7 +53,8 @@ class DtcStaffsController < ApplicationController
   
    def dtc
    @dtc = MrConsumer.find_all_by_sub_cluster(params[:dtc])
-   # @dtc = @dtc.sort_by {|i| i.walking_seq_sr_no}
+   @dtc = @dtc.delete_if {|i| i.walking_seq_sr_no.nil? }
+   @dtc = @dtc.sort_by {|i| i.walking_seq_sr_no}
    @meter ||= []
    @meter_reader_status ||= []
    MeterStatus.all.each do |meter_status|

@@ -16,17 +16,17 @@
       end
   end
 
-  # def b30
-  #   @readings = Reading.all
-  #   file = "b30.txt"
-  #    account_no = []
-  #    @readings.each do |r|
-  #    account_no << "b30" << "$" << r.account_no  << "$" << r.sub_cluster << "$" << r.meter_status[0]  << "$" << r.meter_reading << "$" << r.created_at.strftime("%Y%m") << "S" << "" << "$" << "" << "$" << "" << "$" << r.bill_month << "$" << ""<< "\n"
-  #    end
+  def b30
+    @readings = Reading.all
+    file = "b30.txt"
+     account_no = []
+     @readings.each do |r|
+     account_no << "b30" << "$" << r.account_no  << "$" << r.sub_cluster << "$" << r.meter_status[0]  << "$" << r.meter_reading.to_i << "$" << r.created_at.strftime("%Y%m") << "S" << "" << "$" << "" << "$" << "" << "$" << r.bill_month << "$" << ""<< "\n"
+     end
 
-  #    File.open(file, "w"){ |f| f << account_no.join }
-  #   send_file( file )
-  # end
+     File.open(file, "w"){ |f| f << account_no.join }
+    send_file( file )
+  end
 
    def self.do_something
       count = Reading.all.count

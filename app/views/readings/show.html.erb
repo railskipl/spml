@@ -16,7 +16,7 @@
                     <tbody>
                       <tr>
                         <td>Meter reading</td>
-                        <td><%=@reading.meter_reading %></td>
+                        <td><%=@reading.meter_reading.to_i %></td>
                         <td rowspan="23" align="left" valign="top" style="text-align:center; vertical-align: top;">
                   <%= image_tag @reading.image.url ,:width => 400,:height=> 400 %>
                   

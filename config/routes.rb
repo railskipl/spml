@@ -59,7 +59,7 @@ Sndl::Application.routes.draw do
 
   get '/readings/consumer_status', :to => "readings#consumer_status"
 
-   get '/readings/b30', :to => "readings#b30"
+   # get '/readings/b30', :to => "readings#b30"
 
   get 'search'  => "teams#search"
  

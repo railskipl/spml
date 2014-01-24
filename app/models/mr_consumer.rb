@@ -8,7 +8,7 @@ class MrConsumer < ActiveRecord::Base
   header =  header.map {|i| i = i.underscore}
   (2..spreadsheet.last_row).each do |i|
     row = Hash[[header, spreadsheet.row(i)].transpose]
-    product = find_by_id(row["id"]) || new
+    product = find_by_account_no(row["account_no"]) || new
     product.attributes = row.to_hash.slice(*accessible_attributes)
     product.account_no = product.account_no.to_i.to_s if product.account_no.class == Float
     product.account_no = product.account_no.to_s

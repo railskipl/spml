@@ -1,6 +1,7 @@
 class MrConsumer < ActiveRecord::Base
 	attr_accessible :computer_no,:name,:conn_add1,:conn_add2,:cons_code,:meter_no,
-					:sub_cluster,:walking_seq_no,:cons_no,:cluster_id,:account_no
+					:sub_cluster,:walking_seq_no,:cons_no,:cluster_id,:account_no,
+          :tariff_category,:walking_seq_sr_no
 
  def self.import(file)
   spreadsheet = open_spreadsheet(file)
@@ -19,7 +20,7 @@ class MrConsumer < ActiveRecord::Base
     product.walking_seq_no = product.walking_seq_no.to_i.to_s if product.walking_seq_no.class == Float
     product.walking_seq_no = product.walking_seq_no.to_s
     product.save!
-  end
+    end
 end
 
 

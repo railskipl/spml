@@ -37,7 +37,7 @@
         <td><%= reading.remark rescue nil %></td>
         <td><%= reading.old_meter_no rescue nil %></td>
         <td><%= reading.new_meter_no rescue nil %></td>
-        <td><%= reading.meter_reading  rescue nil%>&nbsp;</td>
+        <td><%= reading.meter_reading.to_i  rescue nil%>&nbsp;</td>
         <td><%= reading.sub_cluster rescue nil%>&nbsp;</td>
         <td><%= reading.meter_status rescue nil%>&nbsp;</td>
         <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>
@@ -85,7 +85,7 @@
         <td><%= reading.remark rescue nil %></td>
         <td><%= reading.old_meter_no rescue nil %></td>
         <td><%= reading.new_meter_no rescue nil %></td>
-        <td><%= reading.meter_reading  rescue nil%>&nbsp;</td>
+        <td><%= reading.meter_reading.to_i  rescue nil%>&nbsp;</td>
         <td><%= reading.sub_cluster rescue nil%>&nbsp;</td>
         <td><%= reading.meter_status rescue nil%>&nbsp;</td>
         <td><%= reading.meter_reader_status rescue nil%>&nbsp;</td>

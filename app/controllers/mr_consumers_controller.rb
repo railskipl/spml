@@ -4,7 +4,7 @@ class MrConsumersController < ApplicationController
   	query =  params["sub_cluster_cont"]["sub_cluster_cont"]
    	@consumers = MrConsumer.where("sub_cluster LIKE ?",query)
     @consumers1 = @consumers.reject {|i| i.walking_seq_sr_no.nil? }
-    @consumers1 = @consumers1.sort_by {|i| i.walking_seq_sr_no.present? }
+    @consumers1 = @consumers1.sort_by {|i| i.walking_seq_sr_no }
   	respond_to do |format|
      format.html
      format.xls

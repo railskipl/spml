@@ -17,7 +17,7 @@
                       <tr>
                         <td>Meter reading</td>
                         <td><%=@reading.meter_reading.to_i %></td>
-                        <td rowspan="23" align="left" valign="top" style="text-align:center; vertical-align: top;">
+                        <td rowspan="26" align="left" valign="top" style="text-align:center; vertical-align: top;">
                   <%= image_tag @reading.image.url ,:width => 400,:height=> 400 %>
                   
                         <%= gmaps4rails(@json) %>
@@ -124,7 +124,22 @@
                     <td>Remark</td>
                    <td>&nbsp;<%=@reading.remark %></td>
                     </tr>
+                      <tr>
+                    <td>Mdi Kva</td>
+                   <td>&nbsp;<%=@reading.mdi_kva %></td>
+                    </tr>
+
+
+                    <tr>
+                    <td>Power Factor</td>
+                   <td>&nbsp;<%=@reading.pf %></td>
+                    </tr>
                   
+
+                    <tr>
+                    <td>Recorded Demand Date</td>
+                   <td>&nbsp;<%=@reading.rdd %></td>
+                    </tr>
 
               </tbody>
             </table>

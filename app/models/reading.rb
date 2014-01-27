@@ -6,7 +6,7 @@ attr_accessible :meter_reading,:consumer_no,:meter_status,:date_time,:latitude,:
                 :ime_no,:img,:old_meter_no,:new_meter_no,:bill_month,:consumer_name,
                 :reader_mobile_no,:meter_reader_status,:remark,:read_by,:consumer_status,
                 :image,:user_id,:walking_seq_no,:cons_code,:computer_no,:sub_cluster,
-                :conn_add1,:conn_add2,:account_no,:cluster_id
+                :conn_add1,:conn_add2,:account_no,:cluster_id,:mdi_kva,:pf,:rdd
 
   #has_attached_file :photo
   mount_uploader :image, ImageUploader

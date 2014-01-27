@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140114050038) do
+ActiveRecord::Schema.define(version: 20140124064312) do
 
   create_table "consumer_spmls", force: true do |t|
     t.string   "computer_no"
@@ -135,9 +135,11 @@ ActiveRecord::Schema.define(version: 20140114050038) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "cons_no"
-    t.boolean  "status",         default: false
+    t.boolean  "status",            default: false
     t.string   "account_no"
     t.string   "cluster_id"
+    t.integer  "tariff_category"
+    t.integer  "walking_seq_sr_no"
   end
 
   create_table "readings", force: true do |t|

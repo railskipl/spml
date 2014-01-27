@@ -21,7 +21,12 @@
     file = "b30.txt"
      account_no = []
      @readings.each do |r|
-     account_no << "B30" << "$" << r.account_no  << "$" << r.cluster_id << "$" << r.meter_status[0]  << "$" << r.meter_reading.to_i << "$" << r.created_at.strftime("%d%m%y") << "$" << "" << "$" << "" << "$" << "" << "$" << r.bill_month << "$" << "\n"
+      if r.rdd.nil?
+        rdd = ""
+      else
+        rdd = r.rdd.strftime("%Y%m")
+      end
+     account_no << "B30" << "$" << r.account_no  << "$" << r.cluster_id << "$" << r.meter_status[0]  << "$" << r.meter_reading.to_i << "$" << r.created_at.strftime("%d%m%y") << "$" << r.mdi_kva << "$" << rdd << "$" << r.pf << "$" << r.bill_month.to_date.strftime("%Y%m")  << "\n"
      end
 
      File.open(file, "w"){ |f| f << account_no.join }
@@ -58,12 +63,16 @@
   def create
     reading = {}
     packet = params["Packet1"].split("%")
+    detail = params["details"].split("%")
     @user = User.find(packet[14])
     @read_by = "#{@user.first_name} #{@user.last_name}" 
     @ime_no = Mobileuser.find_by_user_id(@user.id).imei rescue nil
     location = params["location"].split("%")
     reading["latitude"]            = location[0]
     reading["longitude"]           = location[1]
+    reading["mdi_kva"]             = detail[0]
+    reading["pf"]                  = detail[1]
+    reading["rdd"]                 = detail[2].to_date rescue nil
     reading["cons_code"]           = packet[0]
     reading["walking_seq_no"]      = packet[1]
     reading["computer_no"]         = packet[2]

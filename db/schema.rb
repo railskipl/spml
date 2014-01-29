@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20140127115440) do
-
 
   create_table "consumer_spmls", force: true do |t|
     t.string   "computer_no"

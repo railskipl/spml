@@ -44,7 +44,20 @@ transform:rotate(0deg);
         <div class="span7">
         
          <%= render 'shared/date_search' %>
-        
+        <%= form_tag  search_by_cluster_path, :method => 'get' do %>
+
+<table>
+  <tr>
+    <td>Cluster:</td>
+    <td><%= select("reading", "cluster", @cluster.map {|p| [ p.cluster_id,p.cluster_id ] }, {include_blank: 'None'}) %></td>
+    <td><%= submit_tag "Generate B30" ,:class =>"btn btn-primary"%></td>
+   </tr>
+</table>
+
+
+<% end %>
+
+
         </div>
         
         

@@ -73,6 +73,8 @@ Sndl::Application.routes.draw do
   
   get  'search_by_date'  => "readings#search_by_date"
 
+  get  'search_by_cluster'  => "readings#search_by_cluster"
+
   get  'search_by_date_summary'  => "readings#search_by_date_summary"
 
   get  'user_tracking'  => "readings#user_tracking"

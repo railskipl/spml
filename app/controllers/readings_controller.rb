@@ -6,6 +6,7 @@
   # GET /dtc_staffs.json
   def index
     @readings = Reading.paginate(:page => params[:page], :per_page => 5, :order => 'created_at DESC')
+    @cluster = Reading.select("DISTINCT(cluster_id)").reject {|i| i.cluster_id == "null" || i.cluster_id.nil?}
     # @reads = Reading.all
     respond_to do |format|
       format.html
@@ -19,7 +20,7 @@
   def b30
     @readings = Reading.where("created_at >= ? and Date(created_at) <= ? and consumer_status LIKE ?",params[:start_date],params[:end_date],"true")
    
-    file = "b30.txt"
+    file = "B30.txt"
      account_no = []
      @readings.each do |r|
       if r.rdd.nil?
@@ -32,6 +33,29 @@
 
      File.open(file, "w"){ |f| f << account_no.join }
     send_file( file )
+  end
+
+  def search_by_cluster
+    cluster = params["reading"]["cluster"]
+    if cluster.blank?
+      redirect_to readings_path , :alert => "Please Select Cluster"
+    else
+      @readings = Reading.where("cluster_id LIKE ?",cluster)
+   
+    file = "B30.txt"
+     account_no = []
+     @readings.each do |r|
+      if r.rdd.nil?
+        rdd = ""
+      else
+        rdd = r.rdd.strftime("%Y%m")
+      end
+     account_no << "B30" << "$" << r.account_no  << "$" << r.cluster_id << "$" << r.meter_status[0]  << "$" << r.meter_reading.to_i << "$" << r.created_at.strftime("%d%m%y") << "$" << r.mdi_kva << "$" << rdd << "$" << r.pf << "$" << r.bill_month.to_date.strftime("%Y%m")  << "$" << "\n"
+     end
+
+     File.open(file, "w"){ |f| f << account_no.join }
+    send_file( file )
+    end
   end
 
    def self.do_something

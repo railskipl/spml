@@ -19,18 +19,10 @@
 
   def b30
     @readings = Reading.where("created_at >= ? and Date(created_at) <= ? and consumer_status LIKE ?",params[:start_date],params[:end_date],"true")
-   
+
     file = "B30.txt"
      account_no = []
-     @readings.each do |r|
-      if r.rdd.nil?
-        rdd = ""
-      else
-        rdd = r.rdd.strftime("%Y%m")
-      end
-     account_no << "B30" << "$" << r.account_no  << "$" << r.cluster_id << "$" << r.meter_status[0]  << "$" << r.meter_reading.to_i << "$" << r.created_at.strftime("%d%m%y") << "$" << r.mdi_kva << "$" << rdd << "$" << r.pf << "$" << r.bill_month.to_date.strftime("%Y%m")  << "$" << "\n"
-     end
-
+     bthirty(@readings,account_no)
      File.open(file, "w"){ |f| f << account_no.join }
     send_file( file )
   end
@@ -40,22 +32,42 @@
     if cluster.blank?
       redirect_to readings_path , :alert => "Please Select Cluster"
     else
-      @readings = Reading.where("cluster_id LIKE ?",cluster)
-   
+    @readings = Reading.where("cluster_id LIKE ?",cluster)
     file = "B30.txt"
      account_no = []
-     @readings.each do |r|
-      if r.rdd.nil?
-        rdd = ""
-      else
-        rdd = r.rdd.strftime("%Y%m")
-      end
-     account_no << "B30" << "$" << r.account_no  << "$" << r.cluster_id << "$" << r.meter_status[0]  << "$" << r.meter_reading.to_i << "$" << r.created_at.strftime("%d%m%y") << "$" << r.mdi_kva << "$" << rdd << "$" << r.pf << "$" << r.bill_month.to_date.strftime("%Y%m")  << "$" << "\n"
-     end
-
+     bthirty(@readings,account_no)
      File.open(file, "w"){ |f| f << account_no.join }
     send_file( file )
     end
+  end
+
+
+  def bthirty(reading,account_no)
+    if Bthirty.first.nil?
+      Bthirty.create(:reading_id => "",:count => 1 )
+   
+    @readings.each do |r|
+       if r.rdd.nil?
+         rdd = ""
+       else
+         rdd = r.rdd.strftime("%Y%m")
+       end
+       account_no << "B30" << "$" << r.account_no  << "$" << r.cluster_id << "$" << r.meter_status[0]  << "$" << r.meter_reading.to_i << "$" << r.created_at.strftime("%d%m%y") << "$" << r.mdi_kva << "$" << rdd << "$" << r.pf << "$" << r.bill_month.to_date.strftime("%Y%m")  << "$" << 1 << "\n"
+     end
+   else
+      b = Bthirty.first
+      b.count >= 999 ? b.count = 1 : b.count += 1
+      b.save
+      @readings.each do |r|
+        if r.rdd.nil?
+          rdd = ""
+        else
+          rdd = r.rdd.strftime("%Y%m")
+        end
+        account_no << "B30" << "$" << r.account_no  << "$" << r.cluster_id << "$" << r.meter_status[0]  << "$" << r.meter_reading.to_i << "$" << r.created_at.strftime("%d%m%y") << "$" << r.mdi_kva << "$" << rdd << "$" << r.pf << "$" << r.bill_month.to_date.strftime("%Y%m")  << "$" << b.count << "\n"
+      end
+   end
+
   end
 
    def self.do_something

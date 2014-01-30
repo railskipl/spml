@@ -52,7 +52,7 @@
        else
          rdd = r.rdd.strftime("%Y%m")
        end
-       account_no << "B30" << "$" << r.account_no  << "$" << r.cluster_id << "$" << r.meter_status[0]  << "$" << r.meter_reading.to_i << "$" << r.created_at.strftime("%d%m%y") << "$" << r.mdi_kva << "$" << rdd << "$" << r.pf << "$" << r.bill_month.to_date.strftime("%Y%m")  << "$" << 1 << "\n"
+       account_no << "B30" << "$" << r.account_no  << "$" << r.cluster_id << "$" << r.meter_status[0]  << "$" << r.meter_reading.to_i << "$" << r.created_at.strftime("%d%m%y") << "$" << r.mdi_kva << "$" << rdd << "$" << r.pf << "$" << r.bill_month.to_date.strftime("%Y%m")  << "$" << 1 << "$" << "\n"
      end
    else
       b = Bthirty.first
@@ -64,7 +64,7 @@
         else
           rdd = r.rdd.strftime("%Y%m")
         end
-        account_no << "B30" << "$" << r.account_no  << "$" << r.cluster_id << "$" << r.meter_status[0]  << "$" << r.meter_reading.to_i << "$" << r.created_at.strftime("%d%m%y") << "$" << r.mdi_kva << "$" << rdd << "$" << r.pf << "$" << r.bill_month.to_date.strftime("%Y%m")  << "$" << b.count << "\n"
+        account_no << "B30" << "$" << r.account_no  << "$" << r.cluster_id << "$" << r.meter_status[0]  << "$" << r.meter_reading.to_i << "$" << r.created_at.strftime("%d%m%y") << "$" << r.mdi_kva << "$" << rdd << "$" << r.pf << "$" << r.bill_month.to_date.strftime("%Y%m")  << "$" << b.count << "$"  << "\n"
       end
    end
 

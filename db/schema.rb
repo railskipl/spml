@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127115440) do
+ActiveRecord::Schema.define(version: 20140130061824) do
+
+  create_table "bthirties", force: true do |t|
+    t.integer  "count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "consumer_spmls", force: true do |t|
     t.string   "computer_no"
